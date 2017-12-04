@@ -7,23 +7,34 @@
 
 using namespace Core;
 
-void Game::Initialize() 
+//初期化処理
+void Game::Initialize()
 {
 	m_endFlag = false;
 }
-void Game::Load() 
+
+//ロードコンテンツ
+void Game::Load()
 {
 }
-void Game::Unload() 
+
+//コンテンツ解放
+void Game::Unload()
 {
 }
-void Game::Update() 
+
+//更新処理
+void Game::Update()
 {
 }
-void Game::Draw() 
+
+//描画処理
+void Game::Draw()
 {
 }
-bool Game::IsEnd() 
+
+//終わっているか
+bool Game::IsEnd()
 {
 	return m_endFlag;
 }

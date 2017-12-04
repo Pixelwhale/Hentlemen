@@ -14,75 +14,76 @@ bool Application::InitWindow(HINSTANCE hInstance)
 
 	m_applicationName = L"RGS_Game";		//WindowClass名前の登録
 
-	WNDCLASS winc;
-	winc.style = CS_HREDRAW | CS_VREDRAW;
-	winc.lpfnWndProc = WndProc;
+	WNDCLASS winc;							//Windowクラス構造体
+	winc.style = CS_HREDRAW | CS_VREDRAW;	//Windowスタイル
+	winc.lpfnWndProc = WndProc;				//メッセージ処理メソッド指定
 	winc.cbClsExtra = 0;
 	winc.cbWndExtra = 0;
-	winc.hInstance = m_hInstance;
+	winc.hInstance = m_hInstance;			//Programインスタンスハンドル
 	winc.hIcon = LoadIcon(NULL, IDI_APPLICATION);		//ToDo: Change App Icon
 	winc.hCursor = LoadCursor(NULL, IDC_ARROW);			//ToDo: Change Cursor Icon
-	winc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
-	winc.lpszClassName = m_applicationName;
+	winc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);		//背景色
+	winc.lpszClassName = m_applicationName;	//WindowClassの名前
 	winc.lpszMenuName = NULL;
 
-	if (!RegisterClass(&winc))
-		return false;
+	if (!RegisterClass(&winc))				//WindowClass登録
+		return false;						//失敗したらFalseを返す
 
-	m_hwnd = CreateWindow(
-		m_applicationName, WindowDef::WindowName,
-		WS_OVERLAPPEDWINDOW,
-		0, 0, WindowDef::ScreenWidth, WindowDef::ScreenHeight,
+	m_hwnd = CreateWindow(					//Windowを開く
+		m_applicationName,					//使用するWindowClass
+		WindowDef::WindowName,				//Title名
+		(WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX),	//Resize禁止
+		0, 0, WindowDef::ScreenWidth, WindowDef::ScreenHeight,		//位置、大きさ
 		NULL, NULL, hInstance, NULL);
 
-	if (m_hwnd == NULL)
+	if (m_hwnd == NULL)						//失敗したらFalseを返す
 		return false;
 
-	ShowWindow(m_hwnd, SW_SHOW);
-	ShowCursor(true);
+	ShowWindow(m_hwnd, SW_SHOW);			//Windowを表示
+	ShowCursor(true);						//カーソル表示
 
 	return true;
 }
 
 void Application::Run()
 {
-	MSG msg;
-	ZeroMemory(&msg, sizeof(MSG));
+	MSG msg;								//Windowの状態メッセージ
+	ZeroMemory(&msg, sizeof(MSG));			//msg初期化
 
-	Initialize();
-	Load();
+	Initialize();							//Gameの初期化
+	Load();									//ロードコンテンツ
 
-	while (!IsEnd())
+	while (!IsEnd())						//終了しない限りGameLoop
 	{
-		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))	//Windowメッセージの確認
 		{
-			if (msg.message == WM_QUIT) break;
+			if (msg.message == WM_QUIT) break;			//終わるメッセージがあったらLoopから抜ける
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 			continue;
 		}
 
-		Update();
-		Draw();
+		Update();							//Gameのアップデート
+		Draw();								//Gameの描画処理
 	}
 
-	Unload();
-	ShutDown();
+	Unload();								//コンテンツ解放処理
+	ShutDown();								//Windowのシャットダウン処理
 }
 
 void Application::ShutDown()
 {
-	DestroyWindow(m_hwnd);
+	DestroyWindow(m_hwnd);								//Windowを廃棄
 	m_hwnd = NULL;
 
-	UnregisterClass(m_applicationName, m_hInstance);
+	UnregisterClass(m_applicationName, m_hInstance);	//登録したクラスを消す
 	m_hInstance = NULL;
 
-	ApplicationHandle = NULL;
+	ApplicationHandle = NULL;							//Globalハンドルを消す
 }
 
 LRESULT CALLBACK Application::MessageHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-	return DefWindowProc(hwnd, msg, wParam, lParam);
+	return DefWindowProc(hwnd, msg, wParam, lParam);	//Defaultメッセージ処理
 }
 
