@@ -1,40 +1,72 @@
 //-------------------------------------------------------
 // 作成者：林佳叡
-// 作成日：2017.12.03
+// 作成日：2017.12.03～2017.12.04
 // 内容　：Windowの基本処理
 //-------------------------------------------------------
 #pragma once
 #include <Windows.h>
 
-namespace Core 
+namespace Core
 {
 	class Application
 	{
 	public:
 		virtual ~Application() {}
+		/// <summary>Windowを生成する</summary>
+		/// <param name="hInstance">Window実体のハンドル</param>  
+		/// <returns>true:成功, false:失敗</returns>  
 		bool InitWindow(HINSTANCE hInstance);
-		void Run();
-		void ShutDown();
 
+		/// <summary>アプリケーションを起動</summary>
+		void Run();
+
+		/// <summary>Window状態のメッセージハンドル</summary>
+		/// <param name="hwnd">Window実体のハンドル</param>
+		/// <param name="msg">状態メッセージ</param>
 		LRESULT CALLBACK MessageHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+	private:
+		/// <summary>アプリケーションのシャットダウン処理</summary>
+		void ShutDown();
+
 	protected:
+		/// <summary>初期化処理</summary>
 		virtual void Initialize() = 0;
+		/// <summary>リソース読み込む処理</summary>
 		virtual void Load() = 0;
+		/// <summary>リソース解放処理</summary>
 		virtual void Unload() = 0;
+		/// <summary>更新処理</summary>
 		virtual void Update() = 0;
+		/// <summary>描画処理</summary>
 		virtual void Draw() = 0;
+		/// <summary>終了しているか</summary>
+		/// <returns>true:終わる, false:終わってない</returns>  
 		virtual bool IsEnd() = 0;
 
 	private:
-		HINSTANCE m_hInstance;
-		LPCWSTR m_applicationName;
-		HWND m_hwnd;
+		HINSTANCE m_hInstance;			//Program実体のハンドル
+		LPCWSTR m_applicationName;		//登録するWindowClassの名前
+		HWND m_hwnd;					//Windowのハンドル
 	};
-
-	//Function Prototype
-	static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 	//Global
 	static Application* ApplicationHandle = 0;
+
+	/// <summary>Window状態のメッセージハンドル</summary>
+	static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+	{
+		switch (msg)
+		{
+		case WM_DESTROY:				//Windowが廃棄された場合
+			PostQuitMessage(0);			//終了メッセージを知らせる
+			return 0;
+		case WM_CLOSE:					//WindowがCloseされた場合
+			PostQuitMessage(0);			//終了メッセージを知らせる
+			return 0;
+		default:
+			//その他のメッセージはApplicationのMessageHandlerに渡す
+			return ApplicationHandle->MessageHandler(hwnd, msg, wParam, lParam);
+		}
+	}
 }

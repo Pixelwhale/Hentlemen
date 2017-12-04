@@ -1,18 +1,18 @@
 //-------------------------------------------------------
 // 作成者：林佳叡
-// 作成日：2017.12.03
+// 作成日：2017.12.03～2017.12.04
 // 内容　：Windowの基本処理
 //-------------------------------------------------------
-#include <Core\Application.h>;
-#include <Def\WindowDef.h>;
+#include <Core\Application.h>
+#include <Def\WindowDef.h>
 
 using namespace Core;
 
-bool Application::InitWindow(HINSTANCE hInstance) 
+bool Application::InitWindow(HINSTANCE hInstance)
 {
-	m_hInstance = hInstance;
+	m_hInstance = hInstance;				//インスタンスのハンドル
 
-	m_applicationName = L"RGS_Game";
+	m_applicationName = L"RGS_Game";		//WindowClass名前の登録
 
 	WNDCLASS winc;
 	winc.style = CS_HREDRAW | CS_VREDRAW;
@@ -44,9 +44,10 @@ bool Application::InitWindow(HINSTANCE hInstance)
 	return true;
 }
 
-void Application::Run() 
+void Application::Run()
 {
 	MSG msg;
+	ZeroMemory(&msg, sizeof(MSG));
 
 	Initialize();
 	Load();
@@ -66,29 +67,22 @@ void Application::Run()
 	}
 
 	Unload();
+	ShutDown();
 }
 
-void Application::ShutDown() 
+void Application::ShutDown()
 {
+	DestroyWindow(m_hwnd);
+	m_hwnd = NULL;
 
+	UnregisterClass(m_applicationName, m_hInstance);
+	m_hInstance = NULL;
+
+	ApplicationHandle = NULL;
 }
 
 LRESULT CALLBACK Application::MessageHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-
+	return DefWindowProc(hwnd, msg, wParam, lParam);
 }
 
-LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
-{
-	switch (msg)
-	{
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		return 0;
-	case WM_CLOSE:
-		PostQuitMessage(0);
-		return 0;
-	default:
-		return ApplicationHandle->MessageHandler(hwnd, msg, wParam, lParam);
-	}
-}

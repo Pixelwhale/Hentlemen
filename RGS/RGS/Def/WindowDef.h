@@ -6,11 +6,11 @@
 #pragma once
 #include <Windows.h>
 
-namespace WindowDef 
+namespace WindowDef
 {
 	//Windowサイズ
 	static const int ScreenWidth = 1280;
 	static const int ScreenHeight = 720;
 	//Window名
-	static LPCWSTR WindowName = L"";
+	static LPCWSTR WindowName = L"ゲームタイトルまだ決めてない";
 }
