@@ -23,11 +23,6 @@ namespace Core
 		/// <summary>アプリケーションを起動</summary>
 		void Run();
 
-		/// <summary>Window状態のメッセージハンドル</summary>
-		/// <param name="hwnd">Window実体のハンドル</param>
-		/// <param name="msg">状態メッセージ</param>
-		LRESULT CALLBACK MessageHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
-
 	public:
 		/// <summary>アプリケーションのシャットダウン処理</summary>
 		void ShutDown();
@@ -57,9 +52,6 @@ namespace Core
 	};
 }
 
-//Global
-static std::shared_ptr<Core::Application> ApplicationHandle = 0;
-
 /// <summary>Window状態のメッセージハンドル</summary>
 static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -72,7 +64,7 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 			PostQuitMessage(0);			//終了メッセージを知らせる
 			return 0;
 		default:
-			//その他のメッセージはApplicationのMessageHandlerに渡す
-			return ApplicationHandle->MessageHandler(hwnd, msg, wParam, lParam);
+			//その他のメッセージはDefaultMessageHandlerに渡す
+			return DefWindowProc(hwnd, msg, wParam, lParam);;
 	}
 }
