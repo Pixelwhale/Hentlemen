@@ -1,3 +1,8 @@
+//-------------------------------------------------------
+// 作成者：林佳叡
+// 作成日：2017.12.04
+// 内容　：入力処理
+//-------------------------------------------------------
 #include <Core\InputState.h>
 #include <Def\WindowDef.h>
 
@@ -184,11 +189,11 @@ void InputState::MousePosition(int& mouseX, int& mouseY)
 //指定のキーが押されているか
 bool InputState::IsKeyDown(unsigned int dik_key)
 {
-	return m_ckeyboardState[dik_key] & 0x80;
+	return (m_ckeyboardState[dik_key] & 0x80) != 0;
 }
 
 //指定のキーがこのフレームで押されているか
 bool InputState::IsKeyTrigger(unsigned int dik_key)
 {
-	return !(m_pkeyboardState[dik_key] & 0x80) && m_ckeyboardState[dik_key] & 0x80;
+	return (m_pkeyboardState[dik_key] & 0x80) == 0 && IsKeyDown(dik_key);
 }
