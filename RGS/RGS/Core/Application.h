@@ -5,12 +5,15 @@
 //-------------------------------------------------------
 #pragma once
 #include <Windows.h>
+#include <Core\InputState.h>
+#include <memory>
 
 namespace Core
 {
 	class Application
 	{
 	public:
+		Application();
 		virtual ~Application() {}
 		/// <summary>Windowを生成する</summary>
 		/// <param name="hInstance">Window実体のハンドル</param>  
@@ -25,7 +28,7 @@ namespace Core
 		/// <param name="msg">状態メッセージ</param>
 		LRESULT CALLBACK MessageHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-	private:
+	public:
 		/// <summary>アプリケーションのシャットダウン処理</summary>
 		void ShutDown();
 
@@ -48,16 +51,20 @@ namespace Core
 		HINSTANCE m_hInstance;			//Program実体のハンドル
 		LPCWSTR m_applicationName;		//登録するWindowClassの名前
 		HWND m_hwnd;					//Windowのハンドル
+
+	protected:
+		std::shared_ptr<InputState> m_InputState;		//Input State
 	};
+}
 
-	//Global
-	static Application* ApplicationHandle = 0;
+//Global
+static std::shared_ptr<Core::Application> ApplicationHandle = 0;
 
-	/// <summary>Window状態のメッセージハンドル</summary>
-	static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+/// <summary>Window状態のメッセージハンドル</summary>
+static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+	switch (msg)
 	{
-		switch (msg)
-		{
 		case WM_DESTROY:				//Windowが廃棄された場合
 			PostQuitMessage(0);			//終了メッセージを知らせる
 			return 0;
@@ -67,6 +74,5 @@ namespace Core
 		default:
 			//その他のメッセージはApplicationのMessageHandlerに渡す
 			return ApplicationHandle->MessageHandler(hwnd, msg, wParam, lParam);
-		}
 	}
 }

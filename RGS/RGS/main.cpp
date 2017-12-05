@@ -4,6 +4,7 @@
 // 内容　：WindowAPIを使ってApplicationの起動
 //-------------------------------------------------------
 #include <Core\Game.h>
+#include <memory>
 
 //WindowsAPI
 int WINAPI WinMain(
@@ -12,18 +13,15 @@ int WINAPI WinMain(
 	PSTR lpCmdLine,
 	int nCmdShow)
 {
-	Core::Application* game;				//ゲームクラス
+	std::shared_ptr<Core::Application> game;	//ゲームクラス
 
-	game = new Core::Game;					//実体を持たせる
-	if (game == NULL)						//失敗する場合プログラムを終了
+	game = std::make_shared<Core::Game>();		//実体を持たせる
+	if (game == NULL)							//失敗する場合プログラムを終了
 		return 0;
-	if (!game->InitWindow(hInstance))		//Windowを開く、失敗する場合プログラムを終了
+	if (!game->InitWindow(hInstance))			//Windowを開く、失敗する場合プログラムを終了
 		return 0;
 
-	game->Run();							//ゲームアプリを起動
+	game->Run();								//ゲームアプリを起動
 
-	delete game;							//Pointerを解放
-	game = 0;
-
-	return 0;								//Applicationを終了
+	return 0;									//Applicationを終了
 }

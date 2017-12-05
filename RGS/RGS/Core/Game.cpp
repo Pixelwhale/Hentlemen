@@ -26,6 +26,8 @@ void Game::Unload()
 //XVˆ—
 void Game::Update()
 {
+	if (m_InputState->IsKeyTrigger(DIK_ESCAPE))
+		m_endFlag = true;
 }
 
 //•`‰æˆ—

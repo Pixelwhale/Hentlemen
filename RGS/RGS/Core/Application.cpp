@@ -8,8 +8,15 @@
 
 using namespace Core;
 
+Application::Application() 
+{
+	m_InputState = 0;
+}
+
 bool Application::InitWindow(HINSTANCE hInstance)
 {
+	bool result;
+
 	m_hInstance = hInstance;				//インスタンスのハンドル
 
 	m_applicationName = L"RGS_Game";		//WindowClass名前の登録
@@ -42,6 +49,14 @@ bool Application::InitWindow(HINSTANCE hInstance)
 	ShowWindow(m_hwnd, SW_SHOW);			//Windowを表示
 	ShowCursor(true);						//カーソル表示
 
+	m_InputState = std::make_shared<InputState>();			//Input実体を生成
+	if (!m_InputState)						//失敗したらFalseを返す
+		return false;
+
+	result = m_InputState->Initialize(m_hInstance, m_hwnd);				//Inputを初期化
+	if (!result)
+		return false;
+
 	return true;
 }
 
@@ -63,6 +78,10 @@ void Application::Run()
 			continue;
 		}
 
+		if (!m_InputState->Update())		//InputState更新
+			break;
+
+
 		Update();							//Gameのアップデート
 		Draw();								//Gameの描画処理
 	}
@@ -73,13 +92,16 @@ void Application::Run()
 
 void Application::ShutDown()
 {
+	if(m_InputState)
+	{
+		m_InputState->ShutDown();
+	}
+
 	DestroyWindow(m_hwnd);								//Windowを廃棄
 	m_hwnd = NULL;
 
 	UnregisterClass(m_applicationName, m_hInstance);	//登録したクラスを消す
 	m_hInstance = NULL;
-
-	ApplicationHandle = NULL;							//Globalハンドルを消す
 }
 
 LRESULT CALLBACK Application::MessageHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
