@@ -6,38 +6,57 @@
 #pragma once
 #include <DX\Include\dinput.h>
 
-namespace Core 
+namespace Core
 {
-	class InputState 
+	class InputState
 	{
 	public:
 		InputState();
 		InputState(const InputState&);
 		~InputState();
 
+		///	<summary>初期化</summary>
+		/// <param name="hInstance">Program実体のハンドル</param>  
+		/// <param name="hwnd">Windowのハンドル</param> 
+		/// <returns>true:成功、false:失敗</returns>
 		bool Initialize(HINSTANCE hInstance, HWND hwnd);
+		///	<summary>シャットダウン処理</summary>
 		void ShutDown();
+		///	<summary>更新処理</summary>
 		bool Update();
 
-		void MousePosition(int&, int&);
+		///	<summary>マウスの位置を取得</summary>
+		/// <param name="mouseX">X座標</param>  
+		/// <param name="mouseY">Y座標</param> 
+		void MousePosition(int& mouseX, int& mouseY);
 
-		bool IsKeyDown(unsigned int key);
-		bool IsKeyTrigger(unsigned int key);
+		///	<summary>指定のキーが押されているか</summary>
+		/// <param name="dik_key">DirectInputKey:DIK_指定のキー</param>  
+		bool IsKeyDown(unsigned int dik_key);
+		///	<summary>指定のキーがこのフレームで押されているか</summary>
+		/// <param name="dik_key">DirectInputKey:DIK_指定のキー</param>  
+		bool IsKeyTrigger(unsigned int dik_key);
 
 	private:
+		///	<summary>KeyStateの更新</summary>
+		/// <returns>true:成功、false:失敗</returns>
 		bool ReadKeyboard();
+		///	<summary>マウスの位置を更新</summary>
+		/// <returns>true:成功、false:失敗</returns>
 		bool ReadMouse();
+		///	<summary>マウスの位置を画面内にClamp</summary>
 		void ClampMousePosition();
+		///	<summary>前フレームのKeyStateを更新</summary>
 		void UpdateKeyboard();
 
 	private:
-		IDirectInput8* m_directInput;
-		IDirectInputDevice8* m_keyboard;
-		IDirectInputDevice8* m_mouse;
+		IDirectInput8* m_directInput;				//Input Device
+		IDirectInputDevice8* m_keyboard;			//Keyboard Device
+		IDirectInputDevice8* m_mouse;				//Mouse Device
 
-		unsigned char m_ckeyboardState[256];
-		unsigned char m_pkeyboardState[256];
-		DIMOUSESTATE m_mouseState;
-		int m_mouseX, m_mouseY;
+		unsigned char m_ckeyboardState[256];		//このフレームのKeyState
+		unsigned char m_pkeyboardState[256];		//前フレームのKeyState
+		DIMOUSESTATE m_mouseState;					//MouseState
+		int m_mouseX, m_mouseY;						//Mouseの位置
 	};
 }

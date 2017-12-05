@@ -27,10 +27,10 @@ bool Application::InitWindow(HINSTANCE hInstance)
 	winc.cbClsExtra = 0;
 	winc.cbWndExtra = 0;
 	winc.hInstance = m_hInstance;			//Programインスタンスハンドル
-	winc.hIcon = LoadIcon(NULL, IDI_APPLICATION);		//ToDo: Change App Icon
-	winc.hCursor = LoadCursor(NULL, IDC_ARROW);			//ToDo: Change Cursor Icon
+	winc.hIcon = LoadIcon(NULL, IDI_APPLICATION);					//ToDo: Change App Icon
+	winc.hCursor = LoadCursor(NULL, IDC_ARROW);						//ToDo: Change Cursor Icon
 	winc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);		//背景色
-	winc.lpszClassName = m_applicationName;	//WindowClassの名前
+	winc.lpszClassName = m_applicationName;							//WindowClassの名前
 	winc.lpszMenuName = NULL;
 
 	if (!RegisterClass(&winc))				//WindowClass登録
@@ -40,7 +40,7 @@ bool Application::InitWindow(HINSTANCE hInstance)
 		m_applicationName,					//使用するWindowClass
 		WindowDef::WindowName,				//Title名
 		(WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX),	//Resize禁止
-		0, 0, WindowDef::ScreenWidth, WindowDef::ScreenHeight,		//位置、大きさ
+		0, 0, WindowDef::ScreenWidth, WindowDef::ScreenHeight,							//位置、大きさ
 		NULL, NULL, hInstance, NULL);
 
 	if (m_hwnd == NULL)						//失敗したらFalseを返す
@@ -49,11 +49,11 @@ bool Application::InitWindow(HINSTANCE hInstance)
 	ShowWindow(m_hwnd, SW_SHOW);			//Windowを表示
 	ShowCursor(true);						//カーソル表示
 
-	m_InputState = std::make_shared<InputState>();			//Input実体を生成
+	m_InputState = std::make_shared<InputState>();
 	if (!m_InputState)						//失敗したらFalseを返す
 		return false;
 
-	result = m_InputState->Initialize(m_hInstance, m_hwnd);				//Inputを初期化
+	result = m_InputState->Initialize(m_hInstance, m_hwnd);			//Inputを初期化
 	if (!result)
 		return false;
 
@@ -81,7 +81,6 @@ void Application::Run()
 		if (!m_InputState->Update())		//InputState更新
 			break;
 
-
 		Update();							//Gameのアップデート
 		Draw();								//Gameの描画処理
 	}
@@ -92,7 +91,7 @@ void Application::Run()
 
 void Application::ShutDown()
 {
-	if(m_InputState)
+	if(m_InputState)									//InputStateをシャットダウン処理
 	{
 		m_InputState->ShutDown();
 	}

@@ -18,6 +18,7 @@ InputState::~InputState()
 {
 }
 
+//初期化
 bool InputState::Initialize(HINSTANCE hInstance, HWND hwnd)
 {
 	HRESULT result;
@@ -25,7 +26,7 @@ bool InputState::Initialize(HINSTANCE hInstance, HWND hwnd)
 	m_mouseX = 0;
 	m_mouseY = 0;
 
-	result = DirectInput8Create(					//Initialize input Interface（デバイスの生成はこの後）
+	result = DirectInput8Create(					//Initialize input（デバイスの生成はこの後）
 								hInstance,
 								DIRECTINPUT_VERSION, IID_IDirectInput8,
 								(void**)&m_directInput, NULL);
@@ -67,6 +68,7 @@ bool InputState::Initialize(HINSTANCE hInstance, HWND hwnd)
 	return true;
 }
 
+//シャットダウン処理
 void InputState::ShutDown()
 {
 	if (m_mouse)				//マウスを解放
@@ -83,31 +85,32 @@ void InputState::ShutDown()
 		m_keyboard = 0;
 	}
 
-	if (m_directInput)			//Interfaceを解放
+	if (m_directInput)			//Inputを解放
 	{
 		m_directInput->Release();
 		m_directInput = 0;
 	}
 }
 
+//更新処理
 bool InputState::Update()
 {
 	bool result;
 
-	UpdateKeyboard();
-	result = ReadKeyboard();
+	UpdateKeyboard();				//前フレームのKeyboardState更新
+	result = ReadKeyboard();		//このフレームのKeyboardState更新
 	if (!result)
 		return false;
 
-	result = ReadMouse();
+	result = ReadMouse();			//MouseState更新
 	if (!result)
 		return false;
-
-	ClampMousePosition();
+	ClampMousePosition();			//Mouseの位置を画面内に
 
 	return true;
 }
 
+//このフレームのKeyState更新
 bool InputState::ReadKeyboard()
 {
 	HRESULT result = m_keyboard->GetDeviceState(sizeof(m_ckeyboardState), (LPVOID)&m_ckeyboardState);
@@ -123,9 +126,10 @@ bool InputState::ReadKeyboard()
 		return true;
 	}
 
-	return false;			//その他の場合
+	return false;				//その他の場合
 }
 
+//このフレームのMouseState更新
 bool InputState::ReadMouse()
 {
 	HRESULT result = m_mouse->GetDeviceState(sizeof(DIMOUSESTATE), (LPVOID)&m_mouseState);
@@ -144,6 +148,7 @@ bool InputState::ReadMouse()
 	return false;			//その他の場合
 }
 
+//前フレームのKeyboard更新
 void InputState::UpdateKeyboard()
 {
 	for (int i = 0; i < sizeof(m_ckeyboardState); i++)
@@ -152,8 +157,9 @@ void InputState::UpdateKeyboard()
 	}
 }
 
+//マウスの位置を画面内にClamp
 void InputState::ClampMousePosition()
-{	
+{
 	m_mouseX += m_mouseState.lX;
 	m_mouseY += m_mouseState.lY;
 
@@ -168,18 +174,21 @@ void InputState::ClampMousePosition()
 		m_mouseY = WindowDef::ScreenHeight;
 }
 
-void InputState::MousePosition(int& mouseX, int& mouseY) 
+//マウスの位置
+void InputState::MousePosition(int& mouseX, int& mouseY)
 {
 	mouseX = m_mouseX;
 	mouseY = m_mouseY;
 }
 
-bool InputState::IsKeyDown(unsigned int key)
+//指定のキーが押されているか
+bool InputState::IsKeyDown(unsigned int dik_key)
 {
-	return m_ckeyboardState[key] & 0x80;
+	return m_ckeyboardState[dik_key] & 0x80;
 }
 
-bool InputState::IsKeyTrigger(unsigned int key)
+//指定のキーがこのフレームで押されているか
+bool InputState::IsKeyTrigger(unsigned int dik_key)
 {
-	return !(m_pkeyboardState[key] & 0x80) && m_ckeyboardState[key] & 0x80;
+	return !(m_pkeyboardState[dik_key] & 0x80) && m_ckeyboardState[dik_key] & 0x80;
 }

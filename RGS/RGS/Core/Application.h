@@ -16,7 +16,7 @@ namespace Core
 		Application();
 		virtual ~Application() {}
 		/// <summary>Windowを生成する</summary>
-		/// <param name="hInstance">Window実体のハンドル</param>  
+		/// <param name="hInstance">Program実体のハンドル</param>  
 		/// <returns>true:成功, false:失敗</returns>  
 		bool InitWindow(HINSTANCE hInstance);
 
