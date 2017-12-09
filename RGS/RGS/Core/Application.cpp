@@ -11,6 +11,7 @@ using namespace Core;
 Application::Application() 
 {
 	m_InputState = 0;
+	m_GraphicDevice = 0;
 }
 
 bool Application::InitWindow(HINSTANCE hInstance)
@@ -18,6 +19,8 @@ bool Application::InitWindow(HINSTANCE hInstance)
 	bool result;
 
 	m_hInstance = hInstance;				//インスタンスのハンドル
+
+#pragma region Window設定
 
 	m_applicationName = L"RGS_Game";		//WindowClass名前の登録
 
@@ -36,6 +39,19 @@ bool Application::InitWindow(HINSTANCE hInstance)
 	if (!RegisterClass(&winc))				//WindowClass登録
 		return false;						//失敗したらFalseを返す
 
+	if (WindowDef::FullScreen)				//全画面の場合
+	{
+		DEVMODE dmScreenSettings;
+		memset(&dmScreenSettings, 0, sizeof(dmScreenSettings));
+		dmScreenSettings.dmSize = sizeof(dmScreenSettings);
+		dmScreenSettings.dmPelsWidth = (unsigned long)WindowDef::ScreenWidth;
+		dmScreenSettings.dmPelsHeight = (unsigned long)WindowDef::ScreenHeight;
+		dmScreenSettings.dmBitsPerPel = 32;							//32Bit
+		dmScreenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
+
+		ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN);	//FullScreenにする
+	}
+
 	m_hwnd = CreateWindow(					//Windowを開く
 		m_applicationName,					//使用するWindowClass
 		WindowDef::WindowName,				//Title名
@@ -47,13 +63,25 @@ bool Application::InitWindow(HINSTANCE hInstance)
 		return false;
 
 	ShowWindow(m_hwnd, SW_SHOW);			//Windowを表示
-	ShowCursor(true);						//カーソル表示
+	SetForegroundWindow(m_hwnd);			//一番上に表示
+	SetFocus(m_hwnd);						//Windowを選択された状態のする
+	ShowCursor(false);						//カーソル非表示
 
+#pragma endregion
+	
 	m_InputState = std::make_shared<InputState>();
 	if (!m_InputState)						//失敗したらFalseを返す
 		return false;
 
 	result = m_InputState->Initialize(m_hInstance, m_hwnd);			//Inputを初期化
+	if (!result)
+		return false;
+
+	m_GraphicDevice = std::make_shared<GraphicDevice>();
+	if (!m_GraphicDevice)
+		return false;
+
+	result = m_GraphicDevice->Initialize(m_hwnd);					//GraphicDeviceを初期化
 	if (!result)
 		return false;
 
@@ -91,9 +119,20 @@ void Application::Run()
 
 void Application::ShutDown()
 {
+	if (m_GraphicDevice)								//GraphicDeviceをシャットダウン処理
+	{
+		m_GraphicDevice->Shutdown();
+	}
+
 	if(m_InputState)									//InputStateをシャットダウン処理
 	{
 		m_InputState->ShutDown();
+	}
+
+	ShowCursor(true);									//カーソル表示
+	if (WindowDef::FullScreen) 
+	{
+		ChangeDisplaySettings(NULL, 0);					//Window化
 	}
 
 	DestroyWindow(m_hwnd);								//Windowを廃棄

@@ -15,6 +15,9 @@ namespace WindowDef
 	//全画面？
 	static bool FullScreen = false;
 
+	//Vsync
+	static bool Vsync = true;
+
 	//Window名
 	static LPCWSTR WindowName = L"ゲームタイトルまだ決めてない";
 }

@@ -33,6 +33,10 @@ void Game::Update()
 //•`‰æˆ—
 void Game::Draw()
 {
+	m_GraphicDevice->StartRender(1.0f, 1.0f, 1.0f, 1.0f);		//•`‰æƒNƒŠƒAColor
+
+
+	m_GraphicDevice->EndRender();								//Swap
 }
 
 //I‚í‚Á‚Ä‚¢‚é‚©

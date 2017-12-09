@@ -6,6 +6,7 @@
 #pragma once
 #include <Windows.h>
 #include <Core\InputState.h>
+#include <Core\GraphicDevice.h>
 #include <memory>
 
 namespace Core
@@ -49,6 +50,7 @@ namespace Core
 
 	protected:
 		std::shared_ptr<InputState> m_InputState;		//Input State
+		std::shared_ptr<GraphicDevice> m_GraphicDevice;	//Graphic Device
 	};
 }
 
