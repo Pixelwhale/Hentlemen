@@ -125,7 +125,8 @@ bool InputState::ReadKeyboard()
 		return true;
 	}
 
-	if (result == DIERR_INPUTLOST || result == DIERR_NOTACQUIRED)	//他のWindowがメインなどの場合は取得を試みる
+	//他のWindowがメインなどの場合は取得を試みる
+	if (result == DIERR_INPUTLOST || result == DIERR_NOTACQUIRED)
 	{
 		m_keyboard->Acquire();
 		return true;
@@ -144,7 +145,8 @@ bool InputState::ReadMouse()
 		return true;
 	}
 
-	if (result == DIERR_INPUTLOST || result == DIERR_NOTACQUIRED)	//他のWindowがメインなどの場合は取得を試みる
+	//他のWindowがメインなどの場合は取得を試みる
+	if (result == DIERR_INPUTLOST || result == DIERR_NOTACQUIRED)
 	{
 		m_keyboard->Acquire();
 		return true;

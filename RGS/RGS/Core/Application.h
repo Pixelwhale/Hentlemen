@@ -6,7 +6,7 @@
 #pragma once
 #include <Windows.h>
 #include <Core\InputState.h>
-#include <Core\GraphicDevice.h>
+#include <Device\Renderer.h>
 #include <memory>
 
 namespace Core
@@ -19,7 +19,7 @@ namespace Core
 		/// <summary>Windowを生成する</summary>
 		/// <param name="hInstance">Program実体のハンドル</param>  
 		/// <returns>true:成功, false:失敗</returns>  
-		bool InitWindow(HINSTANCE hInstance);
+		bool InitWindow();
 
 		/// <summary>アプリケーションを起動</summary>
 		void Run();
@@ -45,12 +45,11 @@ namespace Core
 
 	private:
 		HINSTANCE m_hInstance;			//Program実体のハンドル
-		LPCWSTR m_applicationName;		//登録するWindowClassの名前
 		HWND m_hwnd;					//Windowのハンドル
 
 	protected:
 		std::shared_ptr<InputState> m_InputState;		//Input State
-		std::shared_ptr<GraphicDevice> m_GraphicDevice;	//Graphic Device
+		std::shared_ptr<Device::Renderer> m_Renderer;	//Renderer
 	};
 }
 

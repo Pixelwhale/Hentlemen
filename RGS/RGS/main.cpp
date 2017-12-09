@@ -18,7 +18,8 @@ int WINAPI WinMain(
 	game = std::make_shared<Core::Game>();		//実体を持たせる
 	if (game == NULL)							//失敗する場合プログラムを終了
 		return 0;
-	if (!game->InitWindow(hInstance))			//Windowを開く、失敗する場合プログラムを終了
+
+	if (!game->InitWindow())					//Windowを開く、失敗する場合プログラムを終了
 		return 0;
 
 	game->Run();								//ゲームアプリを起動

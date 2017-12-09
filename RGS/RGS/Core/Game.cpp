@@ -33,10 +33,9 @@ void Game::Update()
 //•`‰æˆ—
 void Game::Draw()
 {
-	m_GraphicDevice->StartRender(1.0f, 1.0f, 1.0f, 1.0f);		//•`‰æƒNƒŠƒAColor
+	m_Renderer->Clear(255, 255, 255);
 
-
-	m_GraphicDevice->EndRender();								//Swap
+	m_Renderer->Swap();
 }
 
 //I‚í‚Á‚Ä‚¢‚é‚©

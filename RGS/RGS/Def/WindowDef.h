@@ -12,12 +12,9 @@ namespace WindowDef
 	static const int ScreenWidth = 1280;	//Windowの横サイズ
 	static const int ScreenHeight = 720;	//Windowの縦サイズ
 
-	//全画面？
-	static bool FullScreen = false;
-
-	//Vsync
-	static bool Vsync = true;
+	//WindowMode
+	static bool IsWindow = true;
 
 	//Window名
-	static LPCWSTR WindowName = L"ゲームタイトルまだ決めてない";
+	static LPCSTR WindowName = "ゲームタイトルまだ決めてない";
 }
