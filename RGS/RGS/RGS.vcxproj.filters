@@ -76,5 +76,8 @@
     <Image Include="Content\Texture\load.png">
       <Filter>リソース ファイル</Filter>
     </Image>
+    <Image Include="Content\Texture\test.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
   </ItemGroup>
 </Project>

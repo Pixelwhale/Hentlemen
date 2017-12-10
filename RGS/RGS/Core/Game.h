@@ -24,5 +24,7 @@ namespace Core
 
 	private:
 		bool m_endFlag;					//ゲーム終了のフラグ
+
+		int motionIndex;
 	};
 }

@@ -11,12 +11,14 @@ using namespace Core;
 void Game::Initialize()
 {
 	m_endFlag = false;
+	motionIndex = 0;
 }
 
 //ロードコンテンツ
 void Game::Load()
 {
 	m_ContentManager->LoadTexture("load", ".png");
+	m_ContentManager->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
 }
 
 //コンテンツ解放
@@ -29,6 +31,10 @@ void Game::Update()
 {
 	if (m_InputState->IsKeyTrigger(DIK_ESCAPE))
 		m_endFlag = true;
+
+	motionIndex++;
+	if (motionIndex > 6)
+		motionIndex = 0;
 }
 
 //描画処理
@@ -37,9 +43,11 @@ void Game::Draw()
 	m_Renderer->Clear(0, 0, 0);
 
 	m_Renderer->DrawTexture("load", Math::Vector2(800, 500), Math::Vector2(0, 0),
-		Math::Vector2(1.0f, 1.0f), 30 * 3.14159 / 180,
+		Math::Vector2(1.0f, 1.0f), 30 * 3.14159f / 180,
 		Color(1.0f, 0.1f, 0.1f, 1.0f));
 	m_Renderer->DrawTexture("load", Math::Vector2(0, 0), 0.1f);
+
+	m_Renderer->DrawMotion("test", motionIndex, Math::Vector2(0, 100));
 
 	m_Renderer->Swap();
 }

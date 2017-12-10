@@ -4,7 +4,7 @@
 // ì‡óeÅ@ÅFColor
 //-------------------------------------------------------
 #pragma once
-#include <Math\Vector3.h>;
+#include <Math\Vector3.h>
 
 struct Color
 {
@@ -37,20 +37,20 @@ public:
 
 	friend static Color operator *(Color value, float scale)
 	{
-		value.r *= scale;
-		value.g *= scale;
-		value.b *= scale;
-		value.a *= scale;
+		value.r = (int)(value.r * scale);
+		value.g = (int)(value.g * scale);
+		value.b = (int)(value.b * scale);
+		value.a = (int)(value.a * scale);
 		value.Clamp();
 		return value;
 	}
 
 	friend static Color operator *(float scale, Color value)
 	{
-		value.r *= scale;
-		value.g *= scale;
-		value.b *= scale;
-		value.a *= scale;
+		value.r = (int)(value.r * scale);
+		value.g = (int)(value.g * scale);
+		value.b = (int)(value.b * scale);
+		value.a = (int)(value.a * scale);
 		value.Clamp();
 		return value;
 	}

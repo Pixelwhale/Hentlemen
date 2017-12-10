@@ -19,15 +19,34 @@ namespace Device
 		Renderer(const Renderer&);
 		~Renderer();
 
+#pragma region Main SystemŠÖ˜A
+
 		///<summary>‰Šú‰»ˆ—</summary>
 		void Initialize();
 		///<summary>ƒVƒƒƒbƒgƒ_ƒEƒ“ˆ—</summary>
 		void Release();
 
+		///<summary>‰æ–ÊƒNƒŠƒA</summary>
+		///<param name="r">Red(0`255)</param>
+		///<param name="g">Green(0`255)</param>
+		///<param name="b">Blue(0`255)</param>
+		void Clear(int r, int g, int b);
+		///<summary>BackBuffer‚ÆŒğŠ·</summary>
+		void Swap();
+
+#pragma endregion
+
+
+#pragma region 2D RenderŠÖ˜A
 		///<summary>Texture‚ğ•`‰æ</summary>
 		///<param name="textureName">Asset–¼</param>
 		///<param name="position">•`‰æˆÊ’u</param>
 		void DrawTexture(std::string textureName, Math::Vector2 position, float alpha = 1.0f);
+
+		///<summary>Texture‚ğ•`‰æ</summary>
+		///<param name="textureName">Asset–¼</param>
+		///<param name="position">•`‰æˆÊ’u</param>
+		void DrawMotion(std::string textureName, int index, Math::Vector2 position, float alpha = 1.0f);
 
 		///<summary>Texture‚ğ•`‰æ</summary>
 		///<param name="textureName">Asset–¼</param>
@@ -38,17 +57,13 @@ namespace Device
 		///<param name="color">F</param>
 		///<param name="horizenFlip">…•½”½“]H</param>
 		void DrawTexture(
-			std::string textureName, Math::Vector2 position, 
-			Math::Vector2 pivot, Math::Vector2 scale, 
+			std::string textureName, Math::Vector2 position,
+			Math::Vector2 pivot, Math::Vector2 scale,
 			float angle, Color color, bool horizenFlip = false);
+#pragma endregion
 
-		///<summary>‰æ–ÊƒNƒŠƒA</summary>
-		///<param name="r">Red(0`255)</param>
-		///<param name="g">Green(0`255)</param>
-		///<param name="b">Blue(0`255)</param>
-		void Clear(int r, int g, int b);
-		///<summary>BackBuffer‚ÆŒğŠ·</summary>
-		void Swap();
+
+
 
 	private:
 		std::shared_ptr<ContentManager> m_contents;				//Content Manager

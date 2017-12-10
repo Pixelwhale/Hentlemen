@@ -33,9 +33,16 @@ void Renderer::Release()
 
 void Renderer::DrawTexture(std::string textureName, Math::Vector2 position, float alpha) 
 {
-	SetDrawBright(255 * alpha, 255 * alpha, 255 * alpha);		//色設定
-	DrawGraph(position.x, position.y, m_contents->TextureHandle(textureName), true);
-	SetDrawBright(255, 255, 255);								//色を戻す
+	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
+	DrawGraph((int)position.x, (int)position.y, m_contents->TextureHandle(textureName), true);
+	SetDrawBright(255, 255, 255);													//色を戻す
+}
+
+void Renderer::DrawMotion(std::string textureName, int index, Math::Vector2 position, float alpha)
+{
+	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
+	DrawGraph((int)position.x, (int)position.y, m_contents->MotionHandle(textureName, index), true);
+	SetDrawBright(255, 255, 255);													//色を戻す
 }
 
 void Renderer::DrawTexture(
@@ -46,7 +53,7 @@ void Renderer::DrawTexture(
 	color = color * color.A();						//Alpha適用
 	SetDrawBright(color.r, color.g, color.b);		//色設定
 
-	DrawRotaGraph3(position.x, position.y, pivot.x, pivot.y,
+	DrawRotaGraph3((int)position.x, (int)position.y, (int)pivot.x, (int)pivot.y,
 		scale.x, scale.y, angle, m_contents->TextureHandle(textureName), true, horizenFlip);
 
 	SetDrawBright(255, 255, 255);					//色を戻す
