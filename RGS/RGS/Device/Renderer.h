@@ -27,7 +27,7 @@ namespace Device
 		///<summary>Texture‚ð•`‰æ</summary>
 		///<param name="textureName">Asset–¼</param>
 		///<param name="position">•`‰æˆÊ’u</param>
-		void DrawTexture(std::string textureName, Math::Vector2 position);
+		void DrawTexture(std::string textureName, Math::Vector2 position, float alpha = 1.0f);
 
 		///<summary>Texture‚ð•`‰æ</summary>
 		///<param name="textureName">Asset–¼</param>

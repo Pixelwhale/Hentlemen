@@ -31,9 +31,11 @@ void Renderer::Release()
 	m_contents = 0;
 }
 
-void Renderer::DrawTexture(std::string textureName, Math::Vector2 position) 
+void Renderer::DrawTexture(std::string textureName, Math::Vector2 position, float alpha) 
 {
+	SetDrawBright(255 * alpha, 255 * alpha, 255 * alpha);		//Fİ’è
 	DrawGraph(position.x, position.y, m_contents->TextureHandle(textureName), true);
+	SetDrawBright(255, 255, 255);								//F‚ğ–ß‚·
 }
 
 void Renderer::DrawTexture(
