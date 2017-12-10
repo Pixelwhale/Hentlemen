@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Color\Color.cpp" />
     <ClCompile Include="Core\Application.cpp" />
     <ClCompile Include="Core\Game.cpp" />
     <ClCompile Include="Core\InputState.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="Math\Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Color\Color.h" />
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="Core\Game.h" />
     <ClInclude Include="Core\InputState.h" />

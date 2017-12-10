@@ -36,7 +36,9 @@ void Game::Draw()
 {
 	m_Renderer->Clear(0, 0, 0);
 
-	m_Renderer->DrawTexture("load", Math::Vector2(800, 500));
+	m_Renderer->DrawTexture("load", Math::Vector2(800, 500), Math::Vector2(0, 0),
+		Math::Vector2(1.0f, 1.0f), 30 * 3.14159 / 180,
+		Color(1.0f, 0.1f, 0.1f, 0.3f));
 
 
 	m_Renderer->Swap();
