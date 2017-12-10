@@ -19,6 +19,8 @@ void Game::Load()
 {
 	m_ContentManager->LoadTexture("load", ".png");
 	m_ContentManager->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
+
+	m_ContentManager->LoadFont("MS UI Gothic", 50, 3);			//Word‚ÅFont–¼‚ðŒ©‚é
 }
 
 //ƒRƒ“ƒeƒ“ƒc‰ð•ú
@@ -40,7 +42,7 @@ void Game::Update()
 //•`‰æˆ—
 void Game::Draw()
 {
-	m_Renderer->Clear(0, 0, 0);
+	m_Renderer->Clear(50, 50, 100);
 
 	m_Renderer->DrawTexture("load", Math::Vector2(800, 500), Math::Vector2(0, 0),
 		Math::Vector2(1.0f, 1.0f), 30 * 3.14159f / 180,
@@ -48,6 +50,8 @@ void Game::Draw()
 	m_Renderer->DrawTexture("load", Math::Vector2(0, 0), 0.1f);
 
 	m_Renderer->DrawMotion("test", motionIndex, Math::Vector2(0, 100));
+
+	m_Renderer->DrawString("Hello World Š¿Žš", "MS UI Gothic", Math::Vector2(0, 600), Color(120, 120, 50));
 
 	m_Renderer->Swap();
 }

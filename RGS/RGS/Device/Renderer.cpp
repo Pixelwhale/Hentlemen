@@ -31,7 +31,20 @@ void Renderer::Release()
 	m_contents = 0;
 }
 
-void Renderer::DrawTexture(std::string textureName, Math::Vector2 position, float alpha) 
+void Renderer::Clear(int r, int g, int b)
+{
+	DxLib::SetBackgroundColor(r, g, b);			//ClearColor設定
+	DxLib::ClearDrawScreen();					//画面クリア
+}
+
+void Renderer::Swap()
+{
+	DxLib::ScreenFlip();						//BackBufferと交換
+}
+
+#pragma region 2D Render関連
+
+void Renderer::DrawTexture(std::string textureName, Math::Vector2 position, float alpha)
 {
 	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
 	DrawGraph((int)position.x, (int)position.y, m_contents->TextureHandle(textureName), true);
@@ -60,13 +73,69 @@ void Renderer::DrawTexture(
 }
 
 
-void Renderer::Clear(int r, int g, int b)
+#pragma endregion
+
+
+#pragma region 文字関連
+
+void Renderer::DrawString(
+	std::string text, std::string fontName, Math::Vector2 position, Color color,
+	bool center)
 {
-	DxLib::SetBackgroundColor(r, g, b);			//ClearColor設定
-	DxLib::ClearDrawScreen();					//画面クリア
+	color = color * color.A();						//Alpha適用
+	int handle = m_contents->FontHandle(fontName);
+	if (center)
+	{
+		int xSize = GetDrawStringWidthToHandle(
+			text.c_str(), text.length(), handle);
+		position.x -= (int)(xSize / 2.0f);
+	}
+
+	DrawStringToHandle(
+		(int)position.x, (int)position.y,						//位置
+		text.c_str(),								//文字
+		GetColor(color.r, color.g, color.b),		//色
+		handle);									//使用Font
 }
 
-void Renderer::Swap()
+void Renderer::DrawString(
+	std::string text, Math::Vector2 position, Color color,
+	bool center)
 {
-	DxLib::ScreenFlip();						//BackBufferと交換
+	color = color * color.A();						//Alpha適用
+	int handle = m_contents->FontHandle("Arial");
+	if (center)
+	{
+		int xSize = GetDrawStringWidthToHandle(
+			text.c_str(), text.length(), handle);
+		position.x -= (int)(xSize / 2.0f);
+	}
+
+	DrawStringToHandle(
+		(int)position.x, (int)position.y,						//位置
+		text.c_str(),								//文字
+		GetColor(color.r, color.g, color.b),		//色
+		handle);									//使用Font
 }
+
+void Renderer::DrawString(
+	std::string text, Math::Vector2 position, bool center)
+{
+	int handle = m_contents->FontHandle("Arial");
+	if (center) 
+	{
+		int xSize = GetDrawStringWidthToHandle(
+			text.c_str(), text.length(), handle);
+		position.x -= (int)(xSize / 2.0f);
+	}
+
+	DrawStringToHandle(
+		(int)position.x, (int)position.y,		//位置
+		text.c_str(),				//文字
+		GetColor(0, 0, 0),			//色
+		handle);					//使用Font
+}
+
+#pragma endregion
+
+

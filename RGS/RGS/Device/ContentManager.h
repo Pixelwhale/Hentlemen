@@ -6,9 +6,9 @@
 #pragma once
 #include <map>
 
-namespace Device 
+namespace Device
 {
-	class ContentManager 
+	class ContentManager
 	{
 	public:
 		ContentManager();
@@ -19,6 +19,8 @@ namespace Device
 		void Initialize();
 		///<summary>Memory上のTextureを解放</summary>
 		void Release();
+
+#pragma region Texture関連
 
 		///<summary>Textureを読み込む</summary>
 		///<param name="fileName">Asset名</param>
@@ -36,7 +38,7 @@ namespace Device
 		///<param name="ySize">縦サイズ</param>
 		///<param name="path">パス</param>
 		void LoadTexture(
-			std::string filename, std::string fileExtention, 
+			std::string filename, std::string fileExtention,
 			int total, int xAmount, int yAmount, int xSize, int ySize,
 			std::string path = "./Content/Texture/");
 
@@ -50,8 +52,26 @@ namespace Device
 		///<param name="motionIndex">何枚目</param>
 		int MotionHandle(std::string textureName, int motionIndex);
 
+#pragma endregion
+
+#pragma region Font関連
+
+		///<summary>Fontを読み込む</summary>
+		///<param name="fontName">Fontの名前</param>
+		///<param name="size">大きさ</param>
+		///<param name="thickness">太さ（0～9）</param>
+		void LoadFont(std::string fontName, int size, int thickness);
+
+		///<summary>Fontのハンドルを取得</summary>
+		///<param name="fontName">Fontの名前</param>
+		int FontHandle(std::string fontName);
+
+#pragma endregion
+
+
 	private:
 		std::map<std::string, int> m_textures;			//テクスチャのハンドル
 		std::map<std::string, int*> m_motion;			//Animated Texture
+		std::map<std::string, int> m_font;				//Font
 	};
 }

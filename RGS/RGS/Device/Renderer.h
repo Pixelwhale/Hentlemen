@@ -63,6 +63,35 @@ namespace Device
 #pragma endregion
 
 
+#pragma region 文字関連
+
+		///<summary>文字を描画</summary>
+		///<param name="textureName">文字列</param>
+		///<param name="position">描画位置</param>
+		///<param name="color">色</param>
+		///<param name="fontName">Font名</param>
+		///<param name="center">中央置き</param>
+		void DrawString(
+			std::string text, std::string fontName, Math::Vector2 position, 
+			Color color, bool center = false);
+
+		///<summary>文字を描画</summary>
+		///<param name="textureName">文字列</param>
+		///<param name="position">描画位置</param>
+		///<param name="color">色</param>
+		///<param name="center">中央置き</param>
+		void DrawString(
+			std::string text, Math::Vector2 position, Color color,
+			bool center = false);
+
+		///<summary>文字を描画</summary>
+		///<param name="textureName">文字列</param>
+		///<param name="position">描画位置</param>
+		///<param name="center">中央置き</param>
+		void DrawString(
+			std::string text, Math::Vector2 position, bool center = false);
+
+#pragma endregion
 
 
 	private:

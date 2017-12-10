@@ -30,6 +30,11 @@ void ContentManager::Initialize()
 		delete[] map.second;
 	}
 	m_motion.clear();			//Motion‚ÌHandle‚ğíœ
+
+	InitFontToHandle();			//Font‚ÌHandle‚ğíœ
+	m_font.clear();
+
+	LoadFont("Arial", -1, -1);
 }
 
 void ContentManager::Release()
@@ -42,11 +47,16 @@ void ContentManager::Release()
 		delete[] map.second;
 	}
 	m_motion.clear();			//Motion‚ÌHandle‚ğíœ
+
+	InitFontToHandle();			//Font‚ÌHandle‚ğíœ
+	m_font.clear();
 }
 
+#pragma region TextureŠÖ˜A
+
 void ContentManager::LoadTexture(
-	std::string filename, 
-	std::string fileExtention, 
+	std::string filename,
+	std::string fileExtention,
 	std::string path)
 {
 	int handle = LoadGraph((path + filename + fileExtention).c_str());		//Texture‚ğ“Ç‚İ‚İ
@@ -65,7 +75,7 @@ void  ContentManager::LoadTexture(
 	m_motion[filename] = handle;											//Handle‚ğMap‚É’Ç‰Á
 }
 
-int  ContentManager::TextureHandle(std::string textureName) 
+int  ContentManager::TextureHandle(std::string textureName)
 {
 	return m_textures[textureName];
 }
@@ -74,3 +84,24 @@ int ContentManager::MotionHandle(std::string textureName, int motionIndex)
 {
 	return (m_motion[textureName])[motionIndex];
 }
+
+#pragma endregion
+
+
+#pragma region FontŠÖ˜A
+
+void ContentManager::LoadFont(std::string fontName, int size, int thickness) 
+{
+	int handle;
+	handle = CreateFontToHandle(fontName.c_str(), size, thickness);
+	if (handle == -1)						//Error‘Îô
+		return;
+	m_font[fontName] = handle;
+}
+
+int ContentManager::FontHandle(std::string fontName) 
+{
+	return m_font[fontName];
+}
+
+#pragma endregion
