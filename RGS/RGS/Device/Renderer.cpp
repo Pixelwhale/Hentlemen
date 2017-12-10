@@ -7,8 +7,9 @@
 
 using namespace Device;
 
-Renderer::Renderer()
+Renderer::Renderer(ContentManager* contents)
 {
+	m_contents = contents;
 }
 
 Renderer::Renderer(const Renderer&)
@@ -26,7 +27,8 @@ void Renderer::Initialize()
 
 void Renderer::Release() 
 {
-
+	m_contents->Release();
+	m_contents = 0;
 }
 
 void Renderer::Clear(int r, int g, int b)

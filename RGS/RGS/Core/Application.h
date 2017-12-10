@@ -7,6 +7,7 @@
 #include <Windows.h>
 #include <Core\InputState.h>
 #include <Device\Renderer.h>
+#include <Device\ContentManager.h>
 #include <memory>
 
 namespace Core
@@ -48,8 +49,9 @@ namespace Core
 		HWND m_hwnd;					//Window‚Ìƒnƒ“ƒhƒ‹
 
 	protected:
-		std::shared_ptr<InputState> m_InputState;		//Input State
-		std::shared_ptr<Device::Renderer> m_Renderer;	//Renderer
+		std::shared_ptr<InputState> m_InputState;					//Input State
+		std::shared_ptr<Device::Renderer> m_Renderer;				//Renderer
+		std::shared_ptr<Device::ContentManager> m_ContentManager;	//Content Manager
 	};
 }
 

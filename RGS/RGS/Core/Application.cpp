@@ -12,6 +12,8 @@ using namespace Core;
 Application::Application() 
 {
 	m_InputState = 0;
+	m_ContentManager = 0;
+	m_Renderer = 0;
 }
 
 bool Application::InitWindow()
@@ -46,9 +48,14 @@ bool Application::InitWindow()
 
 #pragma endregion
 
+#pragma region ContentManager‰Šú‰»
+	m_ContentManager = std::make_shared<Device::ContentManager>();
+	m_ContentManager->Initialize();
+#pragma endregion
+
 #pragma region Renderer‰Šú‰»
 
-	m_Renderer = std::make_shared<Device::Renderer>();
+	m_Renderer = std::make_shared<Device::Renderer>(m_ContentManager.get());
 	m_Renderer->Initialize();
 
 #pragma endregion

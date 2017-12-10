@@ -5,13 +5,14 @@
 //-------------------------------------------------------
 #pragma once
 #include <DX\DXLib\DxLib.h>
+#include <Device\ContentManager.h>
 
 namespace Device 
 {
 	class Renderer 
 	{
 	public:
-		Renderer();
+		Renderer(ContentManager* contents);
 		Renderer(const Renderer&);
 		~Renderer();
 
@@ -28,9 +29,8 @@ namespace Device
 		///<summary>BackBuffer‚ÆŒðŠ·</summary>
 		void Swap();
 
-
-
 	private:
+		ContentManager* m_contents;
 
 	};
 }

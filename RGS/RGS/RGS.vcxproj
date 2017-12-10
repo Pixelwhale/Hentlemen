@@ -160,6 +160,7 @@
     <ClCompile Include="Core\Application.cpp" />
     <ClCompile Include="Core\Game.cpp" />
     <ClCompile Include="Core\InputState.cpp" />
+    <ClCompile Include="Device\ContentManager.cpp" />
     <ClCompile Include="Device\Renderer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -168,6 +169,7 @@
     <ClInclude Include="Core\Game.h" />
     <ClInclude Include="Core\InputState.h" />
     <ClInclude Include="Def\WindowDef.h" />
+    <ClInclude Include="Device\ContentManager.h" />
     <ClInclude Include="Device\Renderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
