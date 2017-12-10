@@ -8,6 +8,7 @@
 #include <Core\InputState.h>
 #include <Device\Renderer.h>
 #include <Device\ContentManager.h>
+#include <Device\Random.h>
 
 namespace Device
 {
@@ -24,10 +25,12 @@ namespace Device
 		std::shared_ptr<Core::InputState>	GetInput();
 		std::shared_ptr<Renderer>			GetRenderer();
 		std::shared_ptr<ContentManager>		GetContent();
+		Random*								GetRandom();
 
 	private:
 		std::shared_ptr<Core::InputState>	m_input;
 		std::shared_ptr<Renderer>			m_renderer;
 		std::shared_ptr<ContentManager>		m_content;
+		Random								m_rand;
 	};
 }

@@ -13,6 +13,7 @@ GameDevice::GameDevice(
 	std::shared_ptr<ContentManager>		content)
 	:m_input(input), m_renderer(renderer), m_content(content)
 {
+	m_rand = Random();
 }
 
 GameDevice::GameDevice(const GameDevice&)
@@ -26,17 +27,22 @@ GameDevice::~GameDevice()
 	m_content = 0;
 }
 
-std::shared_ptr<Core::InputState>	GameDevice::GetInput()
+std::shared_ptr<Core::InputState> GameDevice::GetInput()
 {
 	return m_input;
 }
 
-std::shared_ptr<Renderer>			GameDevice::GetRenderer()
+std::shared_ptr<Renderer> GameDevice::GetRenderer()
 {
 	return m_renderer;
 }
 
-std::shared_ptr<ContentManager>		GameDevice::GetContent()
+std::shared_ptr<ContentManager> GameDevice::GetContent()
 {
 	return m_content;
+}
+
+Random* GameDevice::GetRandom() 
+{
+	return &m_rand;
 }
