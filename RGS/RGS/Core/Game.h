@@ -5,6 +5,7 @@
 //-------------------------------------------------------
 #pragma once
 #include <Core\Application.h>
+#include <Device\GameDevice.h>
 
 namespace Core
 {
@@ -25,6 +26,8 @@ namespace Core
 	private:
 		bool m_endFlag;					//ゲーム終了のフラグ
 
-		int motionIndex;
+		std::shared_ptr<Device::GameDevice> m_gameDevice;
+
+		int motionIndex;				//Test用
 	};
 }

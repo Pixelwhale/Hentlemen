@@ -49,9 +49,9 @@ namespace Core
 		HWND m_hwnd;					//Window‚Ìƒnƒ“ƒhƒ‹
 
 	protected:
-		std::shared_ptr<InputState> m_InputState;					//Input State
-		std::shared_ptr<Device::Renderer> m_Renderer;				//Renderer
-		std::shared_ptr<Device::ContentManager> m_ContentManager;	//Content Manager
+		std::shared_ptr<InputState> m_inputState;					//Input State
+		std::shared_ptr<Device::Renderer> m_renderer;				//Renderer
+		std::shared_ptr<Device::ContentManager> m_contentManager;	//Content Manager
 	};
 }
 

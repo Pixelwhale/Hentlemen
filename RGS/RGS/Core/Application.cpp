@@ -11,9 +11,9 @@ using namespace Core;
 
 Application::Application() 
 {
-	m_InputState = 0;
-	m_ContentManager = 0;
-	m_Renderer = 0;
+	m_inputState = 0;
+	m_contentManager = 0;
+	m_renderer = 0;
 }
 
 bool Application::InitWindow()
@@ -38,25 +38,25 @@ bool Application::InitWindow()
 
 #pragma region InputState初期化
 
-	m_InputState = std::make_shared<InputState>();
-	if (!m_InputState)						//失敗したらFalseを返す
+	m_inputState = std::make_shared<InputState>();
+	if (!m_inputState)						//失敗したらFalseを返す
 		return false;
 
-	result = m_InputState->Initialize(m_hInstance, m_hwnd);			//Inputを初期化
+	result = m_inputState->Initialize(m_hInstance, m_hwnd);			//Inputを初期化
 	if (!result)
 		return false;
 
 #pragma endregion
 
 #pragma region ContentManager初期化
-	m_ContentManager = std::make_shared<Device::ContentManager>();
-	m_ContentManager->Initialize();
+	m_contentManager = std::make_shared<Device::ContentManager>();
+	m_contentManager->Initialize();
 #pragma endregion
 
 #pragma region Renderer初期化
 
-	m_Renderer = std::make_shared<Device::Renderer>(m_ContentManager);
-	m_Renderer->Initialize();
+	m_renderer = std::make_shared<Device::Renderer>(m_contentManager);
+	m_renderer->Initialize();
 
 #pragma endregion
 
@@ -81,7 +81,7 @@ void Application::Run()
 			continue;
 		}
 
-		if (!m_InputState->Update())		//InputState更新
+		if (!m_inputState->Update())		//InputState更新
 			break;
 
 		Update();							//Gameのアップデート
@@ -96,22 +96,22 @@ void Application::ShutDown()
 {
 	SetMouseDispFlag(true);								//Mouse表示
 
-	if (m_InputState)									//InputStateをシャットダウン処理
+	if (m_inputState)									//InputStateをシャットダウン処理
 	{
-		m_InputState->ShutDown();
-		m_InputState = 0;
+		m_inputState->ShutDown();
+		m_inputState = 0;
 	}
 
-	if (m_Renderer)										//Rendererをシャットダウン処理
+	if (m_renderer)										//Rendererをシャットダウン処理
 	{
-		m_Renderer->Release();
-		m_Renderer = 0;
+		m_renderer->Release();
+		m_renderer = 0;
 	}
 
-	if (m_ContentManager) 								//Contentをシャットダウン処理
+	if (m_contentManager) 								//Contentをシャットダウン処理
 	{
-		m_ContentManager->Release();
-		m_ContentManager = 0;
+		m_contentManager->Release();
+		m_contentManager = 0;
 	}
 
 	DxLib_End();										//DXLib終了処理
