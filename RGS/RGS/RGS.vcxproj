@@ -163,6 +163,8 @@
     <ClCompile Include="Device\ContentManager.cpp" />
     <ClCompile Include="Device\Renderer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math\Vector2.cpp" />
+    <ClCompile Include="Math\Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application.h" />
@@ -171,6 +173,11 @@
     <ClInclude Include="Def\WindowDef.h" />
     <ClInclude Include="Device\ContentManager.h" />
     <ClInclude Include="Device\Renderer.h" />
+    <ClInclude Include="Math\Vector2.h" />
+    <ClInclude Include="Math\Vector3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Content\Texture\load.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
