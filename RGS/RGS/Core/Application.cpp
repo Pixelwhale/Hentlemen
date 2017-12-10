@@ -55,7 +55,7 @@ bool Application::InitWindow()
 
 #pragma region Renderer初期化
 
-	m_Renderer = std::make_shared<Device::Renderer>(m_ContentManager.get());
+	m_Renderer = std::make_shared<Device::Renderer>(m_ContentManager);
 	m_Renderer->Initialize();
 
 #pragma endregion
@@ -102,10 +102,16 @@ void Application::ShutDown()
 		m_InputState = 0;
 	}
 
-	if (m_Renderer)
+	if (m_Renderer)										//Rendererをシャットダウン処理
 	{
 		m_Renderer->Release();
 		m_Renderer = 0;
+	}
+
+	if (m_ContentManager) 								//Contentをシャットダウン処理
+	{
+		m_ContentManager->Release();
+		m_ContentManager = 0;
 	}
 
 	DxLib_End();										//DXLib終了処理

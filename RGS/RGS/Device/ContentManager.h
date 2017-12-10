@@ -24,7 +24,7 @@ namespace Device
 		///<param name="fileName">Asset名</param>
 		///<param name="fileExtention">拡張子</param>
 		///<param name="path">パス</param>
-		void LoadTexture(std::string filename, std::string fileExtention, std::string path);
+		void LoadTexture(std::string filename, std::string fileExtention, std::string path = "./Content/Texture/");
 
 		///<summary>Textureのハンドルを取得</summary>
 		///<param name="textureName">Textureの名前</param>

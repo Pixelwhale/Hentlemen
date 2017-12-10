@@ -7,7 +7,7 @@
 
 using namespace Device;
 
-Renderer::Renderer(ContentManager* contents)
+Renderer::Renderer(std::shared_ptr<ContentManager> contents)
 {
 	m_contents = contents;
 }
@@ -22,22 +22,28 @@ Renderer::~Renderer()
 
 void Renderer::Initialize()
 {
-	DxLib::SetDrawScreen(DX_SCREEN_BACK);
+	DxLib::SetDrawScreen(DX_SCREEN_BACK);		//•`‰ææ‚ğBackBuffer‚Éİ’è
 }
 
 void Renderer::Release() 
 {
-	m_contents->Release();
+	m_contents->Release();						//Texture‚ğ‰ğ•úˆ—
 	m_contents = 0;
 }
 
+void Renderer::DrawTexture(std::string textureName, Math::Vector2 position) 
+{
+	DrawGraph(position.x, position.y, m_contents->TextureHandle(textureName), true);
+}
+
+
 void Renderer::Clear(int r, int g, int b)
 {
-	DxLib::SetBackgroundColor(r, g, b);
-	DxLib::ClearDrawScreen();
+	DxLib::SetBackgroundColor(r, g, b);			//ClearColorİ’è
+	DxLib::ClearDrawScreen();					//‰æ–ÊƒNƒŠƒA
 }
 
 void Renderer::Swap()
 {
-	DxLib::ScreenFlip();
+	DxLib::ScreenFlip();						//BackBuffer‚ÆŒğŠ·
 }

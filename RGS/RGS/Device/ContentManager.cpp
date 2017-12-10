@@ -35,7 +35,7 @@ void ContentManager::Release()
 void ContentManager::LoadTexture(
 	std::string filename, 
 	std::string fileExtention, 
-	std::string path = "./Content/Texture/")
+	std::string path)
 {
 	int handle = LoadGraph((path + filename + fileExtention).c_str());		//Texture‚ğ“Ç‚İ‚İ
 	m_textures[filename] = handle;											//Handle‚ğMap‚É’Ç‰Á

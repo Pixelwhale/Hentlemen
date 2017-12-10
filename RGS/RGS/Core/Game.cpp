@@ -16,6 +16,7 @@ void Game::Initialize()
 //ロードコンテンツ
 void Game::Load()
 {
+	m_ContentManager->LoadTexture("load", ".png");
 }
 
 //コンテンツ解放
@@ -33,7 +34,10 @@ void Game::Update()
 //描画処理
 void Game::Draw()
 {
-	m_Renderer->Clear(255, 255, 255);
+	m_Renderer->Clear(0, 0, 0);
+
+	m_Renderer->DrawTexture("load", Math::Vector2(800, 500));
+
 
 	m_Renderer->Swap();
 }
