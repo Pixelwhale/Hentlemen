@@ -18,7 +18,7 @@ void Game::Initialize()
 		m_renderer,
 		m_contentManager);
 
-	m_gameDevice->GetProjector()->SetPosition(Math::Vector3(10, 50, 10));
+	m_gameDevice->GetProjector()->SetPosition(Math::Vector3(10, 20, 10));
 	m_gameDevice->GetProjector()->SetTarget(Math::Vector3(0, 0, 0));
 }
 
@@ -26,6 +26,7 @@ void Game::Initialize()
 void Game::Load()
 {
 	m_contentManager->LoadTexture("load", ".png");
+	m_contentManager->LoadTexture("test", ".png");
 	m_contentManager->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
 
 	m_contentManager->LoadFont("MS UI Gothic", 50, 3);			//Word‚ÅFont–¼‚ðŒ©‚é
@@ -66,6 +67,10 @@ void Game::Draw()
 	{
 		DrawSphere3D(VGet(i % 4 * 10, 0.0f, i / 4 * 10), 5.0f, 36, GetColor(255, 255, 255), GetColor(255, 255, 255), TRUE);
 	}
+
+
+	m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 50, 0, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_renderer->DrawTexture3D("test", Math::Vector3(0, 0, 0), 50, 0, Color(1.0f, 1.0f, 1.0f, 1.0f));
 
 	m_renderer->Swap();
 }

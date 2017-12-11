@@ -77,6 +77,26 @@ void Renderer::DrawTexture(
 
 #pragma endregion
 
+#pragma region 3D Render関連
+
+void Renderer::DrawTexture3D(
+	std::string textureName, Math::Vector3 position,
+	float scale, float angle, Color color, bool horizenFlip)
+{
+	color = color * color.A();						//Alpha適用
+	SetDrawBright(color.r, color.g, color.b);		//色設定
+
+	DrawBillboard3D(
+		VGet(position.x, position.y, position.z),	//位置
+		0.5f, 0.5f,									//Pivotポイント
+		scale, angle,								//大きさ、回転
+		m_contents->TextureHandle(textureName),		//Tetxure Handle
+		true, horizenFlip);							//alpha使用, 水平反転
+
+	SetDrawBright(255, 255, 255);					//色を戻す
+}
+
+#pragma endregion
 
 #pragma region 文字関連
 

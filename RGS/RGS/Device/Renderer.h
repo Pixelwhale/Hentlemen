@@ -38,15 +38,16 @@ namespace Device
 
 
 #pragma region 2D RenderŠÖ˜A
-		///<summary>Texture‚ğ•`‰æ</summary>
-		///<param name="textureName">Asset–¼</param>
-		///<param name="position">•`‰æˆÊ’u</param>
-		void DrawTexture(std::string textureName, Math::Vector2 position, float alpha = 1.0f);
 
 		///<summary>Texture‚ğ•`‰æ</summary>
 		///<param name="textureName">Asset–¼</param>
 		///<param name="position">•`‰æˆÊ’u</param>
 		void DrawMotion(std::string textureName, int index, Math::Vector2 position, float alpha = 1.0f);
+
+		///<summary>Texture‚ğ•`‰æ</summary>
+		///<param name="textureName">Asset–¼</param>
+		///<param name="position">•`‰æˆÊ’u</param>
+		void DrawTexture(std::string textureName, Math::Vector2 position, float alpha = 1.0f);
 
 		///<summary>Texture‚ğ•`‰æ</summary>
 		///<param name="textureName">Asset–¼</param>
@@ -60,6 +61,22 @@ namespace Device
 			std::string textureName, Math::Vector2 position,
 			Math::Vector2 pivot, Math::Vector2 scale,
 			float angle, Color color, bool horizenFlip = false);
+#pragma endregion
+
+
+#pragma region 3D RenderŠÖ˜A
+
+		///<summary>3D‹óŠÔ‚ÅTexture‚ğ•`‰æ</summary>
+		///<param name="textureName">Asset–¼</param>
+		///<param name="position">•`‰æˆÊ’u</param>
+		///<param name="scale">Šg‘åk¬</param>
+		///<param name="angle">‰ñ“]iƒ‰ƒWƒAƒ“j</param>
+		///<param name="color">F</param>
+		///<param name="horizenFlip">…•½”½“]H</param>
+		void DrawTexture3D(
+			std::string textureName, Math::Vector3 position, 
+			float scale, float angle, Color color, bool horizenFlip = false);
+
 #pragma endregion
 
 
