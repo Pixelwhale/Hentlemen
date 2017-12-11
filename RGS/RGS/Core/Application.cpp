@@ -71,16 +71,8 @@ void Application::Run()
 	Initialize();							//Gameの初期化
 	Load();									//ロードコンテンツ
 
-	while (!IsEnd())						//終了しない限りGameLoop
+	while (ProcessMessage()== 0 && !IsEnd())						//終了しない限りGameLoop
 	{
-		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))	//Windowメッセージの確認
-		{
-			if (msg.message == WM_QUIT) break;			//終わるメッセージがあったらLoopから抜ける
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
-			continue;
-		}
-
 		if (!m_inputState->Update())		//InputState更新
 			break;
 
