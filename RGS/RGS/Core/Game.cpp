@@ -17,6 +17,9 @@ void Game::Initialize()
 		m_inputState,
 		m_renderer,
 		m_contentManager);
+
+	m_gameDevice->GetProjector()->SetPosition(Math::Vector3(10, 50, 10));
+	m_gameDevice->GetProjector()->SetTarget(Math::Vector3(0, 0, 0));
 }
 
 //ロードコンテンツ
@@ -57,6 +60,12 @@ void Game::Draw()
 	m_renderer->DrawMotion("test", motionIndex, Math::Vector2(0, 100));
 
 	m_renderer->DrawString("Hello World 漢字", "MS UI Gothic", Math::Vector2(0, 600), Color(120, 120, 50));
+	m_renderer->DrawString("こんにちは。世界", "MS UI Gothic", Math::Vector2(600, 300), Color(120, 120, 50));
+
+	for (int i = 0; i < 16; i++) 
+	{
+		DrawSphere3D(VGet(i % 4 * 10, 0.0f, i / 4 * 10), 5.0f, 36, GetColor(255, 255, 255), GetColor(255, 255, 255), TRUE);
+	}
 
 	m_renderer->Swap();
 }

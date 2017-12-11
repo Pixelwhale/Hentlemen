@@ -163,6 +163,7 @@
     <ClCompile Include="Core\InputState.cpp" />
     <ClCompile Include="Device\ContentManager.cpp" />
     <ClCompile Include="Device\GameDevice.cpp" />
+    <ClCompile Include="Device\Projector.cpp" />
     <ClCompile Include="Device\Random.cpp" />
     <ClCompile Include="Device\Renderer.cpp" />
     <ClCompile Include="main.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Def\WindowDef.h" />
     <ClInclude Include="Device\ContentManager.h" />
     <ClInclude Include="Device\GameDevice.h" />
+    <ClInclude Include="Device\Projector.h" />
     <ClInclude Include="Device\Random.h" />
     <ClInclude Include="Device\Renderer.h" />
     <ClInclude Include="Math\Vector2.h" />

@@ -22,7 +22,9 @@ Renderer::~Renderer()
 
 void Renderer::Initialize()
 {
-	DxLib::SetDrawScreen(DX_SCREEN_BACK);		//描画先をBackBufferに設定
+	SetDrawScreen(DX_SCREEN_BACK);		//描画先をBackBufferに設定
+	SetUseZBuffer3D(TRUE);				// Ｚバッファを有効にする
+	SetWriteZBuffer3D(TRUE);			// Ｚバッファへの書き込みを有効にする
 }
 
 void Renderer::Release() 
