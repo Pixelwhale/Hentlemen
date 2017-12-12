@@ -23,7 +23,7 @@ Projector::~Projector()
 void Projector::Initialize()
 {
 	SetCameraNearFar(1.0f, 1000.0f);		//Near 1.0 Far 1000.0
-	SetupCamera_Ortho(100);					//Orthographic Zoom out 100
+	SetupCamera_Ortho(WindowDef::ScreenWidth);					//Orthographic Zoom out 100
 }
 
 void Projector::SetPosition(Math::Vector3 position)

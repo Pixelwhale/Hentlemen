@@ -63,14 +63,14 @@ void Game::Draw()
 	m_renderer->DrawString("Hello World äøéö", "MS UI Gothic", Math::Vector2(0, 600), Color(120, 120, 50));
 	m_renderer->DrawString("Ç±ÇÒÇ…ÇøÇÕÅBê¢äE", "MS UI Gothic", Math::Vector2(600, 300), Color(120, 120, 50));
 
-	for (int i = 0; i < 16; i++) 
+	/*for (int i = 0; i < 16; i++) 
 	{
 		DrawSphere3D(VGet(i % 4 * 10, 0.0f, i / 4 * 10), 5.0f, 36, GetColor(255, 255, 255), GetColor(255, 255, 255), TRUE);
-	}
+	}*/
 
-
-	m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 50, 0, Color(1.0f, 1.0f, 1.0f, 1.0f));
-	m_renderer->DrawTexture3D("test", Math::Vector3(0, 0, 0), 50, 0, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_renderer->DrawMotion3D("test", motionIndex, Math::Vector3(0, 0, 0), 64);
+	//m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 64);
+	//m_renderer->DrawTexture3D("test", Math::Vector3(0, 0, 0), 64, 0, Color(1.0f, 1.0f, 1.0f, 1.0f));
 
 	m_renderer->Swap();
 }

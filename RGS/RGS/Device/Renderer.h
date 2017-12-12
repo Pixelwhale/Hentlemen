@@ -41,7 +41,9 @@ namespace Device
 
 		///<summary>Texture‚ğ•`‰æ</summary>
 		///<param name="textureName">Asset–¼</param>
+		///<param name="index">‰½–‡–Ú</param>
 		///<param name="position">•`‰æˆÊ’u</param>
+		///<param name="alpha">“§–¾“x</param>
 		void DrawMotion(std::string textureName, int index, Math::Vector2 position, float alpha = 1.0f);
 
 		///<summary>Texture‚ğ•`‰æ</summary>
@@ -68,8 +70,24 @@ namespace Device
 
 		///<summary>3D‹óŠÔ‚ÅTexture‚ğ•`‰æ</summary>
 		///<param name="textureName">Asset–¼</param>
+		///<param name="index">‰½–‡–Ú</param>
 		///<param name="position">•`‰æˆÊ’u</param>
-		///<param name="scale">Šg‘åk¬</param>
+		///<param name="alpha">“§–¾“x</param>
+		void DrawMotion3D(std::string textureName, int index, 
+			Math::Vector3 position, float scales, float alpha = 1.0f);
+
+		///<summary>3D‹óŠÔ‚ÅTexture‚ğ•`‰æ</summary>
+		///<param name="textureName">Asset–¼</param>
+		///<param name="position">•`‰æˆÊ’u</param>
+		///<param name="scale">Šg‘åk¬(X‚Ìsize‚ğŠî€‚Å‰½pixel)</param>
+		///<param name="alpha">“§–¾“x</param>
+		void DrawTexture3D(std::string textureName, Math::Vector3 position,
+			float scale, float alpha = 1.0f);
+
+		///<summary>3D‹óŠÔ‚ÅTexture‚ğ•`‰æ</summary>
+		///<param name="textureName">Asset–¼</param>
+		///<param name="position">•`‰æˆÊ’u</param>
+		///<param name="scale">Šg‘åk¬(X‚Ìsize‚ğŠî€‚Å‰½pixel)</param>
 		///<param name="angle">‰ñ“]iƒ‰ƒWƒAƒ“j</param>
 		///<param name="color">F</param>
 		///<param name="horizenFlip">…•½”½“]H</param>

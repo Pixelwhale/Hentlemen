@@ -53,13 +53,6 @@ void Renderer::DrawTexture(std::string textureName, Math::Vector2 position, floa
 	SetDrawBright(255, 255, 255);													//色を戻す
 }
 
-void Renderer::DrawMotion(std::string textureName, int index, Math::Vector2 position, float alpha)
-{
-	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
-	DrawGraph((int)position.x, (int)position.y, m_contents->MotionHandle(textureName, index), true);
-	SetDrawBright(255, 255, 255);													//色を戻す
-}
-
 void Renderer::DrawTexture(
 	std::string textureName, Math::Vector2 position,
 	Math::Vector2 pivot, Math::Vector2 scale,
@@ -74,10 +67,31 @@ void Renderer::DrawTexture(
 	SetDrawBright(255, 255, 255);					//色を戻す
 }
 
+void Renderer::DrawMotion(std::string textureName, int index, Math::Vector2 position, float alpha)
+{
+	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
+	DrawGraph((int)position.x, (int)position.y, m_contents->MotionHandle(textureName, index), true);
+	SetDrawBright(255, 255, 255);													//色を戻す
+}
 
 #pragma endregion
 
 #pragma region 3D Render関連
+
+void Renderer::DrawTexture3D(std::string textureName, Math::Vector3 position, 
+	float scale, float alpha)
+{
+	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
+
+	DrawBillboard3D(
+		VGet(position.x, position.y, position.z),	//位置
+		0.5f, 0.5f,									//Pivotポイント
+		scale, 0.0,									//大きさ、回転
+		m_contents->TextureHandle(textureName),		//Tetxure Handle
+		true, false);								//alpha使用, 水平反転
+
+	SetDrawBright(255, 255, 255);					//色を戻す
+}
 
 void Renderer::DrawTexture3D(
 	std::string textureName, Math::Vector3 position,
@@ -94,6 +108,21 @@ void Renderer::DrawTexture3D(
 		true, horizenFlip);							//alpha使用, 水平反転
 
 	SetDrawBright(255, 255, 255);					//色を戻す
+}
+
+void Renderer::DrawMotion3D(std::string textureName, int index,
+	Math::Vector3 position, float scale, float alpha)
+{
+	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
+
+	DrawBillboard3D(
+		VGet(position.x, position.y, position.z),		//位置
+		0.5f, 0.5f,										//Pivotポイント
+		scale, 0.0,										//大きさ、回転
+		m_contents->MotionHandle(textureName, index),	//Tetxure Handle
+		true, false);									//alpha使用, 水平反転
+
+	SetDrawBright(255, 255, 255);						//色を戻す
 }
 
 #pragma endregion
