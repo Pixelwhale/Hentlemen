@@ -6,6 +6,7 @@
 #pragma once
 #include <DX\DXLib\DxLib.h>
 #include <Device\ContentManager.h>
+#include <Device\DepthSort.h>
 #include <Math\Vector2.h>
 #include <Color\Color.h>
 #include <memory>
@@ -78,6 +79,16 @@ namespace Device
 
 		///<summary>3D空間でTextureを描画</summary>
 		///<param name="textureName">Asset名</param>
+		///<param name="index">何枚目</param>
+		///<param name="position">描画位置</param>
+		///<param name="scale">大きさ（Widthの大きさで同倍率）</param>
+		///<param name="angle">回転角度（ラジアン）</param>
+		///<param name="color">色</param>
+		void DrawMotion3D(std::string textureName, int index,
+			Math::Vector3 position, float scale, float angle, Color color);
+
+		///<summary>3D空間でTextureを描画</summary>
+		///<param name="textureName">Asset名</param>
 		///<param name="position">描画位置</param>
 		///<param name="scale">拡大縮小(Xのsizeを基準で何pixel)</param>
 		///<param name="alpha">透明度</param>
@@ -131,6 +142,6 @@ namespace Device
 
 	private:
 		std::shared_ptr<ContentManager> m_contents;				//Content Manager
-
+		std::shared_ptr<DepthSort>		m_depthSort;			//描画順をソートするクラス
 	};
 }

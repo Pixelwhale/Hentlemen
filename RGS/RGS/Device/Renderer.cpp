@@ -118,7 +118,25 @@ void Renderer::DrawMotion3D(std::string textureName, int index,
 	DrawBillboard3D(
 		VGet(position.x, position.y, position.z),		//位置
 		0.5f, 0.5f,										//Pivotポイント
-		scale, 0.0,										//大きさ、回転
+		scale, 0.0f,									//大きさ、回転
+		m_contents->MotionHandle(textureName, index),	//Tetxure Handle
+		true, false);									//alpha使用, 水平反転
+
+	SetDrawBright(255, 255, 255);						//色を戻す
+}
+
+void Renderer::DrawMotion3D(std::string textureName, int index,
+	Math::Vector3 position, float scale, float angle, Color color)
+{
+	SetDrawBright(
+		(int)(color.r * color.A()), 
+		(int)(color.g * color.A()), 
+		(int)(color.b * color.A()));					//色設定
+
+	DrawBillboard3D(
+		VGet(position.x, position.y, position.z),		//位置
+		0.5f, 0.5f,										//Pivotポイント
+		scale, angle,									//大きさ、回転
 		m_contents->MotionHandle(textureName, index),	//Tetxure Handle
 		true, false);									//alpha使用, 水平反転
 

@@ -162,6 +162,7 @@
     <ClCompile Include="Core\Game.cpp" />
     <ClCompile Include="Core\InputState.cpp" />
     <ClCompile Include="Device\ContentManager.cpp" />
+    <ClCompile Include="Device\DepthSort.cpp" />
     <ClCompile Include="Device\GameDevice.cpp" />
     <ClCompile Include="Device\Projector.cpp" />
     <ClCompile Include="Device\Random.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Core\InputState.h" />
     <ClInclude Include="Def\WindowDef.h" />
     <ClInclude Include="Device\ContentManager.h" />
+    <ClInclude Include="Device\DepthSort.h" />
     <ClInclude Include="Device\GameDevice.h" />
     <ClInclude Include="Device\Projector.h" />
     <ClInclude Include="Device\Random.h" />

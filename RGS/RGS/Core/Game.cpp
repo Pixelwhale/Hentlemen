@@ -44,7 +44,7 @@ void Game::Update()
 		m_endFlag = true;
 
 	motionIndex++;
-	if (motionIndex > 6)
+	if (motionIndex > 5)
 		motionIndex = 0;
 }
 
@@ -69,8 +69,8 @@ void Game::Draw()
 	}*/
 
 	m_renderer->DrawMotion3D("test", motionIndex, Math::Vector3(0, 0, 0), 64);
-	//m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 64);
-	//m_renderer->DrawTexture3D("test", Math::Vector3(0, 0, 0), 64, 0, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_renderer->DrawTexture3D("test", Math::Vector3(0, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f));
+	m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 500);
 
 	m_renderer->Swap();
 }
