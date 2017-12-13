@@ -5,10 +5,10 @@
 //-------------------------------------------------------
 #pragma once
 #include <DX\DXLib\DxLib.h>
-#include <Device\ContentManager.h>
-#include <Device\DepthSort.h>
-#include <Math\Vector2.h>
-#include <Color\Color.h>
+#include <Device\content_manager.h>
+#include <Device\depth_sort.h>
+#include <Math\vector2.h>
+#include <Color\color.h>
 #include <memory>
 
 namespace Device 

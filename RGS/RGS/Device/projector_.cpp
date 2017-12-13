@@ -3,8 +3,8 @@
 // 作成日：2017.12.11
 // 内容　：Projector
 //-------------------------------------------------------
-#include <Device\Projector.h>
-#include <Def\WindowDef.h>
+#include <Device\projector.h>
+#include <Def\window_def.h>
 
 using namespace Device;
 

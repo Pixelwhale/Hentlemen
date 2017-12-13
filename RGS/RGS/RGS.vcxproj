@@ -161,30 +161,39 @@
     <ClCompile Include="Core\Application.cpp" />
     <ClCompile Include="Core\Game.cpp" />
     <ClCompile Include="Core\InputState.cpp" />
+    <ClCompile Include="Core\input_state.cpp" />
     <ClCompile Include="Device\ContentManager.cpp" />
+    <ClCompile Include="Device\content_manager.cpp" />
     <ClCompile Include="Device\DepthSort.cpp" />
+    <ClCompile Include="Device\depth_sort.cpp" />
     <ClCompile Include="Device\GameDevice.cpp" />
+    <ClCompile Include="Device\game_device.cpp" />
     <ClCompile Include="Device\Projector.cpp" />
     <ClCompile Include="Device\Random.cpp" />
     <ClCompile Include="Device\Renderer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Math\Vector2.cpp" />
-    <ClCompile Include="Math\Vector3.cpp" />
+    <ClCompile Include="Math\vector2.cpp" />
+    <ClCompile Include="Math\vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color\Color.h" />
     <ClInclude Include="Core\Application.h" />
     <ClInclude Include="Core\Game.h" />
     <ClInclude Include="Core\InputState.h" />
+    <ClInclude Include="Core\input_state.h" />
     <ClInclude Include="Def\WindowDef.h" />
+    <ClInclude Include="Def\window_def.h" />
     <ClInclude Include="Device\ContentManager.h" />
+    <ClInclude Include="Device\content_manager.h" />
     <ClInclude Include="Device\DepthSort.h" />
+    <ClInclude Include="Device\depth_sort.h" />
     <ClInclude Include="Device\GameDevice.h" />
+    <ClInclude Include="Device\game_device.h" />
     <ClInclude Include="Device\Projector.h" />
     <ClInclude Include="Device\Random.h" />
     <ClInclude Include="Device\Renderer.h" />
-    <ClInclude Include="Math\Vector2.h" />
-    <ClInclude Include="Math\Vector3.h" />
+    <ClInclude Include="Math\vector2.h" />
+    <ClInclude Include="Math\vector3.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />

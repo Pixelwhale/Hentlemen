@@ -3,7 +3,7 @@
 // 作成日：2017.12.04
 // 内容　：Gameの基本処理
 //-------------------------------------------------------
-#include <Core\Game.h>
+#include <Core\game.h>
 
 using namespace Core;
 

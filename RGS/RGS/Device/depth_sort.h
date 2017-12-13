@@ -6,8 +6,8 @@
 //-------------------------------------------------------
 #pragma once
 #include <vector>
-#include <Color\Color.h>
-#include <Math\Vector3.h>
+#include <Color\color.h>
+#include <Math\vector3.h>
 #include <DX\DXLib\DxLib.h>
 
 namespace Device 

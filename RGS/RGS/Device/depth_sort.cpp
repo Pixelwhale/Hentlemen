@@ -4,7 +4,7 @@
 // 内容　：透明のあるテクスチャはソートして描画する必要が
 //			あるので、そのためのクラス
 //-------------------------------------------------------
-#include <Device\DepthSort.h>
+#include <Device\depth_sort.h>
 
 using namespace Device;
 

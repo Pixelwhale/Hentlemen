@@ -3,7 +3,7 @@
 // 作成日：2017.12.10
 // 内容　：Render機能を整理したクラス
 //-------------------------------------------------------
-#include <Device\Renderer.h>
+#include <Device\renderer.h>
 
 using namespace Device;
 

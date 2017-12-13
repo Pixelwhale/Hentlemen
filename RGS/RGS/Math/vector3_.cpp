@@ -3,7 +3,7 @@
 // 作成日：昔作ったものをそのまま持ってきた
 // 内容　：Vector3
 //-------------------------------------------------------
-#include "Vector3.h"
+#include "vector3.h"
 #include <math.h>
 
 using namespace Math;

@@ -4,7 +4,7 @@
 // ì‡óeÅ@ÅFColor
 //-------------------------------------------------------
 #pragma once
-#include <Math\Vector3.h>
+#include <Math\vector3.h>
 
 struct Color
 {

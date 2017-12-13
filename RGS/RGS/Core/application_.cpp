@@ -3,8 +3,8 @@
 // 作成日：2017.12.03～2017.12.04
 // 内容　：Windowの基本処理
 //-------------------------------------------------------
-#include <Core\Application.h>
-#include <Def\WindowDef.h>
+#include <Core\application.h>
+#include <Def\window_def.h>
 #include <DX\DXLib\DxLib.h>
 
 using namespace Core;

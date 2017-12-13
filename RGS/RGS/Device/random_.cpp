@@ -3,7 +3,7 @@
 // 作成日：昔作ったものをクラス化して持ってきた
 // 内容　：Random
 //-------------------------------------------------------
-#include <Device\Random.h>
+#include <Device\random.h>
 #include <random>
 #include <ctime>
 

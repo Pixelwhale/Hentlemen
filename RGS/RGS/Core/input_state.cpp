@@ -3,8 +3,8 @@
 // 作成日：2017.12.04
 // 内容　：入力処理
 //-------------------------------------------------------
-#include <Core\InputState.h>
-#include <Def\WindowDef.h>
+#include <Core\input_state.h>
+#include <Def\window_def.h>
 
 using namespace Core;
 

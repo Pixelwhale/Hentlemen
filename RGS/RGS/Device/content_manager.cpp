@@ -3,7 +3,7 @@
 // 作成日：2017.12.10
 // 内容　：Contentを読み込むクラス
 //-------------------------------------------------------
-#include <Device\ContentManager.h>
+#include <Device\content_manager.h>
 #include <DX\DXLib\DxLib.h>
 
 using namespace Device;

@@ -3,7 +3,7 @@
 // 作成日：2017.12.10
 // 内容　：Color
 //-------------------------------------------------------
-#include <Color\Color.h>
+#include <Color\color.h>
 
 Color::Color(Math::Vector3 vector)
 {
