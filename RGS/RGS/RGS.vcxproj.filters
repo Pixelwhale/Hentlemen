@@ -18,75 +18,81 @@
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Application.cpp">
+    <ClCompile Include="Device\content_manager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Game.cpp">
+    <ClCompile Include="Device\depth_sort.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Core\InputState.cpp">
+    <ClCompile Include="Device\game_device.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Device\Renderer.cpp">
+    <ClCompile Include="Math\vector2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Device\ContentManager.cpp">
+    <ClCompile Include="Math\vector3.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Math\Vector3.cpp">
+    <ClCompile Include="Core\input_state.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Math\Vector2.cpp">
+    <ClCompile Include="Color\color.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Color\Color.cpp">
+    <ClCompile Include="Core\application.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Device\GameDevice.cpp">
+    <ClCompile Include="Core\game.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Device\Random.cpp">
+    <ClCompile Include="Device\projector.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Device\Projector.cpp">
+    <ClCompile Include="Device\random.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Device\renderer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Application.h">
+    <ClInclude Include="Device\content_manager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Def\WindowDef.h">
+    <ClInclude Include="Device\depth_sort.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Game.h">
+    <ClInclude Include="Device\game_device.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Core\InputState.h">
+    <ClInclude Include="Math\vector2.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Device\Renderer.h">
+    <ClInclude Include="Math\vector3.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Device\ContentManager.h">
+    <ClInclude Include="Def\window_def.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Math\Vector3.h">
+    <ClInclude Include="Core\input_state.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Math\Vector2.h">
+    <ClInclude Include="Color\color.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Color\Color.h">
+    <ClInclude Include="Core\application.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Device\GameDevice.h">
+    <ClInclude Include="Core\game.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Device\Random.h">
+    <ClInclude Include="Device\projector.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Device\Projector.h">
+    <ClInclude Include="Device\random.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Device\renderer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

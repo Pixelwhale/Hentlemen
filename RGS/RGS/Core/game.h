@@ -4,8 +4,8 @@
 // 内容　：Gameの基本処理
 //-------------------------------------------------------
 #pragma once
-#include <Core\Application.h>
-#include <Device\GameDevice.h>
+#include <Core\application.h>
+#include <Device\game_device.h>
 
 namespace Core
 {
@@ -28,6 +28,6 @@ namespace Core
 
 		std::shared_ptr<Device::GameDevice> m_gameDevice;
 
-		int motionIndex;				//Test用
+		int m_motion_index;				//Test用
 	};
 }

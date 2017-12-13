@@ -3,7 +3,7 @@
 // 作成日：2017.12.10
 // 内容　：Contentを読み込むクラス
 //-------------------------------------------------------
-#include <Device\ContentManager.h>
+#include <Device\content_manager.h>
 #include <DX\DXLib\DxLib.h>
 
 using namespace Device;
@@ -55,34 +55,34 @@ void ContentManager::Release()
 #pragma region Texture関連
 
 void ContentManager::LoadTexture(
-	std::string filename,
-	std::string fileExtention,
+	std::string file_name,
+	std::string file_extention,
 	std::string path)
 {
-	int handle = LoadGraph((path + filename + fileExtention).c_str());		//Textureを読み込み
-	m_textures[filename] = handle;											//HandleをMapに追加
+	int handle = LoadGraph((path + file_name + file_extention).c_str());		//Textureを読み込み
+	m_textures[file_name] = handle;											//HandleをMapに追加
 }
 
 void  ContentManager::LoadTexture(
-	std::string filename, std::string fileExtention,
-	int total, int xAmount, int yAmount, int xSize, int ySize,
+	std::string file_name, std::string file_extention,
+	int total, int x_count, int y_count, int x_size, int y_size,
 	std::string path)
 {
 	int* handle = new int[total];
 	int error;
-	error = LoadDivGraph((path + filename + fileExtention).c_str(),
-		total, xAmount, yAmount, xSize, ySize, handle);						//Textureを分割して読み込む
-	m_motion[filename] = handle;											//HandleをMapに追加
+	error = LoadDivGraph((path + file_name + file_extention).c_str(),
+		total, x_count, y_count, x_size, y_size, handle);						//Textureを分割して読み込む
+	m_motion[file_name] = handle;											//HandleをMapに追加
 }
 
-int  ContentManager::TextureHandle(std::string textureName)
+int  ContentManager::TextureHandle(std::string texture_name)
 {
-	return m_textures[textureName];
+	return m_textures[texture_name];
 }
 
-int ContentManager::MotionHandle(std::string textureName, int motionIndex)
+int ContentManager::MotionHandle(std::string texture_name, int motion_index)
 {
-	return (m_motion[textureName])[motionIndex];
+	return (m_motion[texture_name])[motion_index];
 }
 
 #pragma endregion
@@ -90,18 +90,18 @@ int ContentManager::MotionHandle(std::string textureName, int motionIndex)
 
 #pragma region Font関連
 
-void ContentManager::LoadFont(std::string fontName, int size, int thickness) 
+void ContentManager::LoadFont(std::string font_name, int size, int thickness) 
 {
 	int handle;
-	handle = CreateFontToHandle(fontName.c_str(), size, thickness);
+	handle = CreateFontToHandle(font_name.c_str(), size, thickness);
 	if (handle == -1)						//Error対策
 		return;
-	m_font[fontName] = handle;
+	m_font[font_name] = handle;
 }
 
-int ContentManager::FontHandle(std::string fontName) 
+int ContentManager::FontHandle(std::string font_name) 
 {
-	return m_font[fontName];
+	return m_font[font_name];
 }
 
 #pragma endregion

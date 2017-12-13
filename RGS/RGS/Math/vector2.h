@@ -11,7 +11,7 @@ namespace Math
 	{
 	public:
 		Vector2();
-		Vector2(float X, float Y);
+		Vector2(float x, float y);
 		Vector2(const Vector2& other);
 
 		float    length() const;

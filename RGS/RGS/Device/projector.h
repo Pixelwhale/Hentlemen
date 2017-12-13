@@ -5,7 +5,7 @@
 //-------------------------------------------------------
 #pragma once
 #include <DX\DXLib\DxLib.h>
-#include <Math\Vector3.h>
+#include <Math\vector3.h>
 
 namespace Device 
 {

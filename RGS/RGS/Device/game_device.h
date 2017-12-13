@@ -5,11 +5,11 @@
 //-------------------------------------------------------
 #pragma once
 #include <memory>
-#include <Core\InputState.h>
-#include <Device\Renderer.h>
-#include <Device\Projector.h>
-#include <Device\ContentManager.h>
-#include <Device\Random.h>
+#include <Core\input_state.h>
+#include <Device\renderer.h>
+#include <Device\projector.h>
+#include <Device\content_manager.h>
+#include <Device\random.h>
 
 namespace Device
 {

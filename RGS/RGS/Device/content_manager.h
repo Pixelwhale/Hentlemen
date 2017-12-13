@@ -26,7 +26,7 @@ namespace Device
 		///<param name="fileName">Asset名</param>
 		///<param name="fileExtention">拡張子</param>
 		///<param name="path">パス</param>
-		void LoadTexture(std::string filename, std::string fileExtention, std::string path = "./Content/Texture/");
+		void LoadTexture(std::string file_name, std::string file_extention, std::string path = "./Content/Texture/");
 
 		///<summary>Textureを読み込む</summary>
 		///<param name="fileName">Asset名</param>
@@ -38,19 +38,19 @@ namespace Device
 		///<param name="ySize">縦サイズ</param>
 		///<param name="path">パス</param>
 		void LoadTexture(
-			std::string filename, std::string fileExtention,
-			int total, int xAmount, int yAmount, int xSize, int ySize,
+			std::string file_name, std::string file_extention,
+			int total, int x_count, int y_count, int x_size, int y_size,
 			std::string path = "./Content/Texture/");
 
 		///<summary>Textureのハンドルを取得</summary>
 		///<param name="textureName">Textureの名前</param>
 		///<returns>Texture Handle</returns>
-		int TextureHandle(std::string textureName);
+		int TextureHandle(std::string texture_name);
 
 		///<summary>Textureのハンドルを取得</summary>
 		///<param name="textureName">Asset名</param>
 		///<param name="motionIndex">何枚目</param>
-		int MotionHandle(std::string textureName, int motionIndex);
+		int MotionHandle(std::string texture_name, int motion_index);
 
 #pragma endregion
 
@@ -60,11 +60,11 @@ namespace Device
 		///<param name="fontName">Fontの名前</param>
 		///<param name="size">大きさ</param>
 		///<param name="thickness">太さ（0～9）</param>
-		void LoadFont(std::string fontName, int size, int thickness);
+		void LoadFont(std::string font_name, int size, int thickness);
 
 		///<summary>Fontのハンドルを取得</summary>
 		///<param name="fontName">Fontの名前</param>
-		int FontHandle(std::string fontName);
+		int FontHandle(std::string font_name);
 
 #pragma endregion
 

@@ -3,8 +3,8 @@
 // 作成日：2017.12.11
 // 内容　：Projector
 //-------------------------------------------------------
-#include <Device\Projector.h>
-#include <Def\WindowDef.h>
+#include <Device\projector.h>
+#include <Def\window_def.h>
 
 using namespace Device;
 
@@ -22,8 +22,8 @@ Projector::~Projector()
 
 void Projector::Initialize()
 {
-	SetCameraNearFar(1.0f, 1000.0f);		//Near 1.0 Far 1000.0
-	SetupCamera_Ortho(100);					//Orthographic Zoom out 100
+	SetCameraNearFar(1.0f, 1000.0f);						//Near 1.0 Far 1000.0
+	SetupCamera_Ortho(100);				//Orthographic Zoom out 100
 }
 
 void Projector::SetPosition(Math::Vector3 position)

@@ -3,8 +3,8 @@
 // 作成日：2017.12.03～2017.12.04
 // 内容　：Windowの基本処理
 //-------------------------------------------------------
-#include <Core\Application.h>
-#include <Def\WindowDef.h>
+#include <Core\application.h>
+#include <Def\window_def.h>
 #include <DX\DXLib\DxLib.h>
 
 using namespace Core;
@@ -22,12 +22,12 @@ bool Application::InitWindow()
 
 #pragma region DxLib初期化
 	SetOutApplicationLogValidFlag(false);			//Logを書き出ししない
-	SetWindowText(WindowDef::WindowName);			//Title設定
+	SetWindowText(WindowDef::kWindowName);			//Title設定
 	SetGraphMode(
-		WindowDef::ScreenWidth,						//WindowSize
-		WindowDef::ScreenHeight,
+		WindowDef::kScreenWidth,						//WindowSize
+		WindowDef::kScreenHeight,
 		32, 60);									//Color 32bit  60Frame
-	ChangeWindowMode(WindowDef::IsWindow);			//全画面設定
+	ChangeWindowMode(WindowDef::kIsWindow);			//全画面設定
 	DxLib_Init();									//DXLibrary初期化
 	SetMouseDispFlag(false);						//Mouse表示しない
 

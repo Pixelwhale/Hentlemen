@@ -28,7 +28,7 @@ namespace Core
 		///	<summary>マウスの位置を取得</summary>
 		/// <param name="mouseX">X座標</param>  
 		/// <param name="mouseY">Y座標</param> 
-		void MousePosition(int& mouseX, int& mouseY);
+		void MousePosition(int& mouse_x, int& mouse_y);
 
 		///	<summary>指定のキーが押されているか</summary>
 		/// <param name="dik_key">DirectInputKey:DIK_指定のキー</param>  

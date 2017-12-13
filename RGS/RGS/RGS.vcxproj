@@ -23,7 +23,7 @@
     <ProjectGuid>{5D4FA8EF-2051-4509-B89A-A921ED74F1AC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>RGS</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -43,14 +43,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140_xp</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -157,32 +157,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Color\Color.cpp" />
-    <ClCompile Include="Core\Application.cpp" />
-    <ClCompile Include="Core\Game.cpp" />
-    <ClCompile Include="Core\InputState.cpp" />
-    <ClCompile Include="Device\ContentManager.cpp" />
-    <ClCompile Include="Device\GameDevice.cpp" />
-    <ClCompile Include="Device\Projector.cpp" />
-    <ClCompile Include="Device\Random.cpp" />
-    <ClCompile Include="Device\Renderer.cpp" />
+    <ClCompile Include="Color\color.cpp" />
+    <ClCompile Include="Core\application.cpp" />
+    <ClCompile Include="Core\game.cpp" />
+    <ClCompile Include="Core\input_state.cpp" />
+    <ClCompile Include="Device\content_manager.cpp" />
+    <ClCompile Include="Device\depth_sort.cpp" />
+    <ClCompile Include="Device\game_device.cpp" />
+    <ClCompile Include="Device\projector.cpp" />
+    <ClCompile Include="Device\random.cpp" />
+    <ClCompile Include="Device\renderer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Math\Vector2.cpp" />
-    <ClCompile Include="Math\Vector3.cpp" />
+    <ClCompile Include="Math\vector2.cpp" />
+    <ClCompile Include="Math\vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color\Color.h" />
-    <ClInclude Include="Core\Application.h" />
-    <ClInclude Include="Core\Game.h" />
-    <ClInclude Include="Core\InputState.h" />
-    <ClInclude Include="Def\WindowDef.h" />
-    <ClInclude Include="Device\ContentManager.h" />
-    <ClInclude Include="Device\GameDevice.h" />
-    <ClInclude Include="Device\Projector.h" />
-    <ClInclude Include="Device\Random.h" />
-    <ClInclude Include="Device\Renderer.h" />
-    <ClInclude Include="Math\Vector2.h" />
-    <ClInclude Include="Math\Vector3.h" />
+    <ClInclude Include="Color\color.h" />
+    <ClInclude Include="Core\application.h" />
+    <ClInclude Include="Core\game.h" />
+    <ClInclude Include="Core\input_state.h" />
+    <ClInclude Include="Def\window_def.h" />
+    <ClInclude Include="Device\content_manager.h" />
+    <ClInclude Include="Device\depth_sort.h" />
+    <ClInclude Include="Device\game_device.h" />
+    <ClInclude Include="Device\projector.h" />
+    <ClInclude Include="Device\random.h" />
+    <ClInclude Include="Device\renderer.h" />
+    <ClInclude Include="Math\vector2.h" />
+    <ClInclude Include="Math\vector3.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />

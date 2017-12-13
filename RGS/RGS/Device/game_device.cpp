@@ -3,7 +3,7 @@
 // 作成日：2017.12.10
 // 内容　：Device系をまとめたクラス
 //-------------------------------------------------------
-#include <Device\GameDevice.h>
+#include <Device\game_device.h>
 
 using namespace Device;
 

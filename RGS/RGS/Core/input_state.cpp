@@ -3,8 +3,8 @@
 // 作成日：2017.12.04
 // 内容　：入力処理
 //-------------------------------------------------------
-#include <Core\InputState.h>
-#include <Def\WindowDef.h>
+#include <Core\input_state.h>
+#include <Def\window_def.h>
 
 using namespace Core;
 
@@ -175,17 +175,17 @@ void InputState::ClampMousePosition()
 	if (m_mouseY < 0)
 		m_mouseY = 0;
 
-	if (m_mouseX > WindowDef::ScreenWidth)
-		m_mouseX = WindowDef::ScreenWidth;
-	if (m_mouseY > WindowDef::ScreenHeight)
-		m_mouseY = WindowDef::ScreenHeight;
+	if (m_mouseX > WindowDef::kScreenWidth)
+		m_mouseX = WindowDef::kScreenWidth;
+	if (m_mouseY > WindowDef::kScreenHeight)
+		m_mouseY = WindowDef::kScreenHeight;
 }
 
 //マウスの位置
-void InputState::MousePosition(int& mouseX, int& mouseY)
+void InputState::MousePosition(int& mouse_x, int& mouse_y)
 {
-	mouseX = m_mouseX;
-	mouseY = m_mouseY;
+	mouse_x = m_mouseX;
+	mouse_y = m_mouseY;
 }
 
 //指定のキーが押されているか

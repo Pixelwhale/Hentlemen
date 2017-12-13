@@ -5,9 +5,9 @@
 //-------------------------------------------------------
 #pragma once
 #include <Windows.h>
-#include <Core\InputState.h>
-#include <Device\Renderer.h>
-#include <Device\ContentManager.h>
+#include <Core\input_state.h>
+#include <Device\renderer.h>
+#include <Device\content_manager.h>
 #include <memory>
 
 namespace Core

@@ -3,7 +3,7 @@
 // 作成日：2017.12.04
 // 内容　：WindowAPIを使ってApplicationの起動
 //-------------------------------------------------------
-#include <Core\Game.h>
+#include <Core\game.h>
 #include <memory>
 
 //WindowsAPI
