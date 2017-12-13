@@ -28,6 +28,6 @@ namespace Core
 
 		std::shared_ptr<Device::GameDevice> m_gameDevice;
 
-		int motionIndex;				//Test—p
+		int m_motion_index;				//Test—p
 	};
 }

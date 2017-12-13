@@ -9,12 +9,12 @@
 namespace WindowDef
 {
 	//Windowサイズ
-	static const int ScreenWidth = 1280;	//Windowの横サイズ
-	static const int ScreenHeight = 720;	//Windowの縦サイズ
+	static const int kScreenWidth = 1280;	//Windowの横サイズ
+	static const int kScreenHeight = 720;	//Windowの縦サイズ
 
 	//WindowMode
-	static bool IsWindow = true;
+	static const bool kIsWindow = true;
 
 	//Window名
-	static LPCSTR WindowName = "ゲームタイトルまだ決めてない";
+	static const LPCSTR kWindowName = "ゲームタイトルまだ決めてない";
 }

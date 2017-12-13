@@ -36,9 +36,9 @@ int Random::Next(int max)
 int Random::Next(int min, int max)
 {
 	int count = max - min;		//範囲内の数
-	int randomMin = 0 - min;	//最小値
+	int random_min = 0 - min;	//最小値
 								//余りで範囲を決定、全体を最小値で平行移動
-	int random = rand() % count - randomMin;
+	int random = rand() % count - random_min;
 	return random;
 }
 

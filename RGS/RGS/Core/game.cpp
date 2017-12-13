@@ -11,7 +11,7 @@ using namespace Core;
 void Game::Initialize()
 {
 	m_endFlag = false;
-	motionIndex = 0;
+	m_motion_index = 0;
 
 	m_gameDevice = std::make_shared<Device::GameDevice>(
 		m_inputState,
@@ -43,9 +43,9 @@ void Game::Update()
 	if (m_inputState->IsKeyTrigger(DIK_ESCAPE))
 		m_endFlag = true;
 
-	motionIndex++;
-	if (motionIndex > 5)
-		motionIndex = 0;
+	m_motion_index++;
+	if (m_motion_index > 5)
+		m_motion_index = 0;
 }
 
 //•`‰æˆ—
@@ -58,7 +58,7 @@ void Game::Draw()
 		Color(1.0f, 0.1f, 0.1f, 1.0f));
 	m_renderer->DrawTexture("load", Math::Vector2(0, 0), 0.1f);
 
-	m_renderer->DrawMotion("test", motionIndex, Math::Vector2(0, 100));
+	m_renderer->DrawMotion("test", m_motion_index, Math::Vector2(0, 100));
 
 	m_renderer->DrawString("Hello World Š¿Žš", "MS UI Gothic", Math::Vector2(0, 600), Color(120, 120, 50));
 	m_renderer->DrawString("‚±‚ñ‚É‚¿‚ÍB¢ŠE", "MS UI Gothic", Math::Vector2(600, 300), Color(120, 120, 50));
@@ -68,7 +68,7 @@ void Game::Draw()
 		DrawSphere3D(VGet(i % 4 * 10, 0.0f, i / 4 * 10), 5.0f, 36, GetColor(255, 255, 255), GetColor(255, 255, 255), TRUE);
 	}*/
 
-	m_renderer->DrawMotion3D("test", motionIndex, Math::Vector3(0, 0, 0), 64);
+	m_renderer->DrawMotion3D("test", m_motion_index, Math::Vector3(0, 0, 0), 64);
 	m_renderer->DrawTexture3D("test", Math::Vector3(0, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 500);
 

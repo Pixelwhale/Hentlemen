@@ -14,8 +14,8 @@ Vector3::Vector3()
 {
 }
 
-Vector3::Vector3(float X, float Y, float Z)
-	:x(X), y(Y), z(Z)
+Vector3::Vector3(float x, float y, float z)
+	:x(x), y(y), z(z)
 {
 }
 
