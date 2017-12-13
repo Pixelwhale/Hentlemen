@@ -157,12 +157,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Color\color_.cpp" />
-    <ClCompile Include="Color\Color.cpp" />
-    <ClCompile Include="Core\Application.cpp" />
-    <ClCompile Include="Core\application_.cpp" />
-    <ClCompile Include="Core\Game.cpp" />
-    <ClCompile Include="Core\game_.cpp" />
     <ClCompile Include="Core\InputState.cpp" />
     <ClCompile Include="Core\input_state.cpp" />
     <ClCompile Include="Device\ContentManager.cpp" />
@@ -171,25 +165,11 @@
     <ClCompile Include="Device\depth_sort.cpp" />
     <ClCompile Include="Device\GameDevice.cpp" />
     <ClCompile Include="Device\game_device.cpp" />
-    <ClCompile Include="Device\Projector.cpp" />
-    <ClCompile Include="Device\projector_.cpp" />
-    <ClCompile Include="Device\Random.cpp" />
-    <ClCompile Include="Device\random_.cpp" />
-    <ClCompile Include="Device\Renderer.cpp" />
-    <ClCompile Include="Device\renderer_.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
-    <ClCompile Include="Math\vector2_.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
-    <ClCompile Include="Math\vector3_.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color\Color.h" />
-    <ClInclude Include="Color\color_.h" />
-    <ClInclude Include="Core\Application.h" />
-    <ClInclude Include="Core\application_.h" />
-    <ClInclude Include="Core\Game.h" />
-    <ClInclude Include="Core\game_.h" />
     <ClInclude Include="Core\InputState.h" />
     <ClInclude Include="Core\input_state.h" />
     <ClInclude Include="Def\WindowDef.h" />
@@ -200,16 +180,8 @@
     <ClInclude Include="Device\depth_sort.h" />
     <ClInclude Include="Device\GameDevice.h" />
     <ClInclude Include="Device\game_device.h" />
-    <ClInclude Include="Device\Projector.h" />
-    <ClInclude Include="Device\projector_.h" />
-    <ClInclude Include="Device\Random.h" />
-    <ClInclude Include="Device\random_.h" />
-    <ClInclude Include="Device\Renderer.h" />
-    <ClInclude Include="Device\renderer_.h" />
     <ClInclude Include="Math\vector2.h" />
-    <ClInclude Include="Math\vector2_.h" />
     <ClInclude Include="Math\vector3.h" />
-    <ClInclude Include="Math\vector3_.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />
