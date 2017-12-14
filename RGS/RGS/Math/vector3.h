@@ -14,6 +14,7 @@ namespace Math
 		Vector3(float x, float y, float z);
 		Vector3(const Vector3& other);
 
+		float    lengthSqrt() const;
 		float    length() const;                       
 		Vector3& normalize();                          
 		float    dot( const Vector3& v ) const;     

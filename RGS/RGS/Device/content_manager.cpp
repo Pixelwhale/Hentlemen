@@ -60,7 +60,7 @@ void ContentManager::LoadTexture(
 	std::string path)
 {
 	int handle = LoadGraph((path + file_name + file_extention).c_str());		//Texture‚ğ“Ç‚İ‚İ
-	m_textures[file_name] = handle;											//Handle‚ğMap‚É’Ç‰Á
+	m_textures[file_name] = handle;												//Handle‚ğMap‚É’Ç‰Á
 }
 
 void  ContentManager::LoadTexture(
@@ -72,7 +72,7 @@ void  ContentManager::LoadTexture(
 	int error;
 	error = LoadDivGraph((path + file_name + file_extention).c_str(),
 		total, x_count, y_count, x_size, y_size, handle);						//Texture‚ğ•ªŠ„‚µ‚Ä“Ç‚İ‚Ş
-	m_motion[file_name] = handle;											//Handle‚ğMap‚É’Ç‰Á
+	m_motion[file_name] = handle;												//Handle‚ğMap‚É’Ç‰Á
 }
 
 int  ContentManager::TextureHandle(std::string texture_name)

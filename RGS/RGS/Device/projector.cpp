@@ -46,3 +46,8 @@ void Projector::UpdateView()
 {
 	SetCameraPositionAndTarget_UpVecY(m_position, m_target);
 }
+
+Math::Vector3 Projector::Position() 
+{
+	return  Math::Vector3(m_position.x, m_position.y, m_position.z);
+}

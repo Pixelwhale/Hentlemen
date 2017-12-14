@@ -46,6 +46,8 @@ void Game::Update()
 	m_motion_index++;
 	if (m_motion_index > 5)
 		m_motion_index = 0;
+
+	
 }
 
 //•`‰æˆ—
@@ -68,9 +70,14 @@ void Game::Draw()
 		DrawSphere3D(VGet(i % 4 * 10, 0.0f, i / 4 * 10), 5.0f, 36, GetColor(255, 255, 255), GetColor(255, 255, 255), TRUE);
 	}*/
 
-	m_renderer->DrawMotion3D("test", m_motion_index, Math::Vector3(0, 0, 0), 64);
+	/*m_renderer->DrawMotion3D("test", m_motion_index, Math::Vector3(0, 0, 0), 64);
 	m_renderer->DrawTexture3D("test", Math::Vector3(0, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f));
-	m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 500);
+	m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 500);*/
+
+	m_renderer->GetDepthSort()->AddTransparentObj(Device::TransparentObj("test", -1, Math::Vector3(2, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f)));
+	m_renderer->GetDepthSort()->AddTransparentObj(Device::TransparentObj("test", -1, Math::Vector3(0, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f)));
+	m_renderer->GetDepthSort()->Sort(m_gameDevice->GetProjector()->Position());
+	m_renderer->DrawTransparentObj();
 
 	m_renderer->Swap();
 }

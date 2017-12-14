@@ -35,6 +35,8 @@ namespace Device
 		///<summary>BackBuffer‚ÆŒðŠ·</summary>
 		void Swap();
 
+		std::shared_ptr<DepthSort> GetDepthSort();
+
 #pragma endregion
 
 
@@ -68,6 +70,8 @@ namespace Device
 
 
 #pragma region 3D RenderŠÖ˜A
+
+
 
 		///<summary>3D‹óŠÔ‚ÅTexture‚ð•`‰æ</summary>
 		///<param name="textureName">Asset–¼</param>
@@ -106,6 +110,8 @@ namespace Device
 			std::string texture_name, Math::Vector3 position, 
 			float scale, float angle, Color color, bool horizen_flip = false);
 
+		void DrawTransparentObj();
+
 #pragma endregion
 
 
@@ -138,7 +144,6 @@ namespace Device
 			std::string text, Math::Vector2 position, bool center = false);
 
 #pragma endregion
-
 
 	private:
 		std::shared_ptr<ContentManager> m_contents;				//Content Manager

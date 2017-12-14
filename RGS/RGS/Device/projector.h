@@ -25,6 +25,8 @@ namespace Device
 		///<param name="target">注目目標</param>
 		void SetTarget(Math::Vector3 target);
 
+		Math::Vector3 Position();
+
 	private:
 		///<summary>Viewを更新（移動などがある場合）</summary>
 		void UpdateView();

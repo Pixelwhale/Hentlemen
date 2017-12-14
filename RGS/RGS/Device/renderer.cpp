@@ -10,6 +10,8 @@ using namespace Device;
 Renderer::Renderer(std::shared_ptr<ContentManager> contents)
 {
 	m_contents = contents;
+	m_depthSort = std::make_shared<DepthSort>();
+	m_depthSort->Clear();
 }
 
 Renderer::Renderer(const Renderer&)
@@ -27,21 +29,30 @@ void Renderer::Initialize()
 	SetWriteZBuffer3D(TRUE);			// Ｚバッファへの書き込みを有効にする
 }
 
-void Renderer::Release() 
+void Renderer::Release()
 {
 	m_contents->Release();						//Textureを解放処理
 	m_contents = 0;
+
+	m_depthSort->Clear();
+	m_depthSort = 0;
 }
 
 void Renderer::Clear(int r, int g, int b)
 {
 	DxLib::SetBackgroundColor(r, g, b);			//ClearColor設定
 	DxLib::ClearDrawScreen();					//画面クリア
+	m_depthSort->Clear();
 }
 
 void Renderer::Swap()
 {
 	DxLib::ScreenFlip();						//BackBufferと交換
+}
+
+std::shared_ptr<DepthSort> Renderer::GetDepthSort()
+{
+	return m_depthSort;
 }
 
 #pragma region 2D Render関連
@@ -78,7 +89,7 @@ void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 pos
 
 #pragma region 3D Render関連
 
-void Renderer::DrawTexture3D(std::string texture_name, Math::Vector3 position, 
+void Renderer::DrawTexture3D(std::string texture_name, Math::Vector3 position,
 	float scale, float alpha)
 {
 	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
@@ -129,8 +140,8 @@ void Renderer::DrawMotion3D(std::string texture_name, int index,
 	Math::Vector3 position, float scale, float angle, Color color)
 {
 	SetDrawBright(
-		(int)(color.r * color.A()), 
-		(int)(color.g * color.A()), 
+		(int)(color.r * color.A()),
+		(int)(color.g * color.A()),
 		(int)(color.b * color.A()));					//色設定
 
 	DrawBillboard3D(
@@ -141,6 +152,33 @@ void Renderer::DrawMotion3D(std::string texture_name, int index,
 		true, false);									//alpha使用, 水平反転
 
 	SetDrawBright(255, 255, 255);						//色を戻す
+}
+
+void Renderer::DrawTransparentObj()
+{
+	std::vector<TransparentObj> draw_list = m_depthSort->DrawList();
+
+	for (auto& obj : draw_list)
+	{
+		if (obj.index == -1)
+		{
+			DrawTexture3D(
+				obj.texture_name,
+				obj.position,
+				obj.scale,
+				obj.angle,
+				obj.color);
+			continue;
+		}
+
+		DrawMotion3D(
+			obj.texture_name,
+			obj.index,
+			obj.position,
+			obj.scale,
+			obj.angle,
+			obj.color);
+	}
 }
 
 #pragma endregion
@@ -191,7 +229,7 @@ void Renderer::DrawString(
 	std::string text, Math::Vector2 position, bool center)
 {
 	int handle = m_contents->FontHandle("Arial");
-	if (center) 
+	if (center)
 	{
 		int xSize = GetDrawStringWidthToHandle(
 			text.c_str(), text.length(), handle);
