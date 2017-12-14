@@ -52,6 +52,23 @@ void ContentManager::Release()
 	m_font.clear();
 }
 
+
+#pragma region Model関連
+
+void ContentManager::LoadModel(std::string file_name, std::string file_extention, std::string path) 
+{
+	int handle = MV1LoadModel((path + file_name + file_extention).c_str());
+	m_models[file_name] = handle;			//ハンドル追加
+}
+
+int ContentManager::ModelHandle(std::string model_name) 
+{
+	return m_models[model_name];
+}
+
+#pragma endregion
+
+
 #pragma region Texture関連
 
 void ContentManager::LoadTexture(

@@ -30,6 +30,8 @@ void Game::Load()
 	m_contentManager->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
 
 	m_contentManager->LoadFont("MS UI Gothic", 50, 3);			//Word‚ÅFont–¼‚ðŒ©‚é
+
+	//m_contentManager->LoadModel("block_model", ".fbx");
 }
 
 //ƒRƒ“ƒeƒ“ƒc‰ð•ú
@@ -74,10 +76,12 @@ void Game::Draw()
 	m_renderer->DrawTexture3D("test", Math::Vector3(0, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f));
 	m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 500);*/
 
-	m_renderer->GetDepthSort()->AddTransparentObj(Device::TransparentObj("test", -1, Math::Vector3(2, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f)));
+	/*m_renderer->GetDepthSort()->AddTransparentObj(Device::TransparentObj("test", -1, Math::Vector3(2, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f)));
 	m_renderer->GetDepthSort()->AddTransparentObj(Device::TransparentObj("test", -1, Math::Vector3(0, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f)));
 	m_renderer->GetDepthSort()->Sort(m_gameDevice->GetProjector()->Position());
-	m_renderer->DrawTransparentObj();
+	m_renderer->DrawTransparentObj();*/
+
+	//m_renderer->DrawModel("block_model", Math::Vector3(0, 0, 0), Math::Vector3(10, 10, 10), Math::Vector3(0, 0, 0));
 
 	m_renderer->Swap();
 }

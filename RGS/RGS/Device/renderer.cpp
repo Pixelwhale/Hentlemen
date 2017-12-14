@@ -89,6 +89,16 @@ void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 pos
 
 #pragma region 3D RenderŠÖ˜A
 
+void Renderer::DrawModel(std::string model_name, Math::Vector3 position,
+	Math::Vector3 size, Math::Vector3 rotation)
+{
+	int model = m_contents->ModelHandle(model_name);						//ƒnƒ“ƒhƒ‹‚ðŽæ“¾
+	MV1SetScale(model, VGet(size.x, size.y, size.z));						//Scale
+	MV1SetRotationXYZ(model, VGet(rotation.x, rotation.y, rotation.z));		//‰ñ“]
+	MV1SetPosition(model, VGet(position.x, position.y, position.z));		//ˆÚ“®
+	MV1DrawModel(model);													//•`‰æ
+}
+
 void Renderer::DrawTexture3D(std::string texture_name, Math::Vector3 position,
 	float scale, float alpha)
 {

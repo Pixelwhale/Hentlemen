@@ -43,25 +43,25 @@ namespace Device
 #pragma region 2D Render関連
 
 		///<summary>Textureを描画</summary>
-		///<param name="textureName">Asset名</param>
+		///<param name="texture_name">Asset名</param>
 		///<param name="index">何枚目</param>
 		///<param name="position">描画位置</param>
 		///<param name="alpha">透明度</param>
 		void DrawMotion(std::string texture_name, int index, Math::Vector2 position, float alpha = 1.0f);
 
 		///<summary>Textureを描画</summary>
-		///<param name="textureName">Asset名</param>
+		///<param name="texture_name">Asset名</param>
 		///<param name="position">描画位置</param>
 		void DrawTexture(std::string texture_name, Math::Vector2 position, float alpha = 1.0f);
 
 		///<summary>Textureを描画</summary>
-		///<param name="textureName">Asset名</param>
+		///<param name="texture_name">Asset名</param>
 		///<param name="position">描画位置</param>
 		///<param name="pivot">回転、スケール中心</param>
 		///<param name="scale">拡大縮小</param>
 		///<param name="angle">回転（ラジアン）</param>
 		///<param name="color">色</param>
-		///<param name="horizenFlip">水平反転？</param>
+		///<param name="horizen_flip">水平反転？</param>
 		void DrawTexture(
 			std::string texture_name, Math::Vector2 position,
 			Math::Vector2 pivot, Math::Vector2 scale,
@@ -71,10 +71,16 @@ namespace Device
 
 #pragma region 3D Render関連
 
-
+		///<summary>モデルを描画</summary>
+		///<param name="model_name">Asset名</param>
+		///<param name="position">描画位置</param>
+		///<param name="size">大きさ</param>
+		///<param name="rotation">回転</param>
+		void DrawModel(std::string model_name, Math::Vector3 position, 
+			Math::Vector3 size, Math::Vector3 rotation);
 
 		///<summary>3D空間でTextureを描画</summary>
-		///<param name="textureName">Asset名</param>
+		///<param name="texture_name">Asset名</param>
 		///<param name="index">何枚目</param>
 		///<param name="position">描画位置</param>
 		///<param name="alpha">透明度</param>
@@ -82,7 +88,7 @@ namespace Device
 			Math::Vector3 position, float scales, float alpha = 1.0f);
 
 		///<summary>3D空間でTextureを描画</summary>
-		///<param name="textureName">Asset名</param>
+		///<param name="texture_name">Asset名</param>
 		///<param name="index">何枚目</param>
 		///<param name="position">描画位置</param>
 		///<param name="scale">大きさ（Widthの大きさで同倍率）</param>
@@ -92,7 +98,7 @@ namespace Device
 			Math::Vector3 position, float scale, float angle, Color color);
 
 		///<summary>3D空間でTextureを描画</summary>
-		///<param name="textureName">Asset名</param>
+		///<param name="texture_name">Asset名</param>
 		///<param name="position">描画位置</param>
 		///<param name="scale">拡大縮小(Xのsizeを基準で何pixel)</param>
 		///<param name="alpha">透明度</param>
@@ -100,12 +106,12 @@ namespace Device
 			float scale, float alpha = 1.0f);
 
 		///<summary>3D空間でTextureを描画</summary>
-		///<param name="textureName">Asset名</param>
+		///<param name="texture_name">Asset名</param>
 		///<param name="position">描画位置</param>
 		///<param name="scale">拡大縮小(Xのsizeを基準で何pixel)</param>
 		///<param name="angle">回転（ラジアン）</param>
 		///<param name="color">色</param>
-		///<param name="horizenFlip">水平反転？</param>
+		///<param name="horizen_flip">水平反転？</param>
 		void DrawTexture3D(
 			std::string texture_name, Math::Vector3 position, 
 			float scale, float angle, Color color, bool horizen_flip = false);
@@ -121,7 +127,7 @@ namespace Device
 		///<param name="textureName">文字列</param>
 		///<param name="position">描画位置</param>
 		///<param name="color">色</param>
-		///<param name="fontName">Font名</param>
+		///<param name="font_name">Font名</param>
 		///<param name="center">中央置き</param>
 		void DrawString(
 			std::string text, std::string font_name, Math::Vector2 position, 
