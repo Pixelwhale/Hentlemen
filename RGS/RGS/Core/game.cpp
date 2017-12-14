@@ -31,7 +31,7 @@ void Game::Load()
 
 	m_contentManager->LoadFont("MS UI Gothic", 50, 3);			//Word‚ÅFont–¼‚ðŒ©‚é
 
-	//m_contentManager->LoadModel("block_model", ".fbx");
+	m_contentManager->LoadModel("test", ".mv1");
 }
 
 //ƒRƒ“ƒeƒ“ƒc‰ð•ú
@@ -81,7 +81,7 @@ void Game::Draw()
 	m_renderer->GetDepthSort()->Sort(m_gameDevice->GetProjector()->Position());
 	m_renderer->DrawTransparentObj();*/
 
-	//m_renderer->DrawModel("block_model", Math::Vector3(0, 0, 0), Math::Vector3(10, 10, 10), Math::Vector3(0, 0, 0));
+	m_renderer->DrawModel("test", Math::Vector3(0, 0, 0), Math::Vector3(10, 10, 10), Math::Vector3(0, 0, 0));
 
 	m_renderer->Swap();
 }

@@ -190,6 +190,9 @@
     <Image Include="Content\Texture\load.png" />
     <Image Include="Content\Texture\test.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Model\test.mv1" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
