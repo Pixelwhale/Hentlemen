@@ -60,7 +60,7 @@ namespace Device
 		std::vector<TransparentObj>& DrawList();
 
 	private:
-		std::vector<TransparentObj>	m_drawList;			//描画リスト
+		std::vector<TransparentObj>	m_draw_list;			//描画リスト
 
 	};
 }

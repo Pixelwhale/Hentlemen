@@ -11,8 +11,8 @@ using namespace Core;
 
 Application::Application() 
 {
-	m_inputState = 0;
-	m_contentManager = 0;
+	m_input_state = 0;
+	m_content_manager = 0;
 	m_renderer = 0;
 }
 
@@ -38,24 +38,24 @@ bool Application::InitWindow()
 
 #pragma region InputState初期化
 
-	m_inputState = std::make_shared<InputState>();
-	if (!m_inputState)						//失敗したらFalseを返す
+	m_input_state = std::make_shared<InputState>();
+	if (!m_input_state)						//失敗したらFalseを返す
 		return false;
 
-	result = m_inputState->Initialize(m_hInstance, m_hwnd);			//Inputを初期化
+	result = m_input_state->Initialize(m_hInstance, m_hwnd);			//Inputを初期化
 	if (!result)
 		return false;
 
 #pragma endregion
 
 #pragma region ContentManager初期化
-	m_contentManager = std::make_shared<Device::ContentManager>();
-	m_contentManager->Initialize();
+	m_content_manager = std::make_shared<Device::ContentManager>();
+	m_content_manager->Initialize();
 #pragma endregion
 
 #pragma region Renderer初期化
 
-	m_renderer = std::make_shared<Device::Renderer>(m_contentManager);
+	m_renderer = std::make_shared<Device::Renderer>(m_content_manager);
 	m_renderer->Initialize();
 
 #pragma endregion
@@ -73,7 +73,7 @@ void Application::Run()
 
 	while (ProcessMessage()== 0 && !IsEnd())						//終了しない限りGameLoop
 	{
-		if (!m_inputState->Update())		//InputState更新
+		if (!m_input_state->Update())		//InputState更新
 			break;
 
 		Update();							//Gameのアップデート
@@ -88,10 +88,10 @@ void Application::ShutDown()
 {
 	SetMouseDispFlag(true);								//Mouse表示
 
-	if (m_inputState)									//InputStateをシャットダウン処理
+	if (m_input_state)									//InputStateをシャットダウン処理
 	{
-		m_inputState->ShutDown();
-		m_inputState = 0;
+		m_input_state->ShutDown();
+		m_input_state = 0;
 	}
 
 	if (m_renderer)										//Rendererをシャットダウン処理
@@ -100,10 +100,10 @@ void Application::ShutDown()
 		m_renderer = 0;
 	}
 
-	if (m_contentManager) 								//Contentをシャットダウン処理
+	if (m_content_manager) 								//Contentをシャットダウン処理
 	{
-		m_contentManager->Release();
-		m_contentManager = 0;
+		m_content_manager->Release();
+		m_content_manager = 0;
 	}
 
 	DxLib_End();										//DXLib終了処理

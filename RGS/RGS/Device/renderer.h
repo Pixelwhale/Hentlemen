@@ -153,6 +153,6 @@ namespace Device
 
 	private:
 		std::shared_ptr<ContentManager> m_contents;				//Content Manager
-		std::shared_ptr<DepthSort>		m_depthSort;			//描画順をソートするクラス
+		std::shared_ptr<DepthSort>		m_depth_sort;			//描画順をソートするクラス
 	};
 }

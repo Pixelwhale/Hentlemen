@@ -50,13 +50,13 @@ namespace Core
 		void UpdateKeyboard();
 
 	private:
-		IDirectInput8* m_directInput;				//Input Device
+		IDirectInput8* m_direct_input;				//Input Device
 		IDirectInputDevice8* m_keyboard;			//Keyboard Device
 		IDirectInputDevice8* m_mouse;				//Mouse Device
 
-		unsigned char m_ckeyboardState[256];		//このフレームのKeyState
-		unsigned char m_pkeyboardState[256];		//前フレームのKeyState
-		DIMOUSESTATE m_mouseState;					//MouseState
-		int m_mouseX, m_mouseY;						//Mouseの位置
+		unsigned char m_current_keyboard_state[256];		//このフレームのKeyState
+		unsigned char m_previous_keyboard_state[256];		//前フレームのKeyState
+		DIMOUSESTATE m_mouse_state;					//MouseState
+		int m_mouse_x, m_mouse_y;						//Mouseの位置
 	};
 }
