@@ -9,8 +9,8 @@ using namespace Actor;
 
 CharacterMove::CharacterMove(int move, int jump)
 {
-	this->m_move = move;
-	this->m_jump = jump;
+	m_move = move;
+	m_jump = jump;
 }
 
 CharacterMove::~CharacterMove()
