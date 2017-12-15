@@ -24,10 +24,13 @@ namespace Core
 		virtual bool IsEnd();			//終了確認するメソッド
 
 	private:
-		bool m_endFlag;					//ゲーム終了のフラグ
+		bool m_end_flag;					//ゲーム終了のフラグ
 
-		std::shared_ptr<Device::GameDevice> m_gameDevice;
+		std::shared_ptr<Device::GameDevice> m_game_device;
 
 		int m_motion_index;				//Test用
+		float m_dest_angle;				//Test用
+		float m_projector_angle;		//Test用
+		float m_zoom_rate;				//Test用
 	};
 }
