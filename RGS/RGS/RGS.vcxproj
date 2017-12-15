@@ -157,6 +157,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor\character_base.cpp" />
+    <ClCompile Include="Actor\character_move.cpp" />
+    <ClCompile Include="Actor\character_states.cpp" />
     <ClCompile Include="Color\color.cpp" />
     <ClCompile Include="Core\application.cpp" />
     <ClCompile Include="Core\game.cpp" />
@@ -172,6 +175,9 @@
     <ClCompile Include="Math\vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor\character_base.h" />
+    <ClInclude Include="Actor\character_move.h" />
+    <ClInclude Include="Actor\character_states.h" />
     <ClInclude Include="Color\color.h" />
     <ClInclude Include="Core\application.h" />
     <ClInclude Include="Core\game.h" />
