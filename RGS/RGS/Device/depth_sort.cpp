@@ -15,22 +15,22 @@ DepthSort::~DepthSort(){}
 
 void DepthSort::AddTransparentObj(TransparentObj obj)
 {
-	m_drawList.push_back(obj);
+	m_draw_list.push_back(obj);
 }
 
 void DepthSort::Clear()
 {
-	m_drawList.clear();
+	m_draw_list.clear();
 }
 
 void DepthSort::Sort(Math::Vector3 projector_pos)
 {
-	for (auto& obj:m_drawList)		//ƒJƒƒ‰‚Æ‚Ì‹——£‚ðŒvŽZ
+	for (auto& obj:m_draw_list)		//ƒJƒƒ‰‚Æ‚Ì‹——£‚ðŒvŽZ
 	{
 		obj.projection_dis = (projector_pos - obj.position).lengthSqrt();
 	}
 
-	std::sort(m_drawList.begin(), m_drawList.end(), [](const TransparentObj& first, const TransparentObj& second)
+	std::sort(m_draw_list.begin(), m_draw_list.end(), [](const TransparentObj& first, const TransparentObj& second)
 	{
 		return first.projection_dis > second.projection_dis;		//Sort
 	});
@@ -38,5 +38,5 @@ void DepthSort::Sort(Math::Vector3 projector_pos)
 
 std::vector<TransparentObj>& DepthSort::DrawList()
 {
-	return m_drawList;
+	return m_draw_list;
 }

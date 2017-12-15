@@ -10,8 +10,8 @@ using namespace Device;
 Renderer::Renderer(std::shared_ptr<ContentManager> contents)
 {
 	m_contents = contents;
-	m_depthSort = std::make_shared<DepthSort>();
-	m_depthSort->Clear();
+	m_depth_sort = std::make_shared<DepthSort>();
+	m_depth_sort->Clear();
 }
 
 Renderer::Renderer(const Renderer&)
@@ -34,15 +34,15 @@ void Renderer::Release()
 	m_contents->Release();						//Texture‚ð‰ð•úˆ—
 	m_contents = 0;
 
-	m_depthSort->Clear();
-	m_depthSort = 0;
+	m_depth_sort->Clear();
+	m_depth_sort = 0;
 }
 
 void Renderer::Clear(int r, int g, int b)
 {
 	DxLib::SetBackgroundColor(r, g, b);			//ClearColorÝ’è
 	DxLib::ClearDrawScreen();					//‰æ–ÊƒNƒŠƒA
-	m_depthSort->Clear();
+	m_depth_sort->Clear();
 }
 
 void Renderer::Swap()
@@ -52,7 +52,7 @@ void Renderer::Swap()
 
 std::shared_ptr<DepthSort> Renderer::GetDepthSort()
 {
-	return m_depthSort;
+	return m_depth_sort;
 }
 
 #pragma region 2D RenderŠÖ˜A
@@ -166,7 +166,7 @@ void Renderer::DrawMotion3D(std::string texture_name, int index,
 
 void Renderer::DrawTransparentObj()
 {
-	std::vector<TransparentObj> draw_list = m_depthSort->DrawList();
+	std::vector<TransparentObj> draw_list = m_depth_sort->DrawList();
 
 	for (auto& obj : draw_list)
 	{

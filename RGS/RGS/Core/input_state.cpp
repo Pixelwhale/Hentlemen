@@ -10,7 +10,7 @@ using namespace Core;
 
 InputState::InputState()
 {
-	m_directInput = 0;
+	m_direct_input = 0;
 	m_keyboard = 0;
 	m_mouse = 0;
 }
@@ -28,17 +28,17 @@ bool InputState::Initialize(HINSTANCE hInstance, HWND hwnd)
 {
 	HRESULT result;
 
-	m_mouseX = 0;
-	m_mouseY = 0;
+	m_mouse_x = 0;
+	m_mouse_y = 0;
 
 	result = DirectInput8Create(					//Initialize input（デバイスの生成はこの後）
 								hInstance,
 								DIRECTINPUT_VERSION, IID_IDirectInput8,
-								(void**)&m_directInput, NULL);
+								(void**)&m_direct_input, NULL);
 	if (FAILED(result))
 		return false;
 
-	result = m_directInput->CreateDevice(GUID_SysKeyboard, &m_keyboard, NULL);			//キーボードデバイスを生成
+	result = m_direct_input->CreateDevice(GUID_SysKeyboard, &m_keyboard, NULL);			//キーボードデバイスを生成
 	if (FAILED(result))
 		return false;
 
@@ -54,7 +54,7 @@ bool InputState::Initialize(HINSTANCE hInstance, HWND hwnd)
 	if (FAILED(result))
 		return false;
 
-	result = m_directInput->CreateDevice(GUID_SysMouse, &m_mouse, NULL);				//マウスデバイスを生成
+	result = m_direct_input->CreateDevice(GUID_SysMouse, &m_mouse, NULL);				//マウスデバイスを生成
 	if (FAILED(result))
 		return false;
 
@@ -90,10 +90,10 @@ void InputState::ShutDown()
 		m_keyboard = 0;
 	}
 
-	if (m_directInput)			//Inputを解放
+	if (m_direct_input)			//Inputを解放
 	{
-		m_directInput->Release();
-		m_directInput = 0;
+		m_direct_input->Release();
+		m_direct_input = 0;
 	}
 }
 
@@ -118,7 +118,7 @@ bool InputState::Update()
 //このフレームのKeyState更新
 bool InputState::ReadKeyboard()
 {
-	HRESULT result = m_keyboard->GetDeviceState(sizeof(m_ckeyboardState), (LPVOID)&m_ckeyboardState);
+	HRESULT result = m_keyboard->GetDeviceState(sizeof(m_current_keyboard_state), (LPVOID)&m_current_keyboard_state);
 
 	if (result == DI_OK)		//Keyboard取得できたらTrue
 	{
@@ -138,7 +138,7 @@ bool InputState::ReadKeyboard()
 //このフレームのMouseState更新
 bool InputState::ReadMouse()
 {
-	HRESULT result = m_mouse->GetDeviceState(sizeof(DIMOUSESTATE), (LPVOID)&m_mouseState);
+	HRESULT result = m_mouse->GetDeviceState(sizeof(DIMOUSESTATE), (LPVOID)&m_mouse_state);
 
 	if (result == DI_OK)		//Mouse取得できたらTrue
 	{
@@ -158,44 +158,44 @@ bool InputState::ReadMouse()
 //前フレームのKeyboard更新
 void InputState::UpdateKeyboard()
 {
-	for (int i = 0; i < sizeof(m_ckeyboardState); i++)
+	for (int i = 0; i < sizeof(m_current_keyboard_state); i++)
 	{
-		m_pkeyboardState[i] = m_ckeyboardState[i];
+		m_previous_keyboard_state[i] = m_current_keyboard_state[i];
 	}
 }
 
 //マウスの位置を画面内にClamp
 void InputState::ClampMousePosition()
 {
-	m_mouseX += m_mouseState.lX;
-	m_mouseY += m_mouseState.lY;
+	m_mouse_x += m_mouse_state.lX;
+	m_mouse_y += m_mouse_state.lY;
 
-	if (m_mouseX < 0)
-		m_mouseX = 0;
-	if (m_mouseY < 0)
-		m_mouseY = 0;
+	if (m_mouse_x < 0)
+		m_mouse_x = 0;
+	if (m_mouse_y < 0)
+		m_mouse_y = 0;
 
-	if (m_mouseX > WindowDef::kScreenWidth)
-		m_mouseX = WindowDef::kScreenWidth;
-	if (m_mouseY > WindowDef::kScreenHeight)
-		m_mouseY = WindowDef::kScreenHeight;
+	if (m_mouse_x > WindowDef::kScreenWidth)
+		m_mouse_x = WindowDef::kScreenWidth;
+	if (m_mouse_y > WindowDef::kScreenHeight)
+		m_mouse_y = WindowDef::kScreenHeight;
 }
 
 //マウスの位置
 void InputState::MousePosition(int& mouse_x, int& mouse_y)
 {
-	mouse_x = m_mouseX;
-	mouse_y = m_mouseY;
+	mouse_x = m_mouse_x;
+	mouse_y = m_mouse_y;
 }
 
 //指定のキーが押されているか
 bool InputState::IsKeyDown(unsigned int dik_key)
 {
-	return (m_ckeyboardState[dik_key] & 0x80) != 0;
+	return (m_current_keyboard_state[dik_key] & 0x80) != 0;
 }
 
 //指定のキーがこのフレームで押されているか
 bool InputState::IsKeyTrigger(unsigned int dik_key)
 {
-	return (m_pkeyboardState[dik_key] & 0x80) == 0 && IsKeyDown(dik_key);
+	return (m_previous_keyboard_state[dik_key] & 0x80) == 0 && IsKeyDown(dik_key);
 }
