@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor\Buff\buff_base.cpp" />
     <ClCompile Include="Actor\character_base.cpp" />
     <ClCompile Include="Actor\character_move.cpp" />
     <ClCompile Include="Actor\character_states.cpp" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Math\vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor\Buff\buff_base.h" />
     <ClInclude Include="Actor\character_base.h" />
     <ClInclude Include="Actor\character_move.h" />
     <ClInclude Include="Actor\character_states.h" />
