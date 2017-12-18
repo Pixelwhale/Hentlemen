@@ -161,6 +161,7 @@
     <ClCompile Include="Actor\character_base.cpp" />
     <ClCompile Include="Actor\character_move.cpp" />
     <ClCompile Include="Actor\character_states.cpp" />
+    <ClCompile Include="BattleSystem\phase_manager.cpp" />
     <ClCompile Include="Color\color.cpp" />
     <ClCompile Include="Core\application.cpp" />
     <ClCompile Include="Core\game.cpp" />
@@ -180,6 +181,10 @@
     <ClInclude Include="Actor\character_base.h" />
     <ClInclude Include="Actor\character_move.h" />
     <ClInclude Include="Actor\character_states.h" />
+    <ClInclude Include="BattleSystem\battle_state.h" />
+    <ClInclude Include="BattleSystem\i_phase.h" />
+    <ClInclude Include="BattleSystem\phase_enum.h" />
+    <ClInclude Include="BattleSystem\phase_manager.h" />
     <ClInclude Include="Color\color.h" />
     <ClInclude Include="Core\application.h" />
     <ClInclude Include="Core\game.h" />
