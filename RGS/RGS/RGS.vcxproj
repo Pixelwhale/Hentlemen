@@ -175,6 +175,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
+    <ClCompile Include="Scene\scene_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -198,6 +199,9 @@
     <ClInclude Include="Device\renderer.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
+    <ClInclude Include="Scene\scene_base.h" />
+    <ClInclude Include="Scene\scene_manager.h" />
+    <ClInclude Include="Scene\scene_type.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />
