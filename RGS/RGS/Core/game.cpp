@@ -62,13 +62,13 @@ void Game::Update()
 
 	if (m_projector_angle > m_dest_angle) 
 	{
-		m_projector_angle--;
+		m_projector_angle-=3;
 		m_game_device->GetProjector()->Rotate(m_projector_angle * 3.14159f / 180.0f);
 	}
 
 	if (m_projector_angle < m_dest_angle)
 	{
-		m_projector_angle++;
+		m_projector_angle+=3;
 		m_game_device->GetProjector()->Rotate(m_projector_angle * 3.14159f / 180.0f);
 	}
 
@@ -111,7 +111,7 @@ void Game::Draw()
 
 	/*m_renderer->GetDepthSort()->AddTransparentObj(Device::TransparentObj("test", -1, Math::Vector3(2, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f)));
 	m_renderer->GetDepthSort()->AddTransparentObj(Device::TransparentObj("test", -1, Math::Vector3(0, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f)));
-	m_renderer->GetDepthSort()->Sort(m_gameDevice->GetProjector()->Position());
+	m_renderer->GetDepthSort()->Sort(m_game_device->GetProjector()->Position());
 	m_renderer->DrawTransparentObj();*/
 
 	for (int i = 0; i < 25; i++) 
