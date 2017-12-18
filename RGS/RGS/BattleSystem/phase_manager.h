@@ -4,8 +4,8 @@
 // 内容　：進行段階のマネージャー
 //-------------------------------------------------------
 #pragma once
-#include <map>:
-#include <memory>;
+#include <map>
+#include <memory>
 #include <BattleSystem\i_phase.h>
 #include <BattleSystem\phase_enum.h>
 #include <BattleSystem\battle_state.h>
