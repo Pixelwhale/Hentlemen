@@ -1,4 +1,15 @@
 #include <BattleSystem\phase_manager.h>
+#include <BattleSystem\Phase\phase_ai.h>
+#include <BattleSystem\Phase\phase_animation.h>
+#include <BattleSystem\Phase\phase_caculate.h>
+#include <BattleSystem\Phase\phase_check_end.h>
+#include <BattleSystem\Phase\phase_end.h>
+#include <BattleSystem\Phase\phase_event.h>
+#include <BattleSystem\Phase\phase_lose.h>
+#include <BattleSystem\Phase\phase_player.h>
+#include <BattleSystem\Phase\phase_start.h>
+#include <BattleSystem\Phase\phase_wait.h>
+#include <BattleSystem\Phase\phase_win.h>
 
 using namespace BattleSystem;
 
@@ -17,9 +28,20 @@ PhaseManager::~PhaseManager()
 void PhaseManager::Initialize()
 {
 	Clear();
-	m_battle_state = BattleState::kBattle;	//í“¬ó‘Ô‚É‚·‚é
 
-	//ToDo:Phase‚ÌÀ‘•‚Æ’Ç‰Á
+	m_phases[PhaseEnum::kWait] = std::make_shared<PhaseWait>();
+	m_phases[PhaseEnum::kStartTurn] = std::make_shared<PhaseStart>();
+	m_phases[PhaseEnum::kPlayerControl] = std::make_shared<PhasePlayer>();
+	m_phases[PhaseEnum::kAIControl] = std::make_shared<PhaseAI>();
+	m_phases[PhaseEnum::kCaculate] = std::make_shared<PhaseCalculate>();
+	m_phases[PhaseEnum::kAnimation] = std::make_shared<PhaseAnimation>();
+	m_phases[PhaseEnum::kCheckEnd] = std::make_shared<PhaseCheckEnd>();
+	m_phases[PhaseEnum::kEndTurn] = std::make_shared<PhaseEnd>();
+	m_phases[PhaseEnum::kEvent] = std::make_shared<PhaseEvent>();
+	m_phases[PhaseEnum::kWin] = std::make_shared<PhaseWin>();
+	m_phases[PhaseEnum::kLose] = std::make_shared<PhaseLose>();
+
+	ChangePhase(PhaseEnum::kWait);
 }
 
 void PhaseManager::Clear()
@@ -52,12 +74,20 @@ void PhaseManager::Draw()
 		m_current_phase.lock()->Draw();		//’†g‚ğ•`‰æ
 }
 
-BattleState PhaseManager::CurrentState()
-{
-	return m_battle_state;
-}
-
 void PhaseManager::ChangePhase(PhaseEnum phase_enum)
 {
+	m_phase_state = phase_enum;
 	m_current_phase = m_phases[phase_enum];	//w’è‚Ì’iŠK‚É•Ï‚í‚é
+
+	m_current_phase.lock()->Initialize();	//Phase‚²‚Æ‚Ì‰Šú‰»ˆ—
+}
+
+bool  PhaseManager::IsEnd() 
+{
+	return m_phase_state == PhaseEnum::kWin || m_phase_state == PhaseEnum::kLose;
+}
+
+bool  PhaseManager::IsWin() 
+{
+	return m_phase_state == PhaseEnum::kWin;
 }
