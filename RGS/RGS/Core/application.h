@@ -6,8 +6,7 @@
 #pragma once
 #include <Windows.h>
 #include <Core\input_state.h>
-#include <Device\renderer.h>
-#include <Device\content_manager.h>
+#include <Device\game_device.h>
 #include <memory>
 
 namespace Core
@@ -50,8 +49,7 @@ namespace Core
 
 	protected:
 		std::shared_ptr<InputState> m_input_state;					//Input State
-		std::shared_ptr<Device::Renderer> m_renderer;				//Renderer
-		std::shared_ptr<Device::ContentManager> m_content_manager;	//Content Manager
+		std::shared_ptr<Device::GameDevice> m_game_device;			//Game Device
 	};
 }
 

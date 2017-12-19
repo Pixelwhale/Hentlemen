@@ -13,15 +13,21 @@
 
 namespace Device
 {
-	class GameDevice
+	static class GameDevice
 	{
 	public:
-		GameDevice(
-			std::shared_ptr<Core::InputState>	input,
-			std::shared_ptr<Renderer>			renderer,
-			std::shared_ptr<ContentManager>		content);
-		GameDevice(const GameDevice&);
 		~GameDevice();
+		///<summary>インスタンスを取得</summary>
+		static std::shared_ptr<GameDevice> GetInstance() 
+		{
+			static std::shared_ptr<GameDevice> instance(new GameDevice);
+			return instance;
+		}
+
+		///<summary>初期化</summary>
+		bool Initialize(HINSTANCE h_instance, HWND hwnd);
+		///<summary>解放処理</summary>
+		void ShutDown();
 
 		///<summary>入力装置</summary>
 		std::shared_ptr<Core::InputState>	GetInput();
@@ -33,6 +39,10 @@ namespace Device
 		std::shared_ptr<ContentManager>		GetContent();
 		///<summary>ランダム</summary>
 		Random*								GetRandom();
+
+	private:
+		GameDevice();
+		GameDevice(const GameDevice&);
 
 	private:
 		std::shared_ptr<Core::InputState>	m_input;			//入力装置

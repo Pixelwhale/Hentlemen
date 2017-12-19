@@ -12,8 +12,7 @@ using namespace Core;
 Application::Application() 
 {
 	m_input_state = 0;
-	m_content_manager = 0;
-	m_renderer = 0;
+	m_game_device = 0;
 }
 
 bool Application::InitWindow()
@@ -36,29 +35,16 @@ bool Application::InitWindow()
 
 #pragma endregion
 
-#pragma region InputState初期化
+#pragma region GameDevice初期化
 
-	m_input_state = std::make_shared<InputState>();
-	if (!m_input_state)						//失敗したらFalseを返す
-		return false;
-
-	result = m_input_state->Initialize(m_hInstance, m_hwnd);			//Inputを初期化
+	m_game_device = Device::GameDevice::GetInstance();
+	result = m_game_device->Initialize(m_hInstance, m_hwnd);
 	if (!result)
 		return false;
 
 #pragma endregion
 
-#pragma region ContentManager初期化
-	m_content_manager = std::make_shared<Device::ContentManager>();
-	m_content_manager->Initialize();
-#pragma endregion
-
-#pragma region Renderer初期化
-
-	m_renderer = std::make_shared<Device::Renderer>(m_content_manager);
-	m_renderer->Initialize();
-
-#pragma endregion
+	m_input_state = m_game_device->GetInput();
 
 	return true;
 }
@@ -88,22 +74,9 @@ void Application::ShutDown()
 {
 	SetMouseDispFlag(true);								//Mouse表示
 
-	if (m_input_state)									//InputStateをシャットダウン処理
+	if (m_game_device)									//Game Deviceをシャットダウン処理
 	{
-		m_input_state->ShutDown();
-		m_input_state = 0;
-	}
-
-	if (m_renderer)										//Rendererをシャットダウン処理
-	{
-		m_renderer->Release();
-		m_renderer = 0;
-	}
-
-	if (m_content_manager) 								//Contentをシャットダウン処理
-	{
-		m_content_manager->Release();
-		m_content_manager = 0;
+		m_game_device->ShutDown();
 	}
 
 	DxLib_End();										//DXLib終了処理

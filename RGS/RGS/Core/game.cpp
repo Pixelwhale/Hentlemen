@@ -13,14 +13,11 @@ void Game::Initialize()
 	m_end_flag = false;
 	m_motion_index = 0;
 
-	m_game_device = std::make_shared<Device::GameDevice>(
-		m_input_state,
-		m_renderer,
-		m_content_manager);
-
 	m_projector_angle = 0;
 	m_dest_angle = 0;
 	m_zoom_rate = 100;
+
+	m_renderer = m_game_device->GetRenderer();
 
 	m_phase_manager = std::make_shared<BattleSystem::PhaseManager>();
 	m_phase_manager->Initialize(m_game_device);
@@ -29,13 +26,13 @@ void Game::Initialize()
 //ロードコンテンツ
 void Game::Load()
 {
-	m_content_manager->LoadTexture("load", ".png");
-	m_content_manager->LoadTexture("test", ".png");
-	m_content_manager->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
+	m_game_device->GetContent()->LoadTexture("load", ".png");
+	m_game_device->GetContent()->LoadTexture("test", ".png");
+	m_game_device->GetContent()->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
 
 	//m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//WordでFont名を見る
 
-	m_content_manager->LoadModel("test", ".mv1");
+	m_game_device->GetContent()->LoadModel("test", ".mv1");
 }
 
 //コンテンツ解放

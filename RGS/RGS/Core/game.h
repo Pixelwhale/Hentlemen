@@ -27,13 +27,12 @@ namespace Core
 	private:
 		bool m_end_flag;					//ゲーム終了のフラグ
 
-		std::shared_ptr<Device::GameDevice> m_game_device;
-
 		int m_motion_index;				//Test用
 		float m_dest_angle;				//Test用
 		float m_projector_angle;		//Test用
 		float m_zoom_rate;				//Test用
 
 		std::shared_ptr<BattleSystem::PhaseManager> m_phase_manager;
+		std::shared_ptr <Device::Renderer> m_renderer;
 	};
 }
