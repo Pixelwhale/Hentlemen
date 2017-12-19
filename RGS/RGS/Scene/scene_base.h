@@ -17,9 +17,9 @@ namespace Scene
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
 		virtual void Shutdown() = 0;
-		bool EndFlag() { return m_end_flag; };
+		bool IsEnd() { return m_end_flag; };
 		SceneType Next() { return m_next; };
-	private:
+	protected:
 		Device::GameDevice& m_game_device;
 		bool m_end_flag;
 		SceneType m_next;

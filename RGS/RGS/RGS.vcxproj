@@ -169,6 +169,7 @@
     <ClCompile Include="Device\content_manager.cpp" />
     <ClCompile Include="Device\depth_sort.cpp" />
     <ClCompile Include="Device\game_device.cpp" />
+    <ClCompile Include="Device\loader.cpp" />
     <ClCompile Include="Device\projector.cpp" />
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
@@ -200,7 +201,9 @@
     <ClInclude Include="Device\renderer.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
+    <ClInclude Include="Device\loader.h" />
     <ClInclude Include="Scene\loading.h" />
+    <ClInclude Include="Device\texture_loader.h" />
     <ClInclude Include="Scene\scene_base.h" />
     <ClInclude Include="Scene\scene_manager.h" />
     <ClInclude Include="Scene\scene_type.h" />
