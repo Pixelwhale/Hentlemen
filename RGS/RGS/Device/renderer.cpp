@@ -220,7 +220,7 @@ void Renderer::DrawString(
 	bool center)
 {
 	color = color * color.A();						//Alpha“K—p
-	int handle = m_contents->FontHandle("Arial");
+	int handle = m_contents->FontHandle("MS UI Gothic");
 	if (center)
 	{
 		int xSize = GetDrawStringWidthToHandle(
@@ -238,7 +238,7 @@ void Renderer::DrawString(
 void Renderer::DrawString(
 	std::string text, Math::Vector2 position, bool center)
 {
-	int handle = m_contents->FontHandle("Arial");
+	int handle = m_contents->FontHandle("MS UI Gothic");
 	if (center)
 	{
 		int xSize = GetDrawStringWidthToHandle(

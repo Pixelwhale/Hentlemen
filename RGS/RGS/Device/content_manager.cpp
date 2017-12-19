@@ -35,6 +35,7 @@ void ContentManager::Initialize()
 	m_font.clear();
 
 	LoadFont("Arial", -1, -1);
+	LoadFont("MS UI Gothic", -1, -1);
 }
 
 void ContentManager::Release()
