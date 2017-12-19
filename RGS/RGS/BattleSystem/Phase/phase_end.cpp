@@ -8,11 +8,13 @@
 
 using namespace BattleSystem;
 
-PhaseEnd::PhaseEnd()
+PhaseEnd::PhaseEnd(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhaseEnd::PhaseEnd(const PhaseEnd&)
+	:IPhase(NULL)
 {
 }
 
@@ -29,10 +31,15 @@ void PhaseEnd::Initialize()
 
 void PhaseEnd::Update()
 {
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_N)) 
+	{
+		m_end_flag = true;
+	}
 }
 
 void PhaseEnd::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("ƒ^[ƒ“I—¹\nN:Next", Math::Vector2());
 }
 
 

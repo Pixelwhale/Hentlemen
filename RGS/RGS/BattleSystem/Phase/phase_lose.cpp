@@ -7,11 +7,13 @@
 
 using namespace BattleSystem;
 
-PhaseLose::PhaseLose()
+PhaseLose::PhaseLose(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhaseLose::PhaseLose(const PhaseLose&)
+	:IPhase(NULL)
 {
 }
 
@@ -32,8 +34,8 @@ void PhaseLose::Update()
 
 void PhaseLose::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("”s–k", Math::Vector2());
 }
-
 
 PhaseEnum PhaseLose::NextPhase()
 {

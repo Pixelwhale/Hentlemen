@@ -11,7 +11,7 @@ namespace BattleSystem
 	class PhaseLose : public IPhase
 	{
 	public:
-		PhaseLose();
+		PhaseLose(std::shared_ptr<Device::GameDevice> game_device);
 		PhaseLose(const PhaseLose&);
 		~PhaseLose();
 

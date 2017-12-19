@@ -9,11 +9,13 @@
 
 using namespace BattleSystem;
 
-PhaseStart::PhaseStart()
+PhaseStart::PhaseStart(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhaseStart::PhaseStart(const PhaseStart&)
+	:IPhase(NULL)
 {
 }
 
@@ -32,16 +34,29 @@ void PhaseStart::Update()
 {
 	//Todo:CharacterManagerにアクセスして、次のキャラがPlayer側のキャラ、且つ混乱でない状態
 	//next phaseをPlayerにする
+
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_A))
+	{
+		m_next_phase = PhaseEnum::kAIControl;
+		m_end_flag = true;
+	}
+
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_P))
+	{
+		m_next_phase = PhaseEnum::kPlayerControl;
+		m_end_flag = true;
+	}
 }
 
 void PhaseStart::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("ターン開始\nA:AIに任せる\nP:Player操作", Math::Vector2());
 }
 
 
 PhaseEnum PhaseStart::NextPhase()
 {
-	return PhaseEnum::kStartTurn;
+	return m_next_phase;
 }
 
 bool PhaseStart::IsEnd()

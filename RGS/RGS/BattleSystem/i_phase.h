@@ -5,13 +5,18 @@
 //-------------------------------------------------------
 #pragma once
 #include <BattleSystem\phase_enum.h>
+#include <Device\game_device.h>
 
 namespace BattleSystem 
 {
 	class IPhase 
 	{
 	public:
-		~IPhase() {}
+		IPhase(std::shared_ptr<Device::GameDevice> game_device)
+			:m_game_device(game_device)
+		{
+		}
+		~IPhase(){ m_game_device = 0; }
 
 		///<summary>‰Šú‰»ˆ—</summary>
 		virtual void Initialize() = 0;
@@ -24,5 +29,8 @@ namespace BattleSystem
 		virtual PhaseEnum NextPhase() = 0;
 		///<summary>‚±‚Ì’iŠK‚ÍI‚í‚Á‚Ä‚¢‚é‚©</summary>
 		virtual bool IsEnd() = 0;
+
+	protected:
+		std::shared_ptr<Device::GameDevice> m_game_device;
 	};
 }

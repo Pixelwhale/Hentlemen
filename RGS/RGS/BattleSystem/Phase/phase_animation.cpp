@@ -7,11 +7,13 @@
 
 using namespace BattleSystem;
 
-PhaseAnimation::PhaseAnimation()
+PhaseAnimation::PhaseAnimation(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhaseAnimation::PhaseAnimation(const PhaseAnimation&)
+	:IPhase(NULL)
 {
 }
 
@@ -28,10 +30,15 @@ void PhaseAnimation::Initialize()
 
 void PhaseAnimation::Update()
 {
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_N)) 
+	{
+		m_end_flag = true;
+	}
 }
 
 void PhaseAnimation::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("アニメーション演出\nN:Next", Math::Vector2());
 }
 
 

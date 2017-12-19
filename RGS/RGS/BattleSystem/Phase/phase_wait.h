@@ -11,7 +11,7 @@ namespace BattleSystem
 	class PhaseWait : public IPhase
 	{
 	public:
-		PhaseWait();
+		PhaseWait(std::shared_ptr<Device::GameDevice> game_device);
 		PhaseWait(const PhaseWait&);
 		~PhaseWait();
 

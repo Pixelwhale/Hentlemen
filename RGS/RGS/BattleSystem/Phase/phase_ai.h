@@ -11,7 +11,7 @@ namespace BattleSystem
 	class PhaseAI : public IPhase
 	{
 	public:
-		PhaseAI();
+		PhaseAI(std::shared_ptr<Device::GameDevice> game_device);
 		PhaseAI(const PhaseAI&);
 		~PhaseAI();
 

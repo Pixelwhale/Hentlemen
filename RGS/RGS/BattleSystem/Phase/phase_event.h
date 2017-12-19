@@ -11,7 +11,7 @@ namespace BattleSystem
 	class PhaseEvent : public IPhase
 	{
 	public:
-		PhaseEvent();
+		PhaseEvent(std::shared_ptr<Device::GameDevice> game_device);
 		PhaseEvent(const PhaseEvent&);
 		~PhaseEvent();
 

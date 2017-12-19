@@ -7,11 +7,13 @@
 
 using namespace BattleSystem;
 
-PhasePlayer::PhasePlayer()
+PhasePlayer::PhasePlayer(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhasePlayer::PhasePlayer(const PhasePlayer&)
+	:IPhase(NULL)
 {
 }
 
@@ -29,10 +31,22 @@ void PhasePlayer::Initialize()
 void PhasePlayer::Update()
 {
 	//Todo:UŒ‚‚ª‚ ‚éê‡‚ÍCalculate’iŠK‚Ö
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_A)) 
+	{
+		m_next_phase = PhaseEnum::kCaculate;
+		m_end_flag = true;
+	}
+
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_E))
+	{
+		m_next_phase = PhaseEnum::kEndTurn;
+		m_end_flag = true;
+	}
 }
 
 void PhasePlayer::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("Player‘€ì\nA:Attack\nE:End Turn", Math::Vector2());
 }
 
 

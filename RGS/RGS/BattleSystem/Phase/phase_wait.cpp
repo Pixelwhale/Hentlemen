@@ -7,11 +7,13 @@
 
 using namespace BattleSystem;
 
-PhaseWait::PhaseWait()
+PhaseWait::PhaseWait(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhaseWait::PhaseWait(const PhaseWait&)
+	:IPhase(NULL)
 {
 }
 
@@ -27,10 +29,15 @@ void PhaseWait::Initialize()
 
 void PhaseWait::Update()
 {
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_N)) 
+	{
+		m_end_flag = true;
+	}
 }
 
 void PhaseWait::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("Time Line‚ð‘Ò‚Â\nN:Next", Math::Vector2());
 }
 
 

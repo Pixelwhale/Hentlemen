@@ -7,11 +7,13 @@
 
 using namespace BattleSystem;
 
-PhaseCheckEnd::PhaseCheckEnd()
+PhaseCheckEnd::PhaseCheckEnd(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhaseCheckEnd::PhaseCheckEnd(const PhaseCheckEnd&)
+	:IPhase(NULL)
 {
 }
 
@@ -29,10 +31,28 @@ void PhaseCheckEnd::Initialize()
 void PhaseCheckEnd::Update()
 {
 	//Todo:条件確認したあとに次のPhaseをWinかLoseにする
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_W)) 
+	{
+		m_next_phase = PhaseEnum::kWin;
+		m_end_flag = true;
+	}
+
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_L))
+	{
+		m_next_phase = PhaseEnum::kLose;
+		m_end_flag = true;
+	}
+
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_C))
+	{
+		m_next_phase = PhaseEnum::kWait;
+		m_end_flag = true;
+	}
 }
 
 void PhaseCheckEnd::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("終了条件確認\nW:Win\nL:Lose\nC:Continue", Math::Vector2());
 }
 
 

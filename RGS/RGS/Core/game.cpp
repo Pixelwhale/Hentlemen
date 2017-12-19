@@ -21,6 +21,9 @@ void Game::Initialize()
 	m_projector_angle = 0;
 	m_dest_angle = 0;
 	m_zoom_rate = 100;
+
+	m_phase_manager = std::make_shared<BattleSystem::PhaseManager>();
+	m_phase_manager->Initialize(m_game_device);
 }
 
 //ロードコンテンツ
@@ -30,7 +33,7 @@ void Game::Load()
 	m_content_manager->LoadTexture("test", ".png");
 	m_content_manager->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
 
-	m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//WordでFont名を見る
+	//m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//WordでFont名を見る
 
 	m_content_manager->LoadModel("test", ".mv1");
 }
@@ -83,6 +86,8 @@ void Game::Update()
 		m_zoom_rate += 1;
 		m_game_device->GetProjector()->Zoom(m_zoom_rate);
 	}
+
+	m_phase_manager->Update();
 }
 
 //描画処理
@@ -93,7 +98,7 @@ void Game::Draw()
 	m_renderer->DrawTexture("load", Math::Vector2(800, 500), Math::Vector2(0, 0),
 		Math::Vector2(1.0f, 1.0f), 30 * 3.14159f / 180,
 		Color(1.0f, 0.1f, 0.1f, 1.0f));
-	m_renderer->DrawTexture("load", Math::Vector2(0, 0), 0.1f);
+	//m_renderer->DrawTexture("load", Math::Vector2(0, 0), 0.1f);
 
 	m_renderer->DrawMotion("test", m_motion_index, Math::Vector2(0, 100));
 
@@ -119,6 +124,7 @@ void Game::Draw()
 		m_renderer->DrawModel("test", Math::Vector3(i % 5 * 10, 0,  i / 5 * 10), Math::Vector3(10, 10, 10), Math::Vector3(0, 0, 0));
 	}
 
+	m_phase_manager->Draw();
 
 	m_renderer->Swap();
 }

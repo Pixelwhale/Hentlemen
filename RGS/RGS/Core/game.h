@@ -6,6 +6,7 @@
 #pragma once
 #include <Core\application.h>
 #include <Device\game_device.h>
+#include <BattleSystem\phase_manager.h>
 
 namespace Core
 {
@@ -32,5 +33,7 @@ namespace Core
 		float m_dest_angle;				//Test—p
 		float m_projector_angle;		//Test—p
 		float m_zoom_rate;				//Test—p
+
+		std::shared_ptr<BattleSystem::PhaseManager> m_phase_manager;
 	};
 }

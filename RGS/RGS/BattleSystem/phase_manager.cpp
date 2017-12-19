@@ -25,21 +25,21 @@ PhaseManager::~PhaseManager()
 {
 }
 
-void PhaseManager::Initialize()
+void PhaseManager::Initialize(std::shared_ptr<Device::GameDevice> game_device)
 {
 	Clear();
 
-	m_phases[PhaseEnum::kWait] = std::make_shared<PhaseWait>();
-	m_phases[PhaseEnum::kStartTurn] = std::make_shared<PhaseStart>();
-	m_phases[PhaseEnum::kPlayerControl] = std::make_shared<PhasePlayer>();
-	m_phases[PhaseEnum::kAIControl] = std::make_shared<PhaseAI>();
-	m_phases[PhaseEnum::kCaculate] = std::make_shared<PhaseCalculate>();
-	m_phases[PhaseEnum::kAnimation] = std::make_shared<PhaseAnimation>();
-	m_phases[PhaseEnum::kCheckEnd] = std::make_shared<PhaseCheckEnd>();
-	m_phases[PhaseEnum::kEndTurn] = std::make_shared<PhaseEnd>();
-	m_phases[PhaseEnum::kEvent] = std::make_shared<PhaseEvent>();
-	m_phases[PhaseEnum::kWin] = std::make_shared<PhaseWin>();
-	m_phases[PhaseEnum::kLose] = std::make_shared<PhaseLose>();
+	m_phases[PhaseEnum::kWait] = std::make_shared<PhaseWait>(game_device);
+	m_phases[PhaseEnum::kStartTurn] = std::make_shared<PhaseStart>(game_device);
+	m_phases[PhaseEnum::kPlayerControl] = std::make_shared<PhasePlayer>(game_device);
+	m_phases[PhaseEnum::kAIControl] = std::make_shared<PhaseAI>(game_device);
+	m_phases[PhaseEnum::kCaculate] = std::make_shared<PhaseCalculate>(game_device);
+	m_phases[PhaseEnum::kAnimation] = std::make_shared<PhaseAnimation>(game_device);
+	m_phases[PhaseEnum::kCheckEnd] = std::make_shared<PhaseCheckEnd>(game_device);
+	m_phases[PhaseEnum::kEndTurn] = std::make_shared<PhaseEnd>(game_device);
+	m_phases[PhaseEnum::kEvent] = std::make_shared<PhaseEvent>(game_device);
+	m_phases[PhaseEnum::kWin] = std::make_shared<PhaseWin>(game_device);
+	m_phases[PhaseEnum::kLose] = std::make_shared<PhaseLose>(game_device);
 
 	ChangePhase(PhaseEnum::kWait);
 }

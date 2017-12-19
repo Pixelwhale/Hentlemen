@@ -11,7 +11,7 @@ namespace BattleSystem
 	class PhaseCalculate : public IPhase
 	{
 	public:
-		PhaseCalculate();
+		PhaseCalculate(std::shared_ptr<Device::GameDevice> game_device);
 		PhaseCalculate(const PhaseCalculate&);
 		~PhaseCalculate();
 

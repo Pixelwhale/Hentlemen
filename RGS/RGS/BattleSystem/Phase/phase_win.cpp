@@ -7,11 +7,13 @@
 
 using namespace BattleSystem;
 
-PhaseWin::PhaseWin()
+PhaseWin::PhaseWin(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhaseWin::PhaseWin(const PhaseWin&)
+	:IPhase(NULL)
 {
 }
 
@@ -32,6 +34,7 @@ void PhaseWin::Update()
 
 void PhaseWin::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("Ÿ—˜", Math::Vector2());
 }
 
 

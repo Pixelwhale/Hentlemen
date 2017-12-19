@@ -7,11 +7,13 @@
 
 using namespace BattleSystem;
 
-PhaseCalculate::PhaseCalculate()
+PhaseCalculate::PhaseCalculate(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhaseCalculate::PhaseCalculate(const PhaseCalculate&)
+	:IPhase(NULL)
 {
 }
 
@@ -28,11 +30,15 @@ void PhaseCalculate::Initialize()
 
 void PhaseCalculate::Update()
 {
-
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_N)) 
+	{
+		m_end_flag = true;
+	}
 }
 
 void PhaseCalculate::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("ダメージ計算、バフ計算\nN:Next", Math::Vector2());
 }
 
 

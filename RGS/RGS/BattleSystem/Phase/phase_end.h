@@ -12,7 +12,7 @@ namespace BattleSystem
 	class PhaseEnd : public IPhase
 	{
 	public:
-		PhaseEnd();
+		PhaseEnd(std::shared_ptr<Device::GameDevice> game_device);
 		PhaseEnd(const PhaseEnd&);
 		~PhaseEnd();
 

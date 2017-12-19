@@ -7,11 +7,13 @@
 
 using namespace BattleSystem;
 
-PhaseEvent::PhaseEvent()
+PhaseEvent::PhaseEvent(std::shared_ptr<Device::GameDevice> game_device)
+	:IPhase(game_device)
 {
 }
 
 PhaseEvent::PhaseEvent(const PhaseEvent&)
+	:IPhase(NULL)
 {
 }
 
@@ -28,10 +30,15 @@ void PhaseEvent::Initialize()
 
 void PhaseEvent::Update()
 {
+	if (m_game_device->GetInput()->IsKeyTrigger(DIK_N)) 
+	{
+		m_end_flag = true;
+	}
 }
 
 void PhaseEvent::Draw()
 {
+	m_game_device->GetRenderer()->DrawString("ƒCƒxƒ“ƒg\nN:Next", Math::Vector2());
 }
 
 
