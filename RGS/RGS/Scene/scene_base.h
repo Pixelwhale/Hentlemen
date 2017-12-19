@@ -13,7 +13,7 @@ namespace Scene
 	{
 	public:
 		SceneBase(Device::GameDevice& game_device) : m_game_device(game_device) {};
-		virtual void Initialize() { m_end_flag = false; };
+		virtual void Initialize(SceneType previous) { m_end_flag = false; m_previous = previous; };
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
 		virtual void Shutdown() = 0;
@@ -23,5 +23,6 @@ namespace Scene
 		Device::GameDevice& m_game_device;
 		bool m_end_flag;
 		SceneType m_next;
+		SceneType m_previous;
 	};
 }

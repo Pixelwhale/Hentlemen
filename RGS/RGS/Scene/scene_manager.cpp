@@ -1,6 +1,16 @@
+//-------------------------------------------------------
+// 作成者：廖啓勝
+// 作成日：2017.12.18
+// 内容　：シーンを管理するマネージャー
+//-------------------------------------------------------
 #include <Scene\scene_manager.h>
 
 using namespace Scene;
+
+SceneManager::SceneManager()
+{
+	m_current_type = kLoading;
+}
 
 void SceneManager::Add(SceneType type, std::shared_ptr<SceneBase> scene)
 {
@@ -9,21 +19,24 @@ void SceneManager::Add(SceneType type, std::shared_ptr<SceneBase> scene)
 
 void SceneManager::Change(SceneType type)
 {
+	SceneType previous_type = m_current_type;
+	m_current_type = type;
 	m_current_scene = m_map[type];
-	m_current_scene.lock->Initialize();
+	//if scene is not "pause"
+	m_current_scene.lock()->Initialize(previous_type);
 }
 
 void SceneManager::Update()
 {
-	m_current_scene.lock->Update();
-	if (m_current_scene.lock->EndFlag())
+	m_current_scene.lock()->Update();
+	if (m_current_scene.lock()->EndFlag())
 	{
-		m_current_scene.lock->Shutdown();
-		Change(m_current_scene.lock->Next());
+		m_current_scene.lock()->Shutdown();
+		Change(m_current_scene.lock()->Next());
 	}
 }
 
 void SceneManager::Draw()
 {
-	m_current_scene.lock->Draw();
+	m_current_scene.lock()->Draw();
 }

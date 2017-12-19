@@ -19,6 +19,7 @@ namespace Scene
 		void Draw();
 	private:
 		std::map<SceneType, std::shared_ptr<SceneBase>> m_map;
+		SceneType m_current_type;
 		std::weak_ptr<SceneBase> m_current_scene;
 	};
 }
