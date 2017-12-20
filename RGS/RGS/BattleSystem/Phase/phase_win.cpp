@@ -7,13 +7,11 @@
 
 using namespace BattleSystem;
 
-PhaseWin::PhaseWin(std::shared_ptr<Device::GameDevice> game_device)
-	:IPhase(game_device)
+PhaseWin::PhaseWin()
 {
 }
 
 PhaseWin::PhaseWin(const PhaseWin&)
-	:IPhase(NULL)
 {
 }
 

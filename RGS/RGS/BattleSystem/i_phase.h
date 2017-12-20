@@ -12,9 +12,9 @@ namespace BattleSystem
 	class IPhase 
 	{
 	public:
-		IPhase(std::shared_ptr<Device::GameDevice> game_device)
-			:m_game_device(game_device)
+		IPhase()
 		{
+			m_game_device = Device::GameDevice::GetInstance();
 		}
 		~IPhase(){ m_game_device = 0; }
 
@@ -31,6 +31,6 @@ namespace BattleSystem
 		virtual bool IsEnd() = 0;
 
 	protected:
-		std::shared_ptr<Device::GameDevice> m_game_device;
+		Device::GameDevice* m_game_device;
 	};
 }

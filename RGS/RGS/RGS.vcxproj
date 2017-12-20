@@ -186,6 +186,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
+    <ClCompile Include="Shader\cutin_effect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -219,6 +220,7 @@
     <ClInclude Include="Device\renderer.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
+    <ClInclude Include="Shader\cutin_effect.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />
@@ -226,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Model\test.mv1" />
+    <None Include="Content\Shader\cut_in.pso" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

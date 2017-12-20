@@ -8,13 +8,11 @@
 
 using namespace BattleSystem;
 
-PhaseEnd::PhaseEnd(std::shared_ptr<Device::GameDevice> game_device)
-	:IPhase(game_device)
+PhaseEnd::PhaseEnd()
 {
 }
 
 PhaseEnd::PhaseEnd(const PhaseEnd&)
-	:IPhase(NULL)
 {
 }
 

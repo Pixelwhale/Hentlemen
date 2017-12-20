@@ -13,7 +13,7 @@ namespace BattleSystem
 	class PhaseStart : public IPhase
 	{
 	public:
-		PhaseStart(std::shared_ptr<Device::GameDevice> game_device);
+		PhaseStart();
 		PhaseStart(const PhaseStart&);
 		~PhaseStart();
 

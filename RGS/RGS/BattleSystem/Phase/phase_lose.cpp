@@ -7,13 +7,11 @@
 
 using namespace BattleSystem;
 
-PhaseLose::PhaseLose(std::shared_ptr<Device::GameDevice> game_device)
-	:IPhase(game_device)
+PhaseLose::PhaseLose()
 {
 }
 
 PhaseLose::PhaseLose(const PhaseLose&)
-	:IPhase(NULL)
 {
 }
 

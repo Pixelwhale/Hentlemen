@@ -11,7 +11,7 @@ namespace BattleSystem
 	class PhaseAnimation : public IPhase
 	{
 	public:
-		PhaseAnimation(std::shared_ptr<Device::GameDevice> game_device);
+		PhaseAnimation();
 		PhaseAnimation(const PhaseAnimation&);
 		~PhaseAnimation();
 

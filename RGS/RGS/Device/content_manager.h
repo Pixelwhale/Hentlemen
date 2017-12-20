@@ -83,11 +83,25 @@ namespace Device
 
 #pragma endregion
 
+#pragma region Shader関連
+		///<summary>Shaderを読み込む</summary>
+		///<param name="fileName">Asset名</param>
+		///<param name="fileExtention">拡張子</param>
+		///<param name="path">パス</param>
+		void LoadShaderPixel(std::string file_name, std::string file_extention, std::string path = "./Content/Shader/");
+
+		///<summary>Shaderのハンドルを取得</summary>
+		///<param name="shader_name">Shaderの名前</param>
+		///<returns>Shader Handle</returns>
+		int PixelShaderHandle(std::string shader_name);
+#pragma endregion
+
 
 	private:
 		std::map<std::string, int> m_models;			//モデルのハンドル
 		std::map<std::string, int> m_textures;			//テクスチャのハンドル
 		std::map<std::string, int*> m_motion;			//Animated Texture
 		std::map<std::string, int> m_font;				//Font
+		std::map<std::string, int> m_pixel_shader;		//Pixel Shader
 	};
 }

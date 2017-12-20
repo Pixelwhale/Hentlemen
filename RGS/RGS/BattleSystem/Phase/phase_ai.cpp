@@ -7,13 +7,11 @@
 
 using namespace BattleSystem;
 
-PhaseAI::PhaseAI(std::shared_ptr<Device::GameDevice> game_device)
-	:IPhase(game_device)
+PhaseAI::PhaseAI()
 {
 }
 
 PhaseAI::PhaseAI(const PhaseAI&)
-	:IPhase(NULL)
 {
 }
 

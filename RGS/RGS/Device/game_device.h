@@ -18,10 +18,9 @@ namespace Device
 	public:
 		~GameDevice();
 		///<summary>インスタンスを取得</summary>
-		static std::shared_ptr<GameDevice> GetInstance() 
+		static GameDevice* GetInstance() 
 		{
-			static std::shared_ptr<GameDevice> instance(new GameDevice);
-			return instance;
+			return m_instance;
 		}
 
 		///<summary>初期化</summary>
@@ -41,6 +40,7 @@ namespace Device
 		Random*								GetRandom();
 
 	private:
+		static GameDevice* m_instance;
 		GameDevice();
 		GameDevice(const GameDevice&);
 

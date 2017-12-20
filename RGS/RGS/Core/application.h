@@ -49,7 +49,7 @@ namespace Core
 
 	protected:
 		std::shared_ptr<InputState> m_input_state;					//Input State
-		std::shared_ptr<Device::GameDevice> m_game_device;			//Game Device
+		Device::GameDevice* m_game_device;			//Game Device
 	};
 }
 

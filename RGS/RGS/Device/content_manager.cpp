@@ -34,6 +34,9 @@ void ContentManager::Initialize()
 	InitFontToHandle();			//Font‚ÌHandle‚ğíœ
 	m_font.clear();
 
+	InitShader();				//ShaderHandle‚ğíœ
+	m_pixel_shader.clear();
+
 	LoadFont("Arial", -1, -1);
 	LoadFont("MS UI Gothic", -1, -1);
 }
@@ -51,6 +54,9 @@ void ContentManager::Release()
 
 	InitFontToHandle();			//Font‚ÌHandle‚ğíœ
 	m_font.clear();
+
+	InitShader();				//ShaderHandle‚ğíœ
+	m_pixel_shader.clear();
 }
 
 
@@ -120,6 +126,22 @@ void ContentManager::LoadFont(std::string font_name, int size, int thickness)
 int ContentManager::FontHandle(std::string font_name) 
 {
 	return m_font[font_name];
+}
+
+#pragma endregion
+
+
+#pragma region ShaderŠÖ˜A
+
+void ContentManager::LoadShaderPixel(std::string file_name, std::string file_extention, std::string path) 
+{
+	int handle = DxLib::LoadPixelShader((path + file_name + file_extention).c_str());
+	m_pixel_shader[file_name] = handle;
+}
+
+int ContentManager::PixelShaderHandle(std::string shader_name) 
+{
+	return m_pixel_shader[shader_name];
 }
 
 #pragma endregion

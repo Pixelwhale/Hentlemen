@@ -7,6 +7,8 @@
 
 using namespace Device;
 
+GameDevice* GameDevice::m_instance = new GameDevice();
+
 GameDevice::GameDevice()
 {
 }

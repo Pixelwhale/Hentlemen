@@ -7,6 +7,7 @@
 #include <Core\application.h>
 #include <Device\game_device.h>
 #include <BattleSystem\phase_manager.h>
+#include <Shader\cutin_effect.h>
 
 namespace Core
 {
@@ -33,6 +34,8 @@ namespace Core
 		float m_zoom_rate;				//Test—p
 
 		std::shared_ptr<BattleSystem::PhaseManager> m_phase_manager;
-		std::shared_ptr <Device::Renderer> m_renderer;
+		std::shared_ptr<Device::Renderer> m_renderer;
+
+		std::shared_ptr<Shader::CutinEffect> m_cutin_effect;
 	};
 }

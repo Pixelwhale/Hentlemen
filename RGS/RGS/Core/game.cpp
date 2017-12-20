@@ -20,7 +20,7 @@ void Game::Initialize()
 	m_renderer = m_game_device->GetRenderer();
 
 	m_phase_manager = std::make_shared<BattleSystem::PhaseManager>();
-	m_phase_manager->Initialize(m_game_device);
+	m_phase_manager->Initialize();
 }
 
 //ロードコンテンツ
@@ -33,6 +33,11 @@ void Game::Load()
 	//m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//WordでFont名を見る
 
 	m_game_device->GetContent()->LoadModel("test", ".mv1");
+
+	m_game_device->GetContent()->LoadShaderPixel("cut_in", ".pso");
+
+	m_cutin_effect = std::make_shared<Shader::CutinEffect>();
+	m_cutin_effect->Initialize(Math::Vector2(100, 100), "load", "load");
 }
 
 //コンテンツ解放
@@ -122,6 +127,8 @@ void Game::Draw()
 	}
 
 	m_phase_manager->Draw();
+
+	m_cutin_effect->Draw();
 
 	m_renderer->Swap();
 }

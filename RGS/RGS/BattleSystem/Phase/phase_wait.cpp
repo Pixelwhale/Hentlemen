@@ -7,13 +7,11 @@
 
 using namespace BattleSystem;
 
-PhaseWait::PhaseWait(std::shared_ptr<Device::GameDevice> game_device)
-	:IPhase(game_device)
+PhaseWait::PhaseWait()
 {
 }
 
 PhaseWait::PhaseWait(const PhaseWait&)
-	:IPhase(NULL)
 {
 }
 

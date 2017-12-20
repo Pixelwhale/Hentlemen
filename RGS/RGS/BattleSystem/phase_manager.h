@@ -19,7 +19,7 @@ namespace BattleSystem
 		~PhaseManager();
 
 		///<summary>‰Šú‰»ˆ—</summary>
-		void Initialize(std::shared_ptr<Device::GameDevice> game_device);
+		void Initialize();
 		///<summary>Phase‘S•”Á‚·</summary>
 		void Clear();
 

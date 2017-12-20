@@ -11,7 +11,7 @@ namespace BattleSystem
 	class PhaseCheckEnd : public IPhase
 	{
 	public:
-		PhaseCheckEnd(std::shared_ptr<Device::GameDevice> game_device);
+		PhaseCheckEnd();
 		PhaseCheckEnd(const PhaseCheckEnd&);
 		~PhaseCheckEnd();
 

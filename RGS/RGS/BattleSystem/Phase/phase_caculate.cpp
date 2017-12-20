@@ -7,13 +7,11 @@
 
 using namespace BattleSystem;
 
-PhaseCalculate::PhaseCalculate(std::shared_ptr<Device::GameDevice> game_device)
-	:IPhase(game_device)
+PhaseCalculate::PhaseCalculate()
 {
 }
 
 PhaseCalculate::PhaseCalculate(const PhaseCalculate&)
-	:IPhase(NULL)
 {
 }
 

@@ -7,13 +7,11 @@
 
 using namespace BattleSystem;
 
-PhasePlayer::PhasePlayer(std::shared_ptr<Device::GameDevice> game_device)
-	:IPhase(game_device)
+PhasePlayer::PhasePlayer()
 {
 }
 
 PhasePlayer::PhasePlayer(const PhasePlayer&)
-	:IPhase(NULL)
 {
 }
 

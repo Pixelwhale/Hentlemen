@@ -79,6 +79,8 @@ void Application::ShutDown()
 		m_game_device->ShutDown();
 	}
 
+	delete m_game_device;
+
 	DxLib_End();										//DXLibI—¹ˆ—
 }
 

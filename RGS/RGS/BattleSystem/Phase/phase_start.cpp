@@ -9,13 +9,11 @@
 
 using namespace BattleSystem;
 
-PhaseStart::PhaseStart(std::shared_ptr<Device::GameDevice> game_device)
-	:IPhase(game_device)
+PhaseStart::PhaseStart()
 {
 }
 
 PhaseStart::PhaseStart(const PhaseStart&)
-	:IPhase(NULL)
 {
 }
 

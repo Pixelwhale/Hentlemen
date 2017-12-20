@@ -102,6 +102,9 @@
     <ClCompile Include="BattleSystem\Phase\phase_check_end.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Shader\cutin_effect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Device\content_manager.h">
@@ -197,6 +200,9 @@
     <ClInclude Include="BattleSystem\Phase\phase_check_end.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Shader\cutin_effect.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png">
@@ -208,5 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Model\test.mv1" />
+    <None Include="Content\Shader\cut_in.pso" />
   </ItemGroup>
 </Project>

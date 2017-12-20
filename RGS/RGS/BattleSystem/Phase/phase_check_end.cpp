@@ -7,13 +7,11 @@
 
 using namespace BattleSystem;
 
-PhaseCheckEnd::PhaseCheckEnd(std::shared_ptr<Device::GameDevice> game_device)
-	:IPhase(game_device)
+PhaseCheckEnd::PhaseCheckEnd()
 {
 }
 
 PhaseCheckEnd::PhaseCheckEnd(const PhaseCheckEnd&)
-	:IPhase(NULL)
 {
 }
 
