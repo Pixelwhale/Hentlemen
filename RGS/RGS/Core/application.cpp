@@ -20,6 +20,7 @@ bool Application::InitWindow()
 	bool result;
 
 #pragma region DxLib‰Šú‰»
+	SetUseDirect3DVersion(DX_DIRECT3D_9EX);
 	SetOutApplicationLogValidFlag(false);			//Log‚ğ‘‚«o‚µ‚µ‚È‚¢
 	SetWindowText(WindowDef::kWindowName);			//Titleİ’è
 	SetGraphMode(

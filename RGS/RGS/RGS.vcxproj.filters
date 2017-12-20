@@ -214,6 +214,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Model\test.mv1" />
-    <None Include="Content\Shader\cut_in.pso" />
   </ItemGroup>
 </Project>
