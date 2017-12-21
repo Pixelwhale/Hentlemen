@@ -12,7 +12,7 @@ namespace Scene
 	class SceneBase
 	{
 	public:
-		SceneBase(Device::GameDevice& game_device) : m_game_device(game_device) {};
+		SceneBase();
 		virtual void Initialize(SceneType previous) { m_end_flag = false; m_previous = previous; };
 		virtual void Update() = 0;
 		virtual void Draw() = 0;
@@ -20,7 +20,8 @@ namespace Scene
 		bool IsEnd() { return m_end_flag; };
 		SceneType Next() { return m_next; };
 	protected:
-		Device::GameDevice& m_game_device;
+		std::shared_ptr<Device::Renderer> m_renderer;
+		std::shared_ptr<Core::InputState> m_input;
 		bool m_end_flag;
 		SceneType m_next;
 		SceneType m_previous;

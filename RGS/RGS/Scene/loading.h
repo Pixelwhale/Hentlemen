@@ -12,12 +12,13 @@ namespace Scene
 	class Loading : SceneBase
 	{
 	public:
-		Loading(Device::GameDevice& game_device) : m_game_device(game_device), SceneBase(game_device) {};
+		Loading();
 		void LoadContents();
 		void UnloadContents();
 		void Update();
 		void Draw();
+		void Shutdown();
 	private:
-		Device::GameDevice& m_game_device;
+		std::shared_ptr<Device::ContentManager> m_content;
 	};
 }

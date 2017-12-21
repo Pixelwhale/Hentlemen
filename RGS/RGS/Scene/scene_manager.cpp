@@ -29,7 +29,7 @@ void SceneManager::Change(SceneType type)
 void SceneManager::Update()
 {
 	m_current_scene.lock()->Update();
-	if (m_current_scene.lock()->EndFlag())
+	if (m_current_scene.lock()->IsEnd())
 	{
 		m_current_scene.lock()->Shutdown();
 		Change(m_current_scene.lock()->Next());
