@@ -187,6 +187,9 @@
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
     <ClCompile Include="Shader\cutin_effect.cpp" />
+    <ClCompile Include="Scene\loading.cpp" />
+    <ClCompile Include="Scene\scene_base.cpp" />
+    <ClCompile Include="Scene\scene_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -221,6 +224,11 @@
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Shader\cutin_effect.h" />
+    <ClInclude Include="Scene\loading.h" />
+    <ClInclude Include="Device\texture_loader.h" />
+    <ClInclude Include="Scene\scene_base.h" />
+    <ClInclude Include="Scene\scene_manager.h" />
+    <ClInclude Include="Scene\scene_type.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />
