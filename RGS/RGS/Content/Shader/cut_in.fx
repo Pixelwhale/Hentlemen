@@ -9,14 +9,24 @@ struct PS_INPUT
 sampler Texture : register(s0);
 sampler Texture1 : register(s1);
 
+float rate : register(c0);
+
 float4 main(PS_INPUT PSInput) : SV_TARGET
 {
+	if (rate <= 0.0001f)
+		discard;
+
 	float4 source = tex2D(Texture, PSInput.TextureCoord0);
 	float4 mask = tex2D(Texture1, PSInput.TextureCoord0);
 
-	float gray = mask.r * 0.3f + mask.g * 0.59f + mask.b * 0.11f;
-	if (gray > 0.8f)
-		return float4(0, 0, 0, 0);
+	float min_alpha = rate - 0.4f;
+	min_alpha = min_alpha <= 0.0f ? 0.0f : min_alpha;
 
-	return float4(1, 1, 0, 1);
+
+	if (mask.r > min_alpha) 
+	{
+		source = lerp(source, float4(0, 0, 0, 0), (mask.r - min_alpha) / (rate - min_alpha));
+	}
+
+	return source;
 }

@@ -211,6 +211,9 @@
     <Image Include="Content\Texture\test.png">
       <Filter>リソース ファイル</Filter>
     </Image>
+    <Image Include="Content\Texture\mask.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Model\test.mv1" />

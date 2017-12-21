@@ -224,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />
+    <Image Include="Content\Texture\mask.png" />
     <Image Include="Content\Texture\test.png" />
   </ItemGroup>
   <ItemGroup>

@@ -1,3 +1,8 @@
+//-------------------------------------------------------
+// 作成者：林佳叡
+// 作成日：2017.12.20 ～ 2017.12.21
+// 内容　：必殺技のCut in処理
+//-------------------------------------------------------
 #include <Shader\cutin_effect.h>
 
 using namespace Shader;
@@ -52,8 +57,8 @@ void CutinEffect::Initialize(
 	for (int i = 0; i < 4; i++)
 	{
 		m_vertice[i].pos = VGet(
-			m_position.x + (i % 2) * width, 
-			m_position.y + (i / 2) * height, 0);
+			m_position.x + (i % 2) * width * 2,				//2倍大きさ　Todo：サイズを変える
+			m_position.y + (i / 2) * height * 2, 0);
 		m_vertice[i].rhw = 1.0f;
 		m_vertice[i].dif = GetColorU8(255, 255, 255, 255);
 		m_vertice[i].spc = GetColorU8(0, 0, 0, 0);
@@ -62,10 +67,11 @@ void CutinEffect::Initialize(
 	}
 }
 
-void CutinEffect::Draw() 
+void CutinEffect::Draw(float rate) 
 {
-	SetUsePixelShader(m_shader_handle);
-	SetUseTextureToShader(0, m_source_handle);
-	SetUseTextureToShader(1, m_mask_handle);
-	DrawPrimitive2DToShader(m_vertice, 4, DX_PRIMTYPE_TRIANGLESTRIP);
+	SetUsePixelShader(m_shader_handle);				//Shader使用
+	SetUseTextureToShader(0, m_source_handle);		//ソース指定
+	SetUseTextureToShader(1, m_mask_handle);		//Mask指定
+	SetPSConstSF(0, rate);							//Rate指定
+	DrawPrimitive2DToShader(m_vertice, 4, DX_PRIMTYPE_TRIANGLESTRIP);	//描画
 }

@@ -21,6 +21,8 @@ void Game::Initialize()
 
 	m_phase_manager = std::make_shared<BattleSystem::PhaseManager>();
 	m_phase_manager->Initialize();
+
+	m_rate = 0;
 }
 
 //ロードコンテンツ
@@ -28,6 +30,7 @@ void Game::Load()
 {
 	m_game_device->GetContent()->LoadTexture("load", ".png");
 	m_game_device->GetContent()->LoadTexture("test", ".png");
+	m_game_device->GetContent()->LoadTexture("mask", ".png");
 	m_game_device->GetContent()->LoadTexture("test", ".png", 6, 6, 1, 64, 64);
 
 	//m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//WordでFont名を見る
@@ -37,7 +40,7 @@ void Game::Load()
 	m_game_device->GetContent()->LoadShaderPixel("cut_in", ".pso");
 
 	m_cutin_effect = std::make_shared<Shader::CutinEffect>();
-	m_cutin_effect->Initialize(Math::Vector2(100, 100), "load", "load");
+	m_cutin_effect->Initialize(Math::Vector2(100, 100), "test", "mask");
 }
 
 //コンテンツ解放
@@ -89,6 +92,17 @@ void Game::Update()
 		m_game_device->GetProjector()->Zoom(m_zoom_rate);
 	}
 
+	if (m_input_state->IsKeyDown(DIK_P))
+	{
+		m_rate += 0.07f;
+		m_rate = m_rate > 1.0f ? 1.0f : m_rate;
+	}
+	if (m_input_state->IsKeyDown(DIK_M))
+	{
+		m_rate -= 0.07f;
+		m_rate = m_rate < 0.0f ? 0.0f: m_rate;
+	}
+
 	m_phase_manager->Update();
 }
 
@@ -128,7 +142,7 @@ void Game::Draw()
 
 	m_phase_manager->Draw();
 
-	m_cutin_effect->Draw();
+	m_cutin_effect->Draw(m_rate);
 
 	m_renderer->Swap();
 }
