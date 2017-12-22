@@ -8,7 +8,7 @@
 
 namespace Scene
 {
-	class Option : SceneBase
+	class Option : public SceneBase
 	{
 	public:
 		Option();
@@ -16,5 +16,5 @@ namespace Scene
 		void Draw();
 		void Shutdown();
 	private:
-	}
+	};
 }

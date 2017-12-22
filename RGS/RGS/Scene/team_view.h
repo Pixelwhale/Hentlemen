@@ -8,7 +8,7 @@
 
 namespace Scene
 {
-	class TeamView : SceneBase
+	class TeamView : public SceneBase
 	{
 	public:
 		TeamView();
@@ -16,5 +16,5 @@ namespace Scene
 		void Draw();
 		void Shutdown();
 	private:
-	}
+	};
 }

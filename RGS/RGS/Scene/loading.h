@@ -9,7 +9,7 @@
 
 namespace Scene
 {
-	class Loading : SceneBase
+	class Loading : public SceneBase
 	{
 	public:
 		Loading();

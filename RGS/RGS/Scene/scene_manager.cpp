@@ -11,7 +11,7 @@ using namespace std;
 
 SceneManager::SceneManager()
 {
-	shared_ptr<Loading> pt = make_shared<Loading>();
+	shared_ptr<SceneBase> pt = make_shared<Loading>();
 	m_map[kLoading] = pt;
 	m_current_scene = m_map[kLoading];
 	m_current_type = kLoading;

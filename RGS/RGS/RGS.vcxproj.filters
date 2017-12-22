@@ -35,6 +35,11 @@
     <ClCompile Include="Scene\scene_base.cpp" />
     <ClCompile Include="Scene\scene_manager.cpp" />
     <ClCompile Include="Scene\title.cpp" />
+    <ClCompile Include="Scene\village.cpp" />
+    <ClCompile Include="Scene\battle.cpp" />
+    <ClCompile Include="Scene\team_view.cpp" />
+    <ClCompile Include="Scene\shop.cpp" />
+    <ClCompile Include="Scene\option.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -75,6 +80,11 @@
     <ClInclude Include="Scene\scene_manager.h" />
     <ClInclude Include="Scene\scene_type.h" />
     <ClInclude Include="Scene\title.h" />
+    <ClInclude Include="Scene\village.h" />
+    <ClInclude Include="Scene\battle.h" />
+    <ClInclude Include="Scene\team_view.h" />
+    <ClInclude Include="Scene\shop.h" />
+    <ClInclude Include="Scene\option.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />

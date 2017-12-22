@@ -8,7 +8,7 @@
 
 namespace Scene
 {
-	class Battle : SceneBase
+	class Battle : public SceneBase
 	{
 	public:
 		Battle();
@@ -16,5 +16,5 @@ namespace Scene
 		void Draw();
 		void Shutdown();
 	private:
-	}
+	};
 }
