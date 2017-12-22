@@ -28,7 +28,7 @@ namespace Shader
 
 		///<summary>•`‰æ</summary>
 		///<param name="rate">Mask‚Æ‚È‚éŠî€</param>
-		void Draw(float rate);
+		void Draw(float rate, float alpha);
 
 	private:
 		///<summary>ˆÊ’uİ’è</summary>

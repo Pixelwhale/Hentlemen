@@ -38,5 +38,6 @@ namespace Core
 
 		std::shared_ptr<Shader::CutinEffect> m_cutin_effect;
 		float m_rate;					//Test—p
+		float m_alpha;					//Test—p
 	};
 }

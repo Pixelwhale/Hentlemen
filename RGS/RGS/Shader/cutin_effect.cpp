@@ -57,8 +57,8 @@ void CutinEffect::Initialize(
 	for (int i = 0; i < 4; i++)
 	{
 		m_vertice[i].pos = VGet(
-			m_position.x + (i % 2) * width * 2,				//2倍大きさ　Todo：サイズを変える
-			m_position.y + (i / 2) * height * 2, 0);
+			m_position.x + (i % 2) * width,				//2倍大きさ　Todo：サイズを変える
+			m_position.y + (i / 2) * height, 0);
 		m_vertice[i].rhw = 1.0f;
 		m_vertice[i].dif = GetColorU8(255, 255, 255, 255);
 		m_vertice[i].spc = GetColorU8(0, 0, 0, 0);
@@ -67,11 +67,12 @@ void CutinEffect::Initialize(
 	}
 }
 
-void CutinEffect::Draw(float rate) 
+void CutinEffect::Draw(float rate, float alpha) 
 {
 	SetUsePixelShader(m_shader_handle);				//Shader使用
 	SetUseTextureToShader(0, m_source_handle);		//ソース指定
 	SetUseTextureToShader(1, m_mask_handle);		//Mask指定
 	SetPSConstSF(0, rate);							//Rate指定
+	SetPSConstSF(1, alpha);							//Alpha指定
 	DrawPrimitive2DToShader(m_vertice, 4, DX_PRIMTYPE_TRIANGLESTRIP);	//描画
 }

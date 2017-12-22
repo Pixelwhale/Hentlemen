@@ -27,6 +27,7 @@ void Renderer::Initialize()
 	SetDrawScreen(DX_SCREEN_BACK);		//描画先をBackBufferに設定
 	SetUseZBuffer3D(TRUE);				// Ｚバッファを有効にする
 	SetWriteZBuffer3D(TRUE);			// Ｚバッファへの書き込みを有効にする
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);		//AlphaBlend有効
 }
 
 void Renderer::Release()
