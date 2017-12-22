@@ -4,11 +4,16 @@
 // 内容　：シーンを管理するマネージャー
 //-------------------------------------------------------
 #include <Scene\scene_manager.h>
+#include <Scene\loading.h>
 
 using namespace Scene;
+using namespace std;
 
 SceneManager::SceneManager()
 {
+	shared_ptr<Loading> pt = make_shared<Loading>();
+	m_map[kLoading] = pt;
+	m_current_scene = m_map[kLoading];
 	m_current_type = kLoading;
 }
 
@@ -22,8 +27,9 @@ void SceneManager::Change(SceneType type)
 	SceneType previous_type = m_current_type;
 	m_current_type = type;
 	m_current_scene = m_map[type];
-	//if scene is not "pause"
-	m_current_scene.lock()->Initialize(previous_type);
+
+	//if scene is not "pause" => initialize
+	if (previous_type != kTeamView) m_current_scene.lock()->Initialize(previous_type);
 }
 
 void SceneManager::Update()
