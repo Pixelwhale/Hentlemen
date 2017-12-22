@@ -12,14 +12,18 @@ namespace Scene
 	{
 	public:
 		SceneManager();
-		~SceneManager();
-		void Add(SceneType type, std::shared_ptr<SceneBase> scene);
-		void Change(SceneType type);
+
+		///<summary>ƒV[ƒ“‚ÌÀ‘Ì‚ğ¶¬‚·‚é</summary>
+		void Initialize();
+
 		void Update();
 		void Draw();
 	private:
 		std::map<SceneType, std::shared_ptr<SceneBase>> m_map;
 		SceneType m_current_type;
 		std::weak_ptr<SceneBase> m_current_scene;
+		
+		void Add(SceneType type, std::shared_ptr<SceneBase> scene);
+		void Change(SceneType type);
 	};
 }

@@ -5,16 +5,32 @@
 //-------------------------------------------------------
 #include <Scene\scene_manager.h>
 #include <Scene\loading.h>
+#include <Scene\title.h>
+#include <Scene\village.h>
+#include <Scene\shop.h>
+#include <Scene\team_view.h>
+#include <Scene\battle.h>
+#include <Scene\option.h>
 
 using namespace Scene;
 using namespace std;
 
 SceneManager::SceneManager()
 {
-	shared_ptr<SceneBase> pt = make_shared<Loading>();
-	m_map[kLoading] = pt;
-	m_current_scene = m_map[kLoading];
+}
+
+void SceneManager::Initialize()
+{
+	Add(kTitle, make_shared<Title>());
+	Add(kVillage, make_shared<Village>());
+	Add(kShop, make_shared<Shop>());
+	Add(kTeamView, make_shared<TeamView>());
+	Add(kBattle, make_shared<Battle>());
+	Add(kOption, make_shared<Option>());
+
+	Add(kLoading, make_shared<Loading>());
 	m_current_type = kLoading;
+	m_current_scene = m_map[kLoading];
 }
 
 void SceneManager::Add(SceneType type, std::shared_ptr<SceneBase> scene)

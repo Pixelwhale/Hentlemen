@@ -17,6 +17,7 @@ void Title::Update()
 
 void Title::Draw()
 {
+	m_renderer->DrawString("Title", Math::Vector2(150, 0));
 }
 
 void Title::Shutdown()
