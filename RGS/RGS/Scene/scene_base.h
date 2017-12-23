@@ -14,9 +14,9 @@ namespace Scene
 	public:
 		SceneBase();
 		virtual void Initialize(SceneType previous);
-		virtual void Update() {};
-		virtual void Draw() {};
-		virtual void Shutdown() {};
+		virtual void Update() = 0;
+		virtual void Draw() = 0;
+		virtual void Shutdown() = 0;
 		bool IsEnd() { return m_end_flag; };
 		SceneType Next() { return m_next; };
 	protected:
