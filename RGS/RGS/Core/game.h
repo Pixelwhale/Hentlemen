@@ -8,6 +8,7 @@
 #include <Device\game_device.h>
 #include <BattleSystem\phase_manager.h>
 #include <Shader\cutin_effect.h>
+#include <Scene\scene_manager.h>
 
 namespace Core
 {
@@ -39,5 +40,6 @@ namespace Core
 		std::shared_ptr<Shader::CutinEffect> m_cutin_effect;
 		float m_rate;					//Test—p
 		float m_alpha;					//Test—p
+		std::shared_ptr<Scene::SceneManager> m_scene_manager;
 	};
 }

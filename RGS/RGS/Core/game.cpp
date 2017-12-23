@@ -24,6 +24,9 @@ void Game::Initialize()
 
 	m_rate = 0;
 	m_alpha = 1.0f;
+
+	m_scene_manager = std::make_shared<Scene::SceneManager>();
+	m_scene_manager->Initialize();
 }
 
 //ロードコンテンツ
@@ -113,6 +116,8 @@ void Game::Update()
 	}
 
 	m_phase_manager->Update();
+
+	m_scene_manager->Update();
 }
 
 //描画処理
@@ -152,6 +157,9 @@ void Game::Draw()
 	m_phase_manager->Draw();
 
 	m_cutin_effect->Draw(m_rate, m_alpha);
+
+	m_scene_manager->Draw();
+
 
 	m_renderer->Swap();
 }

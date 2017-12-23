@@ -186,6 +186,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
+    <ClCompile Include="Scene\battle.cpp" />
+    <ClCompile Include="Scene\option.cpp" />
+    <ClCompile Include="Scene\shop.cpp" />
+    <ClCompile Include="Scene\team_view.cpp" />
+    <ClCompile Include="Scene\title.cpp" />
+    <ClCompile Include="Scene\village.cpp" />
     <ClCompile Include="Shader\cutin_effect.cpp" />
     <ClCompile Include="Scene\loading.cpp" />
     <ClCompile Include="Scene\scene_base.cpp" />
@@ -223,6 +229,12 @@
     <ClInclude Include="Device\renderer.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
+    <ClInclude Include="Scene\battle.h" />
+    <ClInclude Include="Scene\option.h" />
+    <ClInclude Include="Scene\shop.h" />
+    <ClInclude Include="Scene\team_view.h" />
+    <ClInclude Include="Scene\title.h" />
+    <ClInclude Include="Scene\village.h" />
     <ClInclude Include="Shader\cutin_effect.h" />
     <ClInclude Include="Scene\loading.h" />
     <ClInclude Include="Device\texture_loader.h" />

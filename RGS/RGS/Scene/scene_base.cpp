@@ -13,3 +13,9 @@ SceneBase::SceneBase()
 	m_renderer = GameDevice::GetInstance()->GetRenderer();
 	m_input = GameDevice::GetInstance()->GetInput();
 }
+
+void SceneBase::Initialize(SceneType previous)
+{
+	m_end_flag = false;
+	m_previous = previous;
+}

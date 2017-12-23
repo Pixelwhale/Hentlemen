@@ -1,24 +1,20 @@
 //-------------------------------------------------------
 // 作成者：廖啓勝
-// 作成日：2017.12.19
-// 内容　：テクスチャ、音などをロードするシーン
+// 作成日：2017.12.22
+// 内容　：チームの整頓。キャラのデータ、アイテム、スキル、装備。
 //-------------------------------------------------------
 #pragma once
-#include <Device\game_device.h>
 #include <Scene\scene_base.h>
 
 namespace Scene
 {
-	class Loading : public SceneBase
+	class TeamView : public SceneBase
 	{
 	public:
-		Loading();
-		void LoadContents();
-		void UnloadContents();
+		TeamView();
 		void Update();
 		void Draw();
 		void Shutdown();
 	private:
-		std::shared_ptr<Device::ContentManager> m_content;
 	};
 }
