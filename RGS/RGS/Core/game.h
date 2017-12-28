@@ -9,6 +9,7 @@
 #include <BattleSystem\phase_manager.h>
 #include <Shader\cutin_effect.h>
 #include <Scene\scene_manager.h>
+#include <Map\battle_map.h>
 
 namespace Core
 {
@@ -41,5 +42,7 @@ namespace Core
 		float m_rate;					//Test—p
 		float m_alpha;					//Test—p
 		std::shared_ptr<Scene::SceneManager> m_scene_manager;
+
+		Map::BattleMap map;
 	};
 }

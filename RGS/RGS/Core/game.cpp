@@ -27,6 +27,8 @@ void Game::Initialize()
 
 	m_scene_manager = std::make_shared<Scene::SceneManager>();
 	m_scene_manager->Initialize();
+
+	map.Initialize();
 }
 
 //ロードコンテンツ
@@ -149,14 +151,16 @@ void Game::Draw()
 	m_renderer->GetDepthSort()->Sort(m_game_device->GetProjector()->Position());
 	m_renderer->DrawTransparentObj();*/
 
-	for (int i = 0; i < 25; i++)
+	/*for (int i = 0; i < 25; i++)
 	{
 		m_renderer->DrawModel("test", Math::Vector3(i % 5 * 10, 0, i / 5 * 10), Math::Vector3(10, 10, 10), Math::Vector3(0, 0, 0));
-	}
+	}*/
 
 	m_phase_manager->Draw();
 
 	m_cutin_effect->Draw(m_rate, m_alpha);
+
+	map.Draw();
 
 	m_scene_manager->Draw();
 
