@@ -185,6 +185,7 @@
     <ClCompile Include="Device\renderer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map\battle_map.cpp" />
+    <ClCompile Include="Map\map_loader.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
     <ClCompile Include="Scene\battle.cpp" />
@@ -229,6 +230,8 @@
     <ClInclude Include="Device\random.h" />
     <ClInclude Include="Device\renderer.h" />
     <ClInclude Include="Map\battle_map.h" />
+    <ClInclude Include="Map\map_grid.h" />
+    <ClInclude Include="Map\map_loader.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\battle.h" />
@@ -252,6 +255,7 @@
     <Image Include="Content\Texture\test.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\CSV\map_example.csv" />
     <None Include="Content\Model\test.mv1" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

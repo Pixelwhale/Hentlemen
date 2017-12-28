@@ -41,6 +41,7 @@
     <ClCompile Include="Scene\shop.cpp" />
     <ClCompile Include="Scene\option.cpp" />
     <ClCompile Include="Map\battle_map.cpp" />
+    <ClCompile Include="Map\map_loader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -87,6 +88,8 @@
     <ClInclude Include="Scene\shop.h" />
     <ClInclude Include="Scene\option.h" />
     <ClInclude Include="Map\battle_map.h" />
+    <ClInclude Include="Map\map_loader.h" />
+    <ClInclude Include="Map\map_grid.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />
@@ -97,5 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Model\test.mv1" />
+    <None Include="Content\CSV\map_example.csv" />
   </ItemGroup>
 </Project>

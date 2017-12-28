@@ -10,6 +10,7 @@
 #include <Shader\cutin_effect.h>
 #include <Scene\scene_manager.h>
 #include <Map\battle_map.h>
+#include <Map\map_loader.h>
 
 namespace Core
 {
@@ -44,5 +45,6 @@ namespace Core
 		std::shared_ptr<Scene::SceneManager> m_scene_manager;
 
 		Map::BattleMap map;
+		Map::MapLoader map_loader;
 	};
 }
