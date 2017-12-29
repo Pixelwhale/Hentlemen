@@ -26,7 +26,7 @@ void Projector::Initialize()
 	SetupCamera_Ortho(100);											//Orthographic Zoom out 100
 
 	SetTarget(Math::Vector3(0.0f, 0.0f, 0.0f));						//目標：原点
-	SetRelativePosition(Math::Vector3(100.0f, 100.0f, 100.0f));		//相対位置設定
+	SetRelativePosition(Math::Vector3(100.0f, 100.0f, -100.0f));	//相対位置設定(左手系座標なのでZは-)
 }
 
 void Projector::SetRelativePosition(Math::Vector3 relative_position)

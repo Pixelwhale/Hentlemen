@@ -44,7 +44,7 @@ namespace Core
 		float m_alpha;					//Test—p
 		std::shared_ptr<Scene::SceneManager> m_scene_manager;
 
-		Map::BattleMap map;
-		Map::MapLoader map_loader;
+		Map::BattleMap m_map;
+		Map::MapLoader m_map_loader;
 	};
 }
