@@ -29,11 +29,11 @@ void Game::Initialize()
 	m_scene_manager->Initialize();
 
 
-	map_loader.Load("./Content/CSV/map_example.csv");
-	map.Initialize();
-	map.SetMap(map_loader.GetMapChip(), map_loader.GetXSize());
+	m_map_loader.Load("./Content/CSV/map_example.csv");
+	m_map.Initialize();
+	m_map.SetMap(m_map_loader.GetMapChip(), m_map_loader.GetXSize());
 
-	map_loader.Clear();
+	m_map_loader.Clear();
 }
 
 //ロードコンテンツ
@@ -164,7 +164,7 @@ void Game::Draw()
 	m_phase_manager->Draw();
 
 
-	map.Draw();
+	m_map.Draw();
 	m_cutin_effect->Draw(m_rate, m_alpha);
 
 	m_scene_manager->Draw();
