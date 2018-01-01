@@ -79,6 +79,15 @@ namespace Device
 		void DrawModel(std::string model_name, Math::Vector3 position, 
 			Math::Vector3 size, Math::Vector3 rotation);
 
+		///<summary>モデルのテクスチャを元に戻す</summary>
+		///<param name="model_name">モデル名</param>
+		void ResetModelTexture(std::string model_name);
+
+		///<summary>モデルのテクスチャを変える</summary>
+		///<param name="model_name">モデル名</param>
+		///<param name="texture_name">テクスチャ名</param>
+		void SetModelTexture(std::string model_name, std::string texture_name);
+
 		///<summary>3D空間でTextureを描画</summary>
 		///<param name="texture_name">Asset名</param>
 		///<param name="index">何枚目</param>

@@ -28,6 +28,7 @@ void Renderer::Initialize()
 	SetUseZBuffer3D(TRUE);				// Ｚバッファを有効にする
 	SetWriteZBuffer3D(TRUE);			// Ｚバッファへの書き込みを有効にする
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);		//AlphaBlend有効
+	SetUseLighting(false);							//Light無効（計算なし）
 }
 
 void Renderer::Release()
@@ -90,6 +91,8 @@ void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 pos
 
 #pragma region 3D Render関連
 
+
+
 void Renderer::DrawModel(std::string model_name, Math::Vector3 position,
 	Math::Vector3 size, Math::Vector3 rotation)
 {
@@ -98,6 +101,19 @@ void Renderer::DrawModel(std::string model_name, Math::Vector3 position,
 	MV1SetRotationXYZ(model, VGet(rotation.x, rotation.y, rotation.z));		//回転
 	MV1SetPosition(model, VGet(position.x, position.y, position.z));		//移動
 	MV1DrawModel(model);													//描画
+}
+
+void Renderer::ResetModelTexture(std::string model_name)
+{
+	int model_handle = m_contents->ModelHandle(model_name);					//Modelハンドルを取得
+	MV1SetTextureGraphHandle(model_handle, 0, -1, false);					//使用するテクスチャを差し替える
+}
+
+void Renderer::SetModelTexture(std::string model_name, std::string texture_name)
+{
+	int model_handle = m_contents->ModelHandle(model_name);					//Modelハンドルを取得
+	int texture_handle = m_contents->TextureHandle(texture_name);			//Textureハンドルを取得
+	MV1SetTextureGraphHandle(model_handle, 0, texture_handle, false);		//使用するテクスチャを差し替える
 }
 
 void Renderer::DrawTexture3D(std::string texture_name, Math::Vector3 position,

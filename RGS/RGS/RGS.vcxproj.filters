@@ -101,5 +101,6 @@
   <ItemGroup>
     <None Include="Content\Model\test.mv1" />
     <None Include="Content\CSV\map_example.csv" />
+    <None Include="Content\Model\test_block.mv1" />
   </ItemGroup>
 </Project>

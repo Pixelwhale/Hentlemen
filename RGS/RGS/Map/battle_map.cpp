@@ -45,10 +45,19 @@ void BattleMap::Draw()
 	{
 		for (int j = 0; j < m_map_chip[i].blocks.size(); j++)		//高さのある限りを繰り返す
 		{
+			if (j == m_map_chip[i].blocks.size() - 1)				//Test機能Textureを差し替え
+			{
+				m_renderer->ResetModelTexture("test_block");
+			}
+			else
+			{
+				m_renderer->SetModelTexture("test_block", "block_ground");
+			}
+
 			int x = i % m_x_size;		//X座標（X軸の数を割ったあまり）
 			int y = i / m_x_size;		//X座標（X軸の数を割った数値）
 			m_renderer->DrawModel(
-				"test",
+				"test_block",
 				Math::Vector3(x * m_grid_size, j * m_grid_size, -y * m_grid_size),	//位置
 				Math::Vector3(m_grid_size, m_grid_size, m_grid_size),				//大きさ
 				Math::Vector3(0, 0, 0));											//回転

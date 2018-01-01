@@ -41,6 +41,7 @@ void Game::Load()
 {
 	m_game_device->GetContent()->LoadTexture("load", ".png");
 	m_game_device->GetContent()->LoadTexture("test", ".png");
+	m_game_device->GetContent()->LoadTexture("block_ground", ".png");
 	m_game_device->GetContent()->LoadTexture("moemoe", ".png");
 	m_game_device->GetContent()->LoadTexture("moemoe_mask", ".png");
 	m_game_device->GetContent()->LoadTexture("mask", ".png");
@@ -49,6 +50,7 @@ void Game::Load()
 	//m_content_manager->LoadFont("MS UI Gothic", 50, 3);			//Word‚ÅFont–¼‚ðŒ©‚é
 
 	m_game_device->GetContent()->LoadModel("test", ".mv1");
+	m_game_device->GetContent()->LoadModel("test_block", ".mv1");
 
 	m_game_device->GetContent()->LoadShaderPixel("cut_in", ".pso");
 

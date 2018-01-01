@@ -257,6 +257,7 @@
   <ItemGroup>
     <None Include="Content\CSV\map_example.csv" />
     <None Include="Content\Model\test.mv1" />
+    <None Include="Content\Model\test_block.mv1" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
