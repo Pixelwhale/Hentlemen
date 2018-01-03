@@ -29,9 +29,12 @@ void Game::Initialize()
 	m_scene_manager->Initialize();
 
 
-	m_map_loader.Load("./Content/CSV/map_example.csv");
+	m_map_loader.Load(
+		"./Content/CSV/map_example.csv",
+		"./Content/CSV/map_example_block_def.csv");
 	m_map.Initialize();
 	m_map.SetMap(m_map_loader.GetMapChip(), m_map_loader.GetXSize());
+	m_map.SetBlock(m_map_loader.GetBlockDef());
 
 	m_map_loader.Clear();
 }
@@ -137,31 +140,12 @@ void Game::Draw()
 	m_renderer->DrawTexture("load", Math::Vector2(800, 500), Math::Vector2(0, 0),
 		Math::Vector2(1.0f, 1.0f), 30 * 3.14159f / 180,
 		Color(1.0f, 0.1f, 0.1f, 1.0f));
-	//m_renderer->DrawTexture("load", Math::Vector2(0, 0), 0.1f);
 
 	m_renderer->DrawMotion("test", m_motion_index, Math::Vector2(0, 100));
 
 	m_renderer->DrawString("Hello World äøéö", "MS UI Gothic", Math::Vector2(0, 600), Color(120, 120, 50));
 	m_renderer->DrawString("Ç±ÇÒÇ…ÇøÇÕÅBê¢äE", "MS UI Gothic", Math::Vector2(600, 300), Color(120, 120, 50));
 
-	/*for (int i = 0; i < 16; i++)
-	{
-		DrawSphere3D(VGet(i % 4 * 10, 0.0f, i / 4 * 10), 5.0f, 36, GetColor(255, 255, 255), GetColor(255, 255, 255), TRUE);
-	}*/
-
-	/*m_renderer->DrawMotion3D("test", m_motion_index, Math::Vector3(0, 0, 0), 64);
-	m_renderer->DrawTexture3D("test", Math::Vector3(0, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f));
-	m_renderer->DrawTexture3D("test", Math::Vector3(-5, 0, -3), 500);*/
-
-	/*m_renderer->GetDepthSort()->AddTransparentObj(Device::TransparentObj("test", -1, Math::Vector3(2, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f)));
-	m_renderer->GetDepthSort()->AddTransparentObj(Device::TransparentObj("test", -1, Math::Vector3(0, 0, 0), 500, 2, Color(1.0f, 1.0f, 1.0f, 1.0f)));
-	m_renderer->GetDepthSort()->Sort(m_game_device->GetProjector()->Position());
-	m_renderer->DrawTransparentObj();*/
-
-	/*for (int i = 0; i < 25; i++)
-	{
-		m_renderer->DrawModel("test", Math::Vector3(i % 5 * 10, 0, i / 5 * 10), Math::Vector3(10, 10, 10), Math::Vector3(0, 0, 0));
-	}*/
 
 	m_phase_manager->Draw();
 

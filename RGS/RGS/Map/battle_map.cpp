@@ -26,18 +26,37 @@ void BattleMap::Initialize()
 	m_renderer = m_game_device->GetRenderer();				//Rendererの実体を取得
 }
 
-void BattleMap::Clear() 
+void BattleMap::Clear()
 {
 	m_map_chip.clear();		//マップ情報を削除
+	m_block_def.clear();	//Block定義を削除
 	m_x_size = 0;			//マップの大きさ情報を削除
+	m_map_size = 0;			//マップの大きさ情報を削除
 }
 
-void BattleMap::SetMap(std::vector<Grid> map_chip, int x_size) 
+void BattleMap::SetMap(std::vector<Grid> map_chip, int x_size)
 {
-	m_map_chip = map_chip;	//MapChip設定
-	m_x_size = x_size;		//X軸の数を指定
+	m_map_chip = map_chip;				//MapChip設定
+	m_x_size = x_size;					//X軸の数を指定
+	m_map_size = m_map_chip.size();		//マップの大きさを設定
 }
 
+void BattleMap::SetBlock(std::map<int, std::string> block_def)
+{
+	m_block_def = block_def;			//Block定義設定
+}
+
+void BattleMap::MapInfo(int x, int y, int& height)
+{
+	int index = y * m_x_size + x;			//Index計算
+	if (index >= m_map_size)				//例外処理
+	{
+		height = -1;
+		return;
+	}
+
+	height = m_map_chip[index].Height();	//高さを設定
+}
 
 void BattleMap::Draw()
 {
@@ -45,14 +64,8 @@ void BattleMap::Draw()
 	{
 		for (int j = 0; j < m_map_chip[i].blocks.size(); j++)		//高さのある限りを繰り返す
 		{
-			if (j == m_map_chip[i].blocks.size() - 1)				//Test機能Textureを差し替え
-			{
-				m_renderer->ResetModelTexture("test_block");
-			}
-			else
-			{
-				m_renderer->SetModelTexture("test_block", "block_ground");
-			}
+			int block_type = m_map_chip[i].blocks[j];				//Blockの種類を取得
+			SetTexture(block_type);									//Textureを設定
 
 			int x = i % m_x_size;		//X座標（X軸の数を割ったあまり）
 			int y = i / m_x_size;		//X座標（X軸の数を割った数値）
@@ -63,4 +76,15 @@ void BattleMap::Draw()
 				Math::Vector3(0, 0, 0));											//回転
 		}
 	}
+}
+
+void BattleMap::SetTexture(int block_type)
+{
+	if (m_block_def[block_type] == "default")							//Defaultの場合
+	{
+		m_renderer->ResetModelTexture("test_block");					//元のTextureを使用
+		return;
+	}
+
+	m_renderer->SetModelTexture("test_block", m_block_def[block_type]);	//定義のテクスチャー使用
 }
