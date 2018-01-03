@@ -230,7 +230,6 @@
     <ClInclude Include="Device\random.h" />
     <ClInclude Include="Device\renderer.h" />
     <ClInclude Include="Map\battle_map.h" />
-    <ClInclude Include="Map\block_type.h" />
     <ClInclude Include="Map\map_grid.h" />
     <ClInclude Include="Map\map_loader.h" />
     <ClInclude Include="Math\vector2.h" />

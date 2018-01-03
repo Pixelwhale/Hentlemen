@@ -60,7 +60,7 @@ void BattleMap::MapInfo(int x, int y, int& height)
 
 void BattleMap::Draw()
 {
-	for (int i = 0; i < m_map_chip.size(); i++)						//ƒ}ƒX‚Ì‚ ‚éŒÀ‚è‚ðŒJ‚è•Ô‚·
+	for (int i = 0; i < m_map_size; i++)							//ƒ}ƒX‚Ì‚ ‚éŒÀ‚è‚ðŒJ‚è•Ô‚·
 	{
 		for (int j = 0; j < m_map_chip[i].blocks.size(); j++)		//‚‚³‚Ì‚ ‚éŒÀ‚è‚ðŒJ‚è•Ô‚·
 		{
