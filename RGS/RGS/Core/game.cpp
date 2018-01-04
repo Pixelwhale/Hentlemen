@@ -45,6 +45,7 @@ void Game::Load()
 	m_game_device->GetContent()->LoadTexture("load", ".png");
 	m_game_device->GetContent()->LoadTexture("test", ".png");
 	m_game_device->GetContent()->LoadTexture("block_ground", ".png");
+	m_game_device->GetContent()->LoadTexture("player", ".png");
 	m_game_device->GetContent()->LoadTexture("moemoe", ".png");
 	m_game_device->GetContent()->LoadTexture("moemoe_mask", ".png");
 	m_game_device->GetContent()->LoadTexture("mask", ".png");
@@ -152,6 +153,7 @@ void Game::Draw()
 
 	m_map.Draw();
 	m_cutin_effect->Draw(m_rate, m_alpha);
+	m_renderer->DrawTexture("player", Math::Vector2(700, 100), 1.0f);
 
 	m_scene_manager->Draw();
 
