@@ -10,6 +10,8 @@ using namespace Device;
 Renderer::Renderer(std::shared_ptr<ContentManager> contents)
 {
 	m_contents = contents;
+	m_depth_sort = std::make_shared<DepthSort>();
+	m_depth_sort->Clear();
 }
 
 Renderer::Renderer(const Renderer&)
@@ -25,23 +27,34 @@ void Renderer::Initialize()
 	SetDrawScreen(DX_SCREEN_BACK);		//描画先をBackBufferに設定
 	SetUseZBuffer3D(TRUE);				// Ｚバッファを有効にする
 	SetWriteZBuffer3D(TRUE);			// Ｚバッファへの書き込みを有効にする
+	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255);		//AlphaBlend有効
+	SetUseLighting(false);							//Light無効（計算なし）
 }
 
-void Renderer::Release() 
+void Renderer::Release()
 {
 	m_contents->Release();						//Textureを解放処理
 	m_contents = 0;
+
+	m_depth_sort->Clear();
+	m_depth_sort = 0;
 }
 
 void Renderer::Clear(int r, int g, int b)
 {
 	DxLib::SetBackgroundColor(r, g, b);			//ClearColor設定
 	DxLib::ClearDrawScreen();					//画面クリア
+	m_depth_sort->Clear();
 }
 
 void Renderer::Swap()
 {
 	DxLib::ScreenFlip();						//BackBufferと交換
+}
+
+std::shared_ptr<DepthSort> Renderer::GetDepthSort()
+{
+	return m_depth_sort;
 }
 
 #pragma region 2D Render関連
@@ -78,7 +91,32 @@ void Renderer::DrawMotion(std::string texture_name, int index, Math::Vector2 pos
 
 #pragma region 3D Render関連
 
-void Renderer::DrawTexture3D(std::string texture_name, Math::Vector3 position, 
+
+
+void Renderer::DrawModel(std::string model_name, Math::Vector3 position,
+	Math::Vector3 size, Math::Vector3 rotation)
+{
+	int model = m_contents->ModelHandle(model_name);						//ハンドルを取得
+	MV1SetScale(model, VGet(size.x, size.y, size.z));						//Scale
+	MV1SetRotationXYZ(model, VGet(rotation.x, rotation.y, rotation.z));		//回転
+	MV1SetPosition(model, VGet(position.x, position.y, position.z));		//移動
+	MV1DrawModel(model);													//描画
+}
+
+void Renderer::ResetModelTexture(std::string model_name)
+{
+	int model_handle = m_contents->ModelHandle(model_name);					//Modelハンドルを取得
+	MV1SetTextureGraphHandle(model_handle, 0, -1, false);					//使用するテクスチャを差し替える
+}
+
+void Renderer::SetModelTexture(std::string model_name, std::string texture_name)
+{
+	int model_handle = m_contents->ModelHandle(model_name);					//Modelハンドルを取得
+	int texture_handle = m_contents->TextureHandle(texture_name);			//Textureハンドルを取得
+	MV1SetTextureGraphHandle(model_handle, 0, texture_handle, false);		//使用するテクスチャを差し替える
+}
+
+void Renderer::DrawTexture3D(std::string texture_name, Math::Vector3 position,
 	float scale, float alpha)
 {
 	SetDrawBright((int)(255 * alpha), (int)(255 * alpha), (int)(255 * alpha));		//色設定
@@ -129,8 +167,8 @@ void Renderer::DrawMotion3D(std::string texture_name, int index,
 	Math::Vector3 position, float scale, float angle, Color color)
 {
 	SetDrawBright(
-		(int)(color.r * color.A()), 
-		(int)(color.g * color.A()), 
+		(int)(color.r * color.A()),
+		(int)(color.g * color.A()),
 		(int)(color.b * color.A()));					//色設定
 
 	DrawBillboard3D(
@@ -141,6 +179,33 @@ void Renderer::DrawMotion3D(std::string texture_name, int index,
 		true, false);									//alpha使用, 水平反転
 
 	SetDrawBright(255, 255, 255);						//色を戻す
+}
+
+void Renderer::DrawTransparentObj()
+{
+	std::vector<TransparentObj> draw_list = m_depth_sort->DrawList();
+
+	for (auto& obj : draw_list)
+	{
+		if (obj.index == -1)
+		{
+			DrawTexture3D(
+				obj.texture_name,
+				obj.position,
+				obj.scale,
+				obj.angle,
+				obj.color);
+			continue;
+		}
+
+		DrawMotion3D(
+			obj.texture_name,
+			obj.index,
+			obj.position,
+			obj.scale,
+			obj.angle,
+			obj.color);
+	}
 }
 
 #pragma endregion
@@ -172,7 +237,7 @@ void Renderer::DrawString(
 	bool center)
 {
 	color = color * color.A();						//Alpha適用
-	int handle = m_contents->FontHandle("Arial");
+	int handle = m_contents->FontHandle("MS UI Gothic");
 	if (center)
 	{
 		int xSize = GetDrawStringWidthToHandle(
@@ -190,8 +255,8 @@ void Renderer::DrawString(
 void Renderer::DrawString(
 	std::string text, Math::Vector2 position, bool center)
 {
-	int handle = m_contents->FontHandle("Arial");
-	if (center) 
+	int handle = m_contents->FontHandle("MS UI Gothic");
+	if (center)
 	{
 		int xSize = GetDrawStringWidthToHandle(
 			text.c_str(), text.length(), handle);

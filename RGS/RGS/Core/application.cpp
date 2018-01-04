@@ -11,9 +11,8 @@ using namespace Core;
 
 Application::Application() 
 {
-	m_inputState = 0;
-	m_contentManager = 0;
-	m_renderer = 0;
+	m_input_state = 0;
+	m_game_device = 0;
 }
 
 bool Application::InitWindow()
@@ -21,6 +20,7 @@ bool Application::InitWindow()
 	bool result;
 
 #pragma region DxLib初期化
+	SetUseDirect3DVersion(DX_DIRECT3D_9EX);
 	SetOutApplicationLogValidFlag(false);			//Logを書き出ししない
 	SetWindowText(WindowDef::kWindowName);			//Title設定
 	SetGraphMode(
@@ -36,29 +36,16 @@ bool Application::InitWindow()
 
 #pragma endregion
 
-#pragma region InputState初期化
+#pragma region GameDevice初期化
 
-	m_inputState = std::make_shared<InputState>();
-	if (!m_inputState)						//失敗したらFalseを返す
-		return false;
-
-	result = m_inputState->Initialize(m_hInstance, m_hwnd);			//Inputを初期化
+	m_game_device = Device::GameDevice::GetInstance();
+	result = m_game_device->Initialize(m_hInstance, m_hwnd);
 	if (!result)
 		return false;
 
 #pragma endregion
 
-#pragma region ContentManager初期化
-	m_contentManager = std::make_shared<Device::ContentManager>();
-	m_contentManager->Initialize();
-#pragma endregion
-
-#pragma region Renderer初期化
-
-	m_renderer = std::make_shared<Device::Renderer>(m_contentManager);
-	m_renderer->Initialize();
-
-#pragma endregion
+	m_input_state = m_game_device->GetInput();
 
 	return true;
 }
@@ -73,7 +60,7 @@ void Application::Run()
 
 	while (ProcessMessage()== 0 && !IsEnd())						//終了しない限りGameLoop
 	{
-		if (!m_inputState->Update())		//InputState更新
+		if (!m_input_state->Update())		//InputState更新
 			break;
 
 		Update();							//Gameのアップデート
@@ -88,23 +75,12 @@ void Application::ShutDown()
 {
 	SetMouseDispFlag(true);								//Mouse表示
 
-	if (m_inputState)									//InputStateをシャットダウン処理
+	if (m_game_device)									//Game Deviceをシャットダウン処理
 	{
-		m_inputState->ShutDown();
-		m_inputState = 0;
+		m_game_device->ShutDown();
 	}
 
-	if (m_renderer)										//Rendererをシャットダウン処理
-	{
-		m_renderer->Release();
-		m_renderer = 0;
-	}
-
-	if (m_contentManager) 								//Contentをシャットダウン処理
-	{
-		m_contentManager->Release();
-		m_contentManager = 0;
-	}
+	delete m_game_device;
 
 	DxLib_End();										//DXLib終了処理
 }

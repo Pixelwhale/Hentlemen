@@ -6,6 +6,11 @@
 #pragma once
 #include <Core\application.h>
 #include <Device\game_device.h>
+#include <BattleSystem\phase_manager.h>
+#include <Shader\cutin_effect.h>
+#include <Scene\scene_manager.h>
+#include <Map\battle_map.h>
+#include <Map\map_loader.h>
 
 namespace Core
 {
@@ -24,10 +29,22 @@ namespace Core
 		virtual bool IsEnd();			//終了確認するメソッド
 
 	private:
-		bool m_endFlag;					//ゲーム終了のフラグ
-
-		std::shared_ptr<Device::GameDevice> m_gameDevice;
+		bool m_end_flag;					//ゲーム終了のフラグ
 
 		int m_motion_index;				//Test用
+		float m_dest_angle;				//Test用
+		float m_projector_angle;		//Test用
+		float m_zoom_rate;				//Test用
+
+		std::shared_ptr<BattleSystem::PhaseManager> m_phase_manager;
+		std::shared_ptr<Device::Renderer> m_renderer;
+
+		std::shared_ptr<Shader::CutinEffect> m_cutin_effect;
+		float m_rate;					//Test用
+		float m_alpha;					//Test用
+		std::shared_ptr<Scene::SceneManager> m_scene_manager;
+
+		Map::BattleMap m_map;
+		Map::MapLoader m_map_loader;
 	};
 }

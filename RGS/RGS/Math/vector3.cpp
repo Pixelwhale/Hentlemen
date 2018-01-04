@@ -24,6 +24,11 @@ Vector3::Vector3(const Vector3& other)
 {
 }
 
+float Vector3::lengthSqrt() const
+{
+	return x * x + y * y + z * z;
+}
+
 float Vector3::length() const
 {
 	return (float)sqrt(x * x + y * y + z * z);

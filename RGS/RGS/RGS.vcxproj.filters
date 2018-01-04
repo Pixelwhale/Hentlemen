@@ -1,107 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Actor\Buff\buff_base.cpp" />
+    <ClCompile Include="Actor\character_base.cpp" />
+    <ClCompile Include="Actor\character_move.cpp" />
+    <ClCompile Include="Actor\character_states.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_ai.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_animation.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_caculate.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_check_end.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_end.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_event.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_lose.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_player.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_start.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_wait.cpp" />
+    <ClCompile Include="BattleSystem\Phase\phase_win.cpp" />
+    <ClCompile Include="BattleSystem\phase_manager.cpp" />
+    <ClCompile Include="Color\color.cpp" />
+    <ClCompile Include="Core\application.cpp" />
+    <ClCompile Include="Core\game.cpp" />
+    <ClCompile Include="Core\input_state.cpp" />
+    <ClCompile Include="Device\content_manager.cpp" />
+    <ClCompile Include="Device\depth_sort.cpp" />
+    <ClCompile Include="Device\game_device.cpp" />
+    <ClCompile Include="Device\projector.cpp" />
+    <ClCompile Include="Device\random.cpp" />
+    <ClCompile Include="Device\renderer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math\vector2.cpp" />
+    <ClCompile Include="Math\vector3.cpp" />
+    <ClCompile Include="Shader\cutin_effect.cpp" />
+    <ClCompile Include="Scene\loading.cpp" />
+    <ClCompile Include="Scene\scene_base.cpp" />
+    <ClCompile Include="Scene\scene_manager.cpp" />
+    <ClCompile Include="Scene\title.cpp" />
+    <ClCompile Include="Scene\village.cpp" />
+    <ClCompile Include="Scene\battle.cpp" />
+    <ClCompile Include="Scene\team_view.cpp" />
+    <ClCompile Include="Scene\shop.cpp" />
+    <ClCompile Include="Scene\option.cpp" />
+    <ClCompile Include="Map\battle_map.cpp" />
+    <ClCompile Include="Map\map_loader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\content_manager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\depth_sort.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\game_device.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\vector2.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\vector3.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\input_state.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Color\color.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\application.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\game.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\projector.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\random.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Device\renderer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
+    <ClInclude Include="Actor\Buff\buff_base.h" />
+    <ClInclude Include="Actor\character_base.h" />
+    <ClInclude Include="Actor\character_move.h" />
+    <ClInclude Include="Actor\character_states.h" />
+    <ClInclude Include="BattleSystem\i_phase.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_ai.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_animation.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_caculate.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_check_end.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_end.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_event.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_lose.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_player.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_start.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_wait.h" />
+    <ClInclude Include="BattleSystem\Phase\phase_win.h" />
+    <ClInclude Include="BattleSystem\phase_enum.h" />
+    <ClInclude Include="BattleSystem\phase_manager.h" />
+    <ClInclude Include="Color\color.h" />
+    <ClInclude Include="Core\application.h" />
+    <ClInclude Include="Core\game.h" />
+    <ClInclude Include="Core\input_state.h" />
+    <ClInclude Include="Def\window_def.h" />
+    <ClInclude Include="Device\content_manager.h" />
+    <ClInclude Include="Device\depth_sort.h" />
+    <ClInclude Include="Device\game_device.h" />
+    <ClInclude Include="Device\projector.h" />
+    <ClInclude Include="Device\random.h" />
+    <ClInclude Include="Device\renderer.h" />
+    <ClInclude Include="Math\vector2.h" />
+    <ClInclude Include="Math\vector3.h" />
+    <ClInclude Include="Shader\cutin_effect.h" />
+    <ClInclude Include="Scene\loading.h" />
+    <ClInclude Include="Device\texture_loader.h" />
+    <ClInclude Include="Scene\scene_base.h" />
+    <ClInclude Include="Scene\scene_manager.h" />
+    <ClInclude Include="Scene\scene_type.h" />
+    <ClInclude Include="Scene\title.h" />
+    <ClInclude Include="Scene\village.h" />
+    <ClInclude Include="Scene\battle.h" />
+    <ClInclude Include="Scene\team_view.h" />
+    <ClInclude Include="Scene\shop.h" />
+    <ClInclude Include="Scene\option.h" />
+    <ClInclude Include="Map\battle_map.h" />
+    <ClInclude Include="Map\map_loader.h" />
+    <ClInclude Include="Map\map_grid.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Device\content_manager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\depth_sort.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\game_device.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\vector2.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\vector3.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Def\window_def.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\input_state.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Color\color.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\application.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\game.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\projector.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\random.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Device\renderer.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
+    <Image Include="Content\Texture\load.png" />
+    <Image Include="Content\Texture\mask.png" />
+    <Image Include="Content\Texture\test.png" />
+    <Image Include="Content\Texture\moemoe.png" />
+    <Image Include="Content\Texture\moemoe_mask.png" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Content\Texture\load.png">
-      <Filter>リソース ファイル</Filter>
-    </Image>
-    <Image Include="Content\Texture\test.png">
-      <Filter>リソース ファイル</Filter>
-    </Image>
+    <None Include="Content\Model\test.mv1" />
+    <None Include="Content\CSV\map_example.csv" />
+    <None Include="Content\Model\test_block.mv1" />
   </ItemGroup>
 </Project>

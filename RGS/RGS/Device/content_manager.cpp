@@ -34,7 +34,11 @@ void ContentManager::Initialize()
 	InitFontToHandle();			//FontのHandleを削除
 	m_font.clear();
 
+	InitShader();				//ShaderHandleを削除
+	m_pixel_shader.clear();
+
 	LoadFont("Arial", -1, -1);
+	LoadFont("MS UI Gothic", -1, -1);
 }
 
 void ContentManager::Release()
@@ -50,7 +54,27 @@ void ContentManager::Release()
 
 	InitFontToHandle();			//FontのHandleを削除
 	m_font.clear();
+
+	InitShader();				//ShaderHandleを削除
+	m_pixel_shader.clear();
 }
+
+
+#pragma region Model関連
+
+void ContentManager::LoadModel(std::string file_name, std::string file_extention, std::string path) 
+{
+	int handle = MV1LoadModel((path + file_name + file_extention).c_str());
+	m_models[file_name] = handle;			//ハンドル追加
+}
+
+int ContentManager::ModelHandle(std::string model_name) 
+{
+	return m_models[model_name];
+}
+
+#pragma endregion
+
 
 #pragma region Texture関連
 
@@ -60,7 +84,7 @@ void ContentManager::LoadTexture(
 	std::string path)
 {
 	int handle = LoadGraph((path + file_name + file_extention).c_str());		//Textureを読み込み
-	m_textures[file_name] = handle;											//HandleをMapに追加
+	m_textures[file_name] = handle;												//HandleをMapに追加
 }
 
 void  ContentManager::LoadTexture(
@@ -72,7 +96,7 @@ void  ContentManager::LoadTexture(
 	int error;
 	error = LoadDivGraph((path + file_name + file_extention).c_str(),
 		total, x_count, y_count, x_size, y_size, handle);						//Textureを分割して読み込む
-	m_motion[file_name] = handle;											//HandleをMapに追加
+	m_motion[file_name] = handle;												//HandleをMapに追加
 }
 
 int  ContentManager::TextureHandle(std::string texture_name)
@@ -102,6 +126,22 @@ void ContentManager::LoadFont(std::string font_name, int size, int thickness)
 int ContentManager::FontHandle(std::string font_name) 
 {
 	return m_font[font_name];
+}
+
+#pragma endregion
+
+
+#pragma region Shader関連
+
+void ContentManager::LoadShaderPixel(std::string file_name, std::string file_extention, std::string path) 
+{
+	int handle = DxLib::LoadPixelShader((path + file_name + file_extention).c_str());
+	m_pixel_shader[file_name] = handle;
+}
+
+int ContentManager::PixelShaderHandle(std::string shader_name) 
+{
+	return m_pixel_shader[shader_name];
 }
 
 #pragma endregion
