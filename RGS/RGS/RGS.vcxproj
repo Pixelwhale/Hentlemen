@@ -276,16 +276,26 @@
     <ClInclude Include="ssbpLib\ssShader_frag.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Content\Model\blockTest.png" />
+    <Image Include="Content\SpriteStudio\TestCharacter\player_parts.png" />
+    <Image Include="Content\Texture\block_ground.png" />
     <Image Include="Content\Texture\load.png" />
     <Image Include="Content\Texture\mask.png" />
     <Image Include="Content\Texture\moemoe.png" />
     <Image Include="Content\Texture\moemoe_mask.png" />
+    <Image Include="Content\Texture\player.png" />
     <Image Include="Content\Texture\test.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\CSV\map_example.csv" />
+    <None Include="Content\CSV\map_example.xlsx" />
+    <None Include="Content\CSV\map_example_block_def.csv" />
     <None Include="Content\Model\test.mv1" />
     <None Include="Content\Model\test_block.mv1" />
+    <None Include="Content\SpriteStudio\TestCharacter\player.ssbp" />
+    <None Include="Content\SpriteStudio\TestCharacter\player.sspj" />
+    <None Include="Content\SpriteStudio\TestCharacter\player_idle.ssae" />
+    <None Include="Content\SpriteStudio\TestCharacter\player_parts.ssce" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
