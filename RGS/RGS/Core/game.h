@@ -11,6 +11,7 @@
 #include <Scene\scene_manager.h>
 #include <Map\battle_map.h>
 #include <Map\map_loader.h>
+#include <Device\dialogue.h>
 
 namespace Core
 {
@@ -46,5 +47,7 @@ namespace Core
 
 		Map::BattleMap m_map;
 		Map::MapLoader m_map_loader;
+
+		Device::Dialogue _dialogue;
 	};
 }

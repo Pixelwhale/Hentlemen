@@ -37,6 +37,10 @@ void Game::Initialize()
 	m_map.SetBlock(m_map_loader.GetBlockDef());
 
 	m_map_loader.Clear();
+
+	// 対話
+	_dialogue.Initialize();
+	_dialogue.SetTexts("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 }
 
 //ロードコンテンツ
@@ -131,6 +135,9 @@ void Game::Update()
 	m_phase_manager->Update();
 
 	m_scene_manager->Update();
+
+	// 対話
+	_dialogue.Update();
 }
 
 //描画処理
@@ -146,7 +153,9 @@ void Game::Draw()
 
 	m_renderer->DrawString("Hello World 漢字", "MS UI Gothic", Math::Vector2(0, 600), Color(120, 120, 50));
 	m_renderer->DrawString("こんにちは。世界", "MS UI Gothic", Math::Vector2(600, 300), Color(120, 120, 50));
-
+	
+	// 対話
+	m_renderer->DrawString(_dialogue.GetType(), "MS UI Gothic", Math::Vector2(0, 300), Color(120, 120, 50));
 
 	m_phase_manager->Draw();
 
