@@ -18,6 +18,11 @@ namespace Device
 		///<summary>初期化処理</summary>
 		void Initialize();
 
+		///<summary>2D Spriteを描画するために座標変換する</summary>
+		void SpriteMode();
+		///<summary>座標変換後に元の設定を戻す</summary>
+		void PopSetting();
+
 		///<summary>目標との相対位置を設定</summary>
 		///<param name="relative_position">Projectorと目標の相対位置関係</param>
 		void SetRelativePosition(Math::Vector3 relative_position);
@@ -43,5 +48,10 @@ namespace Device
 		VECTOR m_position;				//Projectorの位置
 		VECTOR m_target;				//注目点
 		VECTOR m_relative_position;		//Projectorと目標の相対位置
+
+		float  m_rotation;						//回転角度を保存用変数
+		float  m_zoom_rate;						//拡大縮小を保存用変数
+		VECTOR m_stock_target;					//一旦保存の注目点
+		VECTOR m_stock_rerelative_position;		//一旦保存のProjectorと目標の相対位置
 	};
 }

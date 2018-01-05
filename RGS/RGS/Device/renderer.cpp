@@ -33,9 +33,6 @@ void Renderer::Initialize()
 
 void Renderer::Release()
 {
-	m_contents->Release();						//Texture‚ð‰ð•úˆ—
-	m_contents = 0;
-
 	m_depth_sort->Clear();
 	m_depth_sort = 0;
 }

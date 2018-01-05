@@ -5,6 +5,7 @@
 //-------------------------------------------------------
 #pragma once
 #include <map>
+#include <ssbpLib\SS5Player.h>
 
 namespace Device
 {
@@ -96,6 +97,12 @@ namespace Device
 		int PixelShaderHandle(std::string shader_name);
 #pragma endregion
 
+#pragma region Sprite Studio関連
+
+		void LoadSSFile(std::string file_name, std::string path = "./Content/SpriteStudio/");
+
+#pragma endregion
+
 
 	private:
 		std::map<std::string, int> m_models;			//モデルのハンドル
@@ -103,5 +110,7 @@ namespace Device
 		std::map<std::string, int*> m_motion;			//Animated Texture
 		std::map<std::string, int> m_font;				//Font
 		std::map<std::string, int> m_pixel_shader;		//Pixel Shader
+
+		ss::ResourceManager* m_resource_manager;
 	};
 }

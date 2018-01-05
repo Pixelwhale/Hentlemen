@@ -46,5 +46,7 @@ namespace Core
 
 		Map::BattleMap m_map;
 		Map::MapLoader m_map_loader;
+
+		ss::Player* m_ss_player;
 	};
 }

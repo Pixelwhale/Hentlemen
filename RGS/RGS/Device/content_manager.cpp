@@ -37,6 +37,8 @@ void ContentManager::Initialize()
 	InitShader();				//ShaderHandleを削除
 	m_pixel_shader.clear();
 
+	m_resource_manager = ss::ResourceManager::getInstance();	//SpriteStudioのContentManagerを初期化
+
 	LoadFont("Arial", -1, -1);
 	LoadFont("MS UI Gothic", -1, -1);
 }
@@ -57,6 +59,9 @@ void ContentManager::Release()
 
 	InitShader();				//ShaderHandleを削除
 	m_pixel_shader.clear();
+
+	if(m_resource_manager)
+		delete (m_resource_manager);	//SpriteStudioのコンテンツを解放
 }
 
 
@@ -142,6 +147,16 @@ void ContentManager::LoadShaderPixel(std::string file_name, std::string file_ext
 int ContentManager::PixelShaderHandle(std::string shader_name) 
 {
 	return m_pixel_shader[shader_name];
+}
+
+#pragma endregion
+
+
+#pragma region Sprite Studio関連
+
+void Device::ContentManager::LoadSSFile(std::string file_name, std::string path)
+{
+	m_resource_manager->addData((path + file_name).c_str());
 }
 
 #pragma endregion

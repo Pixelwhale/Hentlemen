@@ -198,6 +198,14 @@
     <ClCompile Include="Scene\loading.cpp" />
     <ClCompile Include="Scene\scene_base.cpp" />
     <ClCompile Include="Scene\scene_manager.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effect.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effect2.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_effectfunction.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_matrix.cpp" />
+    <ClCompile Include="ssbpLib\common\Animator\ssplayer_PartState.cpp" />
+    <ClCompile Include="ssbpLib\common\Helper\DebugPrint.cpp" />
+    <ClCompile Include="ssbpLib\SS5Player.cpp" />
+    <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -246,6 +254,26 @@
     <ClInclude Include="Scene\scene_base.h" />
     <ClInclude Include="Scene\scene_manager.h" />
     <ClInclude Include="Scene\scene_type.h" />
+    <ClInclude Include="ssbpLib\common\Animator\MersenneTwister.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_cellmap.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effect.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effect2.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_effectfunction.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_macro.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_matrix.h" />
+    <ClInclude Include="ssbpLib\common\Animator\ssplayer_PartState.h" />
+    <ClInclude Include="ssbpLib\common\Animator\xorshift32.h" />
+    <ClInclude Include="ssbpLib\common\Helper\DebugPrint.h" />
+    <ClInclude Include="ssbpLib\common\Loader\SsEffectBehavior.h" />
+    <ClInclude Include="ssbpLib\common\Loader\SsEffectElement.h" />
+    <ClInclude Include="ssbpLib\common\Loader\ssloader.h" />
+    <ClInclude Include="ssbpLib\common\Loader\ssloader_ssee.h" />
+    <ClInclude Include="ssbpLib\common\Loader\sstypes.h" />
+    <ClInclude Include="ssbpLib\SS5Player.h" />
+    <ClInclude Include="ssbpLib\SS5PlayerData.h" />
+    <ClInclude Include="ssbpLib\SS5PlayerPlatform.h" />
+    <ClInclude Include="ssbpLib\SS5PlayerTypes.h" />
+    <ClInclude Include="ssbpLib\ssShader_frag.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />

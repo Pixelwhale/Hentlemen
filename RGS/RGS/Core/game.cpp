@@ -37,6 +37,22 @@ void Game::Initialize()
 	m_map.SetBlock(m_map_loader.GetBlockDef());
 
 	m_map_loader.Clear();
+
+
+	m_game_device->GetContent()->LoadSSFile("TestCharacter/player.ssbp");
+	m_ss_player = ss::Player::create();
+	m_ss_player->setData("player");
+	m_ss_player->play("player_idle/idle");
+	//表示位置を設定
+	m_ss_player->setPosition(-350, -250);
+	//スケール設定
+	m_ss_player->setScale(1.0f, 1.0f);
+	//回転を設定
+	m_ss_player->setRotation(0.0f, 0.0f, 0.0f);
+	//透明度を設定
+	m_ss_player->setAlpha(255);
+	//反転を設定
+	m_ss_player->setFlip(false, false);
 }
 
 //ロードコンテンツ
@@ -65,6 +81,7 @@ void Game::Load()
 //コンテンツ解放
 void Game::Unload()
 {
+	delete (m_ss_player);
 }
 
 //更新処理
@@ -131,6 +148,8 @@ void Game::Update()
 	m_phase_manager->Update();
 
 	m_scene_manager->Update();
+
+	m_ss_player->update(1 / 60.0f);
 }
 
 //描画処理
@@ -154,6 +173,10 @@ void Game::Draw()
 	m_map.Draw();
 	m_cutin_effect->Draw(m_rate, m_alpha);
 	m_renderer->DrawTexture("player", Math::Vector2(700, 100), 1.0f);
+
+	m_game_device->GetProjector()->SpriteMode();
+	m_ss_player->draw();
+	m_game_device->GetProjector()->PopSetting();
 
 	m_scene_manager->Draw();
 
