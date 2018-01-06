@@ -83,6 +83,42 @@
 			<posStable>0</posStable>
 		</cell>
 		<cell>
+			<name>eye_normal</name>
+			<pos>192 704</pos>
+			<size>96 64</size>
+			<pivot>0 0</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>mouth_excited</name>
+			<pos>320 768</pos>
+			<size>64 32</size>
+			<pivot>0 0</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>eye_excited</name>
+			<pos>192 768</pos>
+			<size>64 64</size>
+			<pivot>-0.15625 0.15625</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
+			<name>mouth_normal</name>
+			<pos>320 704</pos>
+			<size>64 32</size>
+			<pivot>0 0</pivot>
+			<rotated>0</rotated>
+			<orgImageName></orgImageName>
+			<posStable>0</posStable>
+		</cell>
+		<cell>
 			<name>body_down</name>
 			<pos>512 352</pos>
 			<size>512 672</size>

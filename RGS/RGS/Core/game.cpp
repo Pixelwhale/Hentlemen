@@ -53,6 +53,13 @@ void Game::Initialize()
 	m_ss_player->setAlpha(255);
 	//反転を設定
 	m_ss_player->setFlip(false, false);
+
+	m_ss_player->setPartVisible("eye_normal", true);
+	m_ss_player->setPartVisible("mouth_normal", true);
+	m_ss_player->setPartVisible("eye_excited", false);
+	m_ss_player->setPartVisible("eye_excited_right", false);
+	m_ss_player->setPartVisible("eye_excited_left", false);
+	m_ss_player->setPartVisible("mouth_excited", false);
 }
 
 //ロードコンテンツ
@@ -149,6 +156,25 @@ void Game::Update()
 
 	m_scene_manager->Update();
 
+
+	if (m_input_state->IsKeyTrigger(DIK_NUMPAD1))
+	{
+		m_ss_player->setPartVisible("eye_normal", true);
+		m_ss_player->setPartVisible("mouth_normal", true);
+		m_ss_player->setPartVisible("eye_excited", false);
+		m_ss_player->setPartVisible("eye_excited_right", false);
+		m_ss_player->setPartVisible("eye_excited_left", false);
+		m_ss_player->setPartVisible("mouth_excited", false);
+	}
+	else if (m_input_state->IsKeyTrigger(DIK_NUMPAD2))
+	{
+		m_ss_player->setPartVisible("eye_normal", false);
+		m_ss_player->setPartVisible("mouth_normal", false);
+		m_ss_player->setPartVisible("eye_excited", true);
+		m_ss_player->setPartVisible("eye_excited_right", true);
+		m_ss_player->setPartVisible("eye_excited_left", true);
+		m_ss_player->setPartVisible("mouth_excited", true);
+	}
 	m_ss_player->update(1 / 60.0f);
 }
 
