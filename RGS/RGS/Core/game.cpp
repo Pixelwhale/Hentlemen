@@ -38,7 +38,6 @@ void Game::Initialize()
 
 	m_map_loader.Clear();
 
-
 	m_game_device->GetContent()->LoadSSFile("TestCharacter/player.ssbp");
 	m_ss_player = ss::Player::create();
 	m_ss_player->setData("player");
@@ -60,6 +59,9 @@ void Game::Initialize()
 	m_ss_player->setPartVisible("eye_excited_right", false);
 	m_ss_player->setPartVisible("eye_excited_left", false);
 	m_ss_player->setPartVisible("mouth_excited", false);
+	// 対話
+	_dialogue.Initialize();
+	_dialogue.SetTexts("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 }
 
 //ロードコンテンツ
@@ -156,7 +158,6 @@ void Game::Update()
 
 	m_scene_manager->Update();
 
-
 	if (m_input_state->IsKeyTrigger(DIK_NUMPAD1))
 	{
 		m_ss_player->setPartVisible("eye_normal", true);
@@ -176,6 +177,8 @@ void Game::Update()
 		m_ss_player->setPartVisible("mouth_excited", true);
 	}
 	m_ss_player->update(1 / 60.0f);
+	// 対話
+	_dialogue.Update();
 }
 
 //描画処理
@@ -191,7 +194,9 @@ void Game::Draw()
 
 	m_renderer->DrawString("Hello World 漢字", "MS UI Gothic", Math::Vector2(0, 600), Color(120, 120, 50));
 	m_renderer->DrawString("こんにちは。世界", "MS UI Gothic", Math::Vector2(600, 300), Color(120, 120, 50));
-
+	
+	// 対話
+	m_renderer->DrawString(_dialogue.GetType(), "MS UI Gothic", Math::Vector2(0, 300), Color(120, 120, 50));
 
 	m_phase_manager->Draw();
 
