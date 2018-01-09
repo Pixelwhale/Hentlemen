@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-namespace Device
+namespace Event
 {
 	class Dialogue
 	{

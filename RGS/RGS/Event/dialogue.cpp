@@ -1,6 +1,6 @@
 #include "dialogue.h"
 
-using namespace Device;
+using namespace Event;
 
 Dialogue::Dialogue()
 {

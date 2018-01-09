@@ -179,7 +179,7 @@
     <ClCompile Include="Core\input_state.cpp" />
     <ClCompile Include="Device\content_manager.cpp" />
     <ClCompile Include="Device\depth_sort.cpp" />
-    <ClCompile Include="Device\dialogue.cpp" />
+    <ClCompile Include="Event\dialogue.cpp" />
     <ClCompile Include="Device\game_device.cpp" />
     <ClCompile Include="Device\projector.cpp" />
     <ClCompile Include="Device\random.cpp" />
@@ -226,7 +226,7 @@
     <ClInclude Include="Def\window_def.h" />
     <ClInclude Include="Device\content_manager.h" />
     <ClInclude Include="Device\depth_sort.h" />
-    <ClInclude Include="Device\dialogue.h" />
+    <ClInclude Include="Event\dialogue.h" />
     <ClInclude Include="Device\game_device.h" />
     <ClInclude Include="Device\projector.h" />
     <ClInclude Include="Device\random.h" />

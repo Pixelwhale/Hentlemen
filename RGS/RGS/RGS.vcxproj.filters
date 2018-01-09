@@ -42,7 +42,7 @@
     <ClCompile Include="Scene\option.cpp" />
     <ClCompile Include="Map\battle_map.cpp" />
     <ClCompile Include="Map\map_loader.cpp" />
-    <ClCompile Include="Device\dialogue.cpp" />
+    <ClCompile Include="Event\dialogue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -91,7 +91,7 @@
     <ClInclude Include="Map\battle_map.h" />
     <ClInclude Include="Map\map_loader.h" />
     <ClInclude Include="Map\map_grid.h" />
-    <ClInclude Include="Device\dialogue.h" />
+    <ClInclude Include="Event\dialogue.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />
