@@ -153,5 +153,8 @@ map<int, string> MapLoader::GetBlockDef()
 
 int MapLoader::GetXSize() 
 {
+	if (m_y_size < 1)
+		return 0;											//エラー対策
+
 	return m_map_chip.size() / m_y_size;					//全部の数　/　Y軸の数　＝　X軸の数
 }
