@@ -161,6 +161,7 @@
     <ClCompile Include="Actor\character_base.cpp" />
     <ClCompile Include="Actor\character_move.cpp" />
     <ClCompile Include="Actor\character_states.cpp" />
+    <ClCompile Include="Animator\animator.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_ai.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_animation.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_caculate.cpp" />

@@ -50,6 +50,7 @@
     <ClCompile Include="ssbpLib\common\Helper\DebugPrint.cpp" />
     <ClCompile Include="ssbpLib\SS5Player.cpp" />
     <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp" />
+    <ClCompile Include="Animator\animator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
