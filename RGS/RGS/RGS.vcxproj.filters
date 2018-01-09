@@ -118,6 +118,7 @@
     <ClInclude Include="ssbpLib\SS5PlayerPlatform.h" />
     <ClInclude Include="ssbpLib\SS5PlayerTypes.h" />
     <ClInclude Include="ssbpLib\ssShader_frag.h" />
+    <ClInclude Include="Animator\animator.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />

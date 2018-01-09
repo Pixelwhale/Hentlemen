@@ -212,6 +212,7 @@
     <ClInclude Include="Actor\character_base.h" />
     <ClInclude Include="Actor\character_move.h" />
     <ClInclude Include="Actor\character_states.h" />
+    <ClInclude Include="Animator\animator.h" />
     <ClInclude Include="BattleSystem\i_phase.h" />
     <ClInclude Include="BattleSystem\Phase\phase_ai.h" />
     <ClInclude Include="BattleSystem\Phase\phase_animation.h" />
