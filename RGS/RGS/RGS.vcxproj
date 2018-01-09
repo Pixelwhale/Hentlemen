@@ -161,6 +161,7 @@
     <ClCompile Include="Actor\character_base.cpp" />
     <ClCompile Include="Actor\character_move.cpp" />
     <ClCompile Include="Actor\character_states.cpp" />
+    <ClCompile Include="Animator\animator.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_ai.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_animation.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_caculate.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="Actor\character_base.h" />
     <ClInclude Include="Actor\character_move.h" />
     <ClInclude Include="Actor\character_states.h" />
+    <ClInclude Include="Animator\animator.h" />
     <ClInclude Include="BattleSystem\i_phase.h" />
     <ClInclude Include="BattleSystem\Phase\phase_ai.h" />
     <ClInclude Include="BattleSystem\Phase\phase_animation.h" />

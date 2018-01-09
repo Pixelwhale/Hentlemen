@@ -51,6 +51,7 @@
     <ClCompile Include="ssbpLib\SS5Player.cpp" />
     <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp" />
     <ClCompile Include="Event\dialogue.cpp" />
+    <ClCompile Include="Animator\animator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -120,6 +121,7 @@
     <ClInclude Include="ssbpLib\SS5PlayerTypes.h" />
     <ClInclude Include="ssbpLib\ssShader_frag.h" />
     <ClInclude Include="Event\dialogue.h" />
+    <ClInclude Include="Animator\animator.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />
