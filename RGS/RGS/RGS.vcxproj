@@ -291,9 +291,9 @@
     <Image Include="Content\Texture\test.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\CSV\map_example.csv" />
-    <None Include="Content\CSV\map_example.xlsx" />
-    <None Include="Content\CSV\map_example_block_def.csv" />
+    <None Include="Content\CSV\Map\map_example.csv" />
+    <None Include="Content\CSV\Map\map_example.xlsx" />
+    <None Include="Content\CSV\Map\map_example_block_def.csv" />
     <None Include="Content\Model\test.mv1" />
     <None Include="Content\Model\test_block.mv1" />
     <None Include="Content\SpriteStudio\TestCharacter\player.ssbp" />

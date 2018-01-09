@@ -30,8 +30,8 @@ void Game::Initialize()
 
 
 	m_map_loader.Load(
-		"./Content/CSV/map_example.csv",
-		"./Content/CSV/map_example_block_def.csv");
+		"./Content/CSV/Map/map_example.csv",
+		"./Content/CSV/Map/map_example_block_def.csv");
 	m_map.Initialize();
 	m_map.SetMap(m_map_loader.GetMapChip(), m_map_loader.GetXSize());
 	m_map.SetBlock(m_map_loader.GetBlockDef());
