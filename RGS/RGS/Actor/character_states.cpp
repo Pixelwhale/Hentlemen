@@ -7,15 +7,18 @@
 
 using namespace Actor;
 
-CharacterStates::CharacterStates(int lv, int str, int con, int dex, int agi, int inte, int wis)
+CharacterStates::CharacterStates(int lv, int hp, int ap, int speed, int atk, int def, int hit, int evd, int mtk, int mdf)
 {
 	m_lv = lv;
-	m_str = str;
-	m_con = con;
-	m_dex = dex;
-	m_agi = agi;
-	m_int = inte;
-	m_wis = wis;
+	m_base_hp = hp;
+	m_base_ap = ap;
+	m_base_speed = speed;
+	m_base_atk = atk;
+	m_base_def = def;
+	m_base_hit = hit;
+	m_base_evd = evd;
+	m_base_mtk = mtk;
+	m_base_mdf = mdf;
 	Initialize();
 }
 
@@ -33,60 +36,61 @@ float CharacterStates::NextTime()
 #pragma region basic parameters;
 int CharacterStates::MaxHP()
 {
-	return 100 + m_lv * 10 + m_con * 5;
+	return m_base_hp;
 }
 int CharacterStates::MaxAP()
 {
-	return 500;
+	return m_base_ap;
 }
 int CharacterStates::Speed()
 {
-	return 100;
+	return m_base_speed;
 }
 int CharacterStates::Atk()
 {
-	return 20 + m_lv * 1 + m_str * 4;
+	return m_base_atk;
 }
 int CharacterStates::Def()
 {
-	return 20 + m_lv * 1 + m_con * 4;
+	return m_base_def;
 }
 int CharacterStates::Hit()
 {
-	return 20 + m_lv * 1 + m_dex * 4;
+	return m_base_hit;
 }
 int CharacterStates::Evd()
 {
-	return 50 + m_lv * 1 + m_agi * 6;
+	return m_base_evd;
 }
 float CharacterStates::CritRate()
 {
 	return 0.05f;
 }
-float CharacterStates::CritMulti() {
+float CharacterStates::CritMult()
+{
 	return 1.5f;
 }
-float CharacterStates::PhyPenP()
+float CharacterStates::PenP()
 {
 	return 0;
 }
-int CharacterStates::PhyPenF()
+int CharacterStates::PenF()
 {
 	return 0;
 }
 int CharacterStates::Mtk()
 {
-	return 0 + m_int * 5;
+	return m_base_mtk;
 }
 int CharacterStates::Mdf()
 {
-	return 0 + m_wis * 5;
+	return m_base_mdf;
 }
-float CharacterStates::MagPenP()
+float CharacterStates::MPenP()
 {
 	return 0;
 }
-int CharacterStates::MagPenF()
+int CharacterStates::MPenF()
 {
 	return 0;
 }

@@ -7,12 +7,16 @@
 
 using namespace Actor;
 
-CharacterMove::CharacterMove(int move, int jump)
+CharacterMove::CharacterMove(int move)
 {
-	m_move = move;
-	m_jump = jump;
+	m_base_move = move;
 }
 
 CharacterMove::~CharacterMove()
 {
+}
+
+int CharacterMove::Move()
+{
+	return m_base_move;
 }

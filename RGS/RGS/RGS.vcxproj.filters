@@ -50,6 +50,8 @@
     <ClCompile Include="ssbpLib\common\Helper\DebugPrint.cpp" />
     <ClCompile Include="ssbpLib\SS5Player.cpp" />
     <ClCompile Include="ssbpLib\SS5PlayerPlatform.cpp" />
+    <ClCompile Include="Actor\PassiveSkill\passive.cpp" />
+    <ClCompile Include="Actor\Buff\heal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -118,6 +120,8 @@
     <ClInclude Include="ssbpLib\SS5PlayerPlatform.h" />
     <ClInclude Include="ssbpLib\SS5PlayerTypes.h" />
     <ClInclude Include="ssbpLib\ssShader_frag.h" />
+    <ClInclude Include="Actor\PassiveSkill\passive.h" />
+    <ClInclude Include="Actor\Buff\heal.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />
