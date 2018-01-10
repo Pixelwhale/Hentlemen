@@ -160,6 +160,7 @@
     <ClCompile Include="Actor\Buff\buff_base.cpp" />
     <ClCompile Include="Actor\Buff\heal.cpp" />
     <ClCompile Include="Actor\character_base.cpp" />
+    <ClCompile Include="Actor\character_buff.cpp" />
     <ClCompile Include="Actor\character_move.cpp" />
     <ClCompile Include="Actor\character_states.cpp" />
     <ClCompile Include="Actor\PassiveSkill\passive.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="Actor\Buff\buff_base.h" />
     <ClInclude Include="Actor\Buff\heal.h" />
     <ClInclude Include="Actor\character_base.h" />
+    <ClInclude Include="Actor\character_buff.h" />
     <ClInclude Include="Actor\character_move.h" />
     <ClInclude Include="Actor\character_states.h" />
     <ClInclude Include="Actor\PassiveSkill\passive.h" />
