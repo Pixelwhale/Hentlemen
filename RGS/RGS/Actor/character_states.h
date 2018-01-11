@@ -10,7 +10,7 @@ namespace Actor
 	class CharacterStates
 	{
 	public:
-		CharacterStates(int lv, int hp, int ap, int speed, int atk, int def, int hit, int evd, int mtk, int mdf);
+		CharacterStates(int lv, int hp, int ap, int speed, int move, int atk, int def, int hit, int evd, int mtk, int mdf);
 		void Initialize();
 		float NextTime();
 
@@ -18,7 +18,8 @@ namespace Actor
 		int MaxHP();
 		int MaxAP();
 		int Speed();
-		
+		int Move();			//AP-=5000/Move;
+
 		//•¨—
 		int Atk();
 		int Def();
@@ -43,6 +44,7 @@ namespace Actor
 		int m_base_hp;
 		int m_base_ap;
 		int m_base_speed;
+		int m_base_move;
 
 		int m_base_atk;
 		int m_base_def;

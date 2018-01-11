@@ -7,12 +7,13 @@
 
 using namespace Actor;
 
-CharacterStates::CharacterStates(int lv, int hp, int ap, int speed, int atk, int def, int hit, int evd, int mtk, int mdf)
+CharacterStates::CharacterStates(int lv, int hp, int ap, int speed, int move, int atk, int def, int hit, int evd, int mtk, int mdf)
 {
 	m_lv = lv;
 	m_base_hp = hp;
 	m_base_ap = ap;
 	m_base_speed = speed;
+	m_base_move = move;
 	m_base_atk = atk;
 	m_base_def = def;
 	m_base_hit = hit;
@@ -46,6 +47,10 @@ int CharacterStates::Speed()
 {
 	return m_base_speed;
 }
+int CharacterStates::Move()
+{
+	return m_base_move;
+}
 int CharacterStates::Atk()
 {
 	return m_base_atk;
@@ -61,14 +66,6 @@ int CharacterStates::Hit()
 int CharacterStates::Evd()
 {
 	return m_base_evd;
-}
-float CharacterStates::CritRate()
-{
-	return 0.05f;
-}
-float CharacterStates::CritMult()
-{
-	return 1.5f;
 }
 float CharacterStates::PenP()
 {
@@ -93,5 +90,13 @@ float CharacterStates::MPenP()
 int CharacterStates::MPenF()
 {
 	return 0;
+}
+float CharacterStates::CritRate()
+{
+	return 0.05f;
+}
+float CharacterStates::CritMult()
+{
+	return 1.5f;
 }
 #pragma endregion

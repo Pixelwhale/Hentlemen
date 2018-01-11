@@ -14,13 +14,13 @@ namespace Actor
 	class CharacterBase
 	{
 	public:
-		CharacterBase(CharacterStates states, CharacterMove move, CharacterBuff buff) : m_states(states), m_move(move), m_buff(buff) {};
+		CharacterBase(CharacterStates states) : m_states(states) {};
 		~CharacterBase();
 		void Initialize();
 		void Update();
 	protected:
-		CharacterStates & m_states;
-		CharacterMove& m_move;
-		CharacterBuff& m_buff;
+		CharacterStates& m_states;
+		CharacterMove m_move;
+		CharacterBuff m_buff;
 	};
 }
