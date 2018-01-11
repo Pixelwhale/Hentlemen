@@ -7,14 +7,6 @@ bool Recovery::IsUsed()
 	return m_used;
 }
 
-void Recovery::Recovery_Hp()
-{
-	if (m_used)
-	{
-		m_current_hp += 10;
-	}
-	m_states->Set_Hp(m_current_hp);
-}
 
 void Recovery::Draw()
 {

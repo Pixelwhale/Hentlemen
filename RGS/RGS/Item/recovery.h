@@ -14,7 +14,6 @@ namespace Item
 	{
 	public:
 		bool IsUsed();
-		void Recovery_Hp();
 		void Draw();
 
 	private:
