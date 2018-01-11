@@ -33,7 +33,6 @@ namespace Item
 		std::shared_ptr<Device::Renderer> m_renderer;
 		std::shared_ptr<Core::InputState> m_input;
 
-		int		m_count;		//持続時間カウント
 		bool	m_used;			//アイテムを使用したか？
 		int		m_range;		//回復範囲
 		int		m_count;		//発動間隔
