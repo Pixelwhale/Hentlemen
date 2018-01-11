@@ -55,6 +55,8 @@
     <ClCompile Include="Actor\PassiveSkill\passive.cpp" />
     <ClCompile Include="Actor\Buff\heal.cpp" />
     <ClCompile Include="Actor\character_buff.cpp" />
+    <ClCompile Include="Item\item_base.cpp" />
+    <ClCompile Include="Item\recovery.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -128,6 +130,8 @@
     <ClInclude Include="Actor\PassiveSkill\passive.h" />
     <ClInclude Include="Actor\Buff\heal.h" />
     <ClInclude Include="Actor\character_buff.h" />
+    <ClInclude Include="Item\item_base.h" />
+    <ClInclude Include="Item\recovery.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />

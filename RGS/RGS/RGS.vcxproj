@@ -188,6 +188,8 @@
     <ClCompile Include="Device\projector.cpp" />
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
+    <ClCompile Include="Item\item_base.cpp" />
+    <ClCompile Include="Item\recovery.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map\battle_map.cpp" />
     <ClCompile Include="Map\map_loader.cpp" />
@@ -250,6 +252,8 @@
     <ClInclude Include="Map\battle_map.h" />
     <ClInclude Include="Map\map_grid.h" />
     <ClInclude Include="Map\map_loader.h" />
+    <ClInclude Include="Item\item_base.h" />
+    <ClInclude Include="Item\recovery.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\battle.h" />
