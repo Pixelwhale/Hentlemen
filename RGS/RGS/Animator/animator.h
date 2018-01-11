@@ -50,10 +50,11 @@ namespace Animator
 		bool IsEnd();
 
 	private:
-		ss::Player* m_ss_player;	//SpriteStudio専用のPlayer
+		ss::Player* m_ss_player;		//SpriteStudio専用のPlayer
+		std::string m_current_motion;	//現在プレイしているモーション
 
-		bool m_flip;				//反転するか
-		float m_y_scale;			//Xサイズ
-		float m_x_scale;			//Yサイズ
+		bool m_flip;					//反転するか
+		float m_y_scale;				//Xサイズ
+		float m_x_scale;				//Yサイズ
 	};
 }
