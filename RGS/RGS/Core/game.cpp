@@ -43,7 +43,7 @@ void Game::Initialize()
 	m_ss_player->setData("player");
 	m_ss_player->play("player_idle/idle");
 	//表示位置を設定
-	m_ss_player->setPosition(-350, -250);
+	m_ss_player->setPosition(0, 0);
 	//スケール設定
 	m_ss_player->setScale(1.0f, 1.0f);
 	//回転を設定

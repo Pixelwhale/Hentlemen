@@ -36,7 +36,8 @@ void Device::Projector::SpriteMode()
 	m_stock_rerelative_position = m_relative_position;
 
 	SetupCamera_Ortho(WindowDef::kScreenHeight);					//縮小
-	SetTarget(Math::Vector3(0.0f, 0.0f, 0.0f));						//目標：原点
+	//画面の左下を原点
+	SetTarget(Math::Vector3(WindowDef::kScreenWidth / 2, WindowDef::kScreenHeight / 2, 0.0f));
 	SetRelativePosition(Math::Vector3(0, 0, -1));
 }
 

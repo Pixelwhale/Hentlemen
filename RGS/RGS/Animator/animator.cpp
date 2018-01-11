@@ -37,6 +37,10 @@ void AnimationPlayer::Release()
 
 void AnimationPlayer::Play(std::string ssae_file, std::string animation_name, int loop)
 {
+	if (m_current_motion == animation_name)							//Playしている場合はReturn
+		return;
+
+	m_current_motion = animation_name;
 	m_ss_player->play(ssae_file + "/" + animation_name, loop);		//Playするアニメーションを設定
 	m_ss_player->clearLoopCount();									//Loopした回数をクリア
 }
