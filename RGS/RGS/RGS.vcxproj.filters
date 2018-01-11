@@ -40,6 +40,8 @@
     <ClCompile Include="Scene\team_view.cpp" />
     <ClCompile Include="Scene\shop.cpp" />
     <ClCompile Include="Scene\option.cpp" />
+    <ClCompile Include="Item\item_base.cpp" />
+    <ClCompile Include="Item\recovery.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Buff\buff_base.h" />
@@ -85,6 +87,8 @@
     <ClInclude Include="Scene\team_view.h" />
     <ClInclude Include="Scene\shop.h" />
     <ClInclude Include="Scene\option.h" />
+    <ClInclude Include="Item\item_base.h" />
+    <ClInclude Include="Item\recovery.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />

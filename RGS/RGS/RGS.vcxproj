@@ -183,6 +183,8 @@
     <ClCompile Include="Device\projector.cpp" />
     <ClCompile Include="Device\random.cpp" />
     <ClCompile Include="Device\renderer.cpp" />
+    <ClCompile Include="Item\item_base.cpp" />
+    <ClCompile Include="Item\recovery.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math\vector2.cpp" />
     <ClCompile Include="Math\vector3.cpp" />
@@ -227,6 +229,8 @@
     <ClInclude Include="Device\projector.h" />
     <ClInclude Include="Device\random.h" />
     <ClInclude Include="Device\renderer.h" />
+    <ClInclude Include="Item\item_base.h" />
+    <ClInclude Include="Item\recovery.h" />
     <ClInclude Include="Math\vector2.h" />
     <ClInclude Include="Math\vector3.h" />
     <ClInclude Include="Scene\battle.h" />
