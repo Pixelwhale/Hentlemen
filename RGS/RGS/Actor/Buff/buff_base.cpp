@@ -1,15 +1,16 @@
 //-------------------------------------------------------
 // 作成者：廖啓勝
 // 作成日：2017.12.15
-// 内容　：バフとデバフの処理
 //-------------------------------------------------------
 #include <Actor\Buff\buff_base.h>
 
 using namespace Actor;
 
-BuffBase::BuffBase(float duration)
+BuffBase::BuffBase(int times, int interval, int delay)
 {
-	m_duration = duration;
+	m_times = times;
+	m_interval = interval;
+	m_timer = delay;
 }
 
 BuffBase::~BuffBase()
@@ -18,4 +19,12 @@ BuffBase::~BuffBase()
 
 void BuffBase::Update()
 {
+	m_timer--;
+	if (m_timer <= 0)
+	{
+		m_timer = m_interval;
+		m_times--;
+		if (m_times == 0) m_is_end = true;
+		Effect();
+	}
 }

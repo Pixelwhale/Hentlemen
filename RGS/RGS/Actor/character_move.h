@@ -10,11 +10,8 @@ namespace Actor
 	class CharacterMove
 	{
 	public:
-		CharacterMove(int move, int jump);
+		CharacterMove();
 		~CharacterMove();
-
 	private:
-		int m_move;		//ˆÚ“®—ÍB‚‚­‚È‚é‚ÆˆÚ“®‚·‚é‚©‚©‚é
-		int m_jump;
 	};
 }
