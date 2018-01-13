@@ -161,6 +161,7 @@
     <ClCompile Include="Actor\Buff\heal.cpp" />
     <ClCompile Include="Actor\character_base.cpp" />
     <ClCompile Include="Actor\character_buff.cpp" />
+    <ClCompile Include="Actor\character_manager.cpp" />
     <ClCompile Include="Actor\character_move.cpp" />
     <ClCompile Include="Actor\character_states.cpp" />
     <ClCompile Include="Animator\animator.cpp" />
@@ -219,6 +220,7 @@
     <ClInclude Include="Actor\Buff\heal.h" />
     <ClInclude Include="Actor\character_base.h" />
     <ClInclude Include="Actor\character_buff.h" />
+    <ClInclude Include="Actor\character_manager.h" />
     <ClInclude Include="Actor\character_move.h" />
     <ClInclude Include="Actor\character_states.h" />
     <ClInclude Include="Animator\animator.h" />

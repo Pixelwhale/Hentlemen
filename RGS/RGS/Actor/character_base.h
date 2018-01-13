@@ -16,7 +16,10 @@ namespace Actor
 	public:
 		CharacterBase(CharacterStates states) : m_states(states) {};
 		~CharacterBase();
+
+		//get passive states then calculate battle states, add passive to character_buff
 		void Initialize();
+
 		void Update();
 	protected:
 		CharacterStates& m_states;
