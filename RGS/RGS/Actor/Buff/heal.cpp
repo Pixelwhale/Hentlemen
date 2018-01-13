@@ -6,6 +6,14 @@
 
 using namespace Actor;
 
+Heal::Heal(int healP, int healF)
+	: BuffBase()
+{
+	m_healP = healP;
+	m_healF = healF;
+}
+
+
 Heal::Heal(int healP, int healF, int times, int interval, int delay)
 	: BuffBase(times, interval, delay)
 {

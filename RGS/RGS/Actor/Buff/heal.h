@@ -10,6 +10,7 @@ namespace Actor
 	class Heal : public BuffBase
 	{
 	public:
+		Heal(int healP, int healF);
 		Heal(int healP, int healF, int times, int interval, int delay);
 	private:
 		void Effect();

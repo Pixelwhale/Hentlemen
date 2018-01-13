@@ -16,9 +16,17 @@ namespace Actor
 		CharacterBuff();
 		~CharacterBuff();
 		void Initialize();
+		
+		//instant effect
+		void UpdateInstant();
+		void AddInstant(std::shared_ptr<BuffBase> buff);
+
+		//not instant effect
 		void Update();
 		void AddBuff(std::shared_ptr<BuffBase> buff);
+
 	private:
+		std::vector<std::shared_ptr<BuffBase>> m_instant_list;
 		std::vector<std::shared_ptr<BuffBase>> m_buff_list;
 		int m_buff_effect[16]{ 0 };
 	};
