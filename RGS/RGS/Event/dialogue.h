@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 #include <iostream>
 
 namespace Event
@@ -13,18 +14,18 @@ namespace Event
 		void Update();
 #pragma region Getter ƒƒ\ƒbƒh
 		std::string GetType();
-		void SetTexts(std::string type);
+		void SetTexts(std::vector<std::string> type);
 		bool GetIsTyping();
 #pragma endregion
 		
 	private:
-		int _cnt;
-		int _num;
-		int _span;
-		int _lineCnt;
-		int _line;
-		std::string _texts;
-		std::string _type;
-		bool _isTyping;
+		int m_count;
+		int m_num;
+		int m_span;
+		int m_line_count;
+		int m_line;
+		std::vector<std::string> m_texts;
+		std::string m_type;
+		bool m_is_typing;
 	};
 }

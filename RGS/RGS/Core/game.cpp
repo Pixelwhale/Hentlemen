@@ -40,7 +40,12 @@ void Game::Initialize()
 
 	// 対話
 	_dialogue.Initialize();
-	_dialogue.SetTexts("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+	std::vector<std::string> test;
+	test.push_back("漢字");
+	test.push_back("カタカナ");
+	test.push_back("ひらがな");
+	test.push_back("ROMAJI");
+	_dialogue.SetTexts(test);
 }
 
 //ロードコンテンツ
