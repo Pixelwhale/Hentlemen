@@ -1,12 +1,20 @@
 #include <Item\recovery.h>
 using namespace Item;
 
-bool Recovery::IsUsed()
+Recovery::Recovery()
+	:Item_Base(m_times,m_interval,m_delay)
 {
-	if (m_input->IsKeyTrigger(DIK_R)) m_used = true;
-	return m_used;
+	m_healP = 1;
+	m_healF = 1;
 }
 
+
+void Recovery::Consume(Actor::CharacterBuff buff)
+{
+	//std::shared_ptr<Actor::BuffBase> 
+	m_heal = std::make_shared<Actor::Heal>(m_healP, m_healF, m_times, m_interval, m_delay);
+	buff.AddBuff(m_heal);
+}
 
 void Recovery::Draw()
 {

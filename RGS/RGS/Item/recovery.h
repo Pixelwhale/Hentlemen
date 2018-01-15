@@ -7,17 +7,21 @@
 #pragma once
 #include <Item\item_base.h>
 #include <Device\game_device.h>
+#include <Actor\Buff\heal.h>
 
 namespace Item
 {
 	class Recovery : public Item_Base
 	{
 	public:
-		bool IsUsed();
+		Recovery();
 		void Draw();
+		void Consume(Actor::CharacterBuff buff);
 
 	private:
-		bool	m_used;			//アイテムを使用したか？
+		std::shared_ptr<Actor::BuffBase>	m_heal;
+		int									m_healP;
+		int									m_healF;
 	};
 
 }
