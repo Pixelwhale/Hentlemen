@@ -26,7 +26,7 @@ void CharacterBuff::Initialize()
 #pragma region instant buff
 void CharacterBuff::UpdateInstant()
 {
-	for (std::shared_ptr<BuffBase> buff : m_instant_list)
+	for (auto buff : m_instant_list)
 	{
 		buff->Update();
 	}
@@ -41,9 +41,9 @@ void CharacterBuff::AddInstant(std::shared_ptr<BuffBase> buff)
 #pragma endregion
 
 #pragma region buff
-void CharacterBuff::Update()
+void CharacterBuff::UpdateBuff()
 {
-	for (std::shared_ptr<BuffBase> buff : m_buff_list)
+	for (auto buff : m_buff_list)
 	{
 		buff->Update();
 	}
@@ -53,6 +53,23 @@ void CharacterBuff::AddBuff(std::shared_ptr<BuffBase> buff)
 	if (!buff->IsInstant())
 	{
 		m_buff_list.push_back(buff);
+	}
+}
+#pragma endregion
+
+#pragma region passive
+void CharacterBuff::UpdatePassive()
+{
+	for (auto buff : m_passive_list)
+	{
+		buff->Update();
+	}
+}
+void CharacterBuff::AddPassive(std::shared_ptr<BuffBase> buff)
+{
+	if (!buff->IsInstant())
+	{
+		m_passive_list.push_back(buff);
 	}
 }
 #pragma endregion

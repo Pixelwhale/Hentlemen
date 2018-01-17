@@ -4,7 +4,6 @@
     <ClCompile Include="Actor\Buff\buff_base.cpp" />
     <ClCompile Include="Actor\character_base.cpp" />
     <ClCompile Include="Actor\character_move.cpp" />
-    <ClCompile Include="Actor\character_states.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_ai.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_animation.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_caculate.cpp" />
@@ -63,7 +62,6 @@
     <ClInclude Include="Actor\Buff\buff_base.h" />
     <ClInclude Include="Actor\character_base.h" />
     <ClInclude Include="Actor\character_move.h" />
-    <ClInclude Include="Actor\character_states.h" />
     <ClInclude Include="BattleSystem\i_phase.h" />
     <ClInclude Include="BattleSystem\Phase\phase_ai.h" />
     <ClInclude Include="BattleSystem\Phase\phase_animation.h" />
@@ -134,6 +132,8 @@
     <ClInclude Include="Item\item_base.h" />
     <ClInclude Include="Item\recovery.h" />
     <ClInclude Include="Actor\character_manager.h" />
+    <ClInclude Include="Actor\states.h" />
+    <ClInclude Include="Actor\player.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />

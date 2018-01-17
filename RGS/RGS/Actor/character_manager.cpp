@@ -15,7 +15,7 @@ void CharacterManager::Initialize()
 {
 	for (auto chara : m_character_list)
 	{
-		chara.c->Initialize();
+		chara.c->BattleInitialize();
 	}
 }
 
@@ -29,6 +29,5 @@ void CharacterManager::Update()
 
 void CharacterManager::AddCharacter(std::shared_ptr<CharacterBase> character, int time)
 {
-	Character chara(character, time);
-	m_character_list.push_back(chara);
+	m_character_list.push_back(BattleChara(character, time));
 }

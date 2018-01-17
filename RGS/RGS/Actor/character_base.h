@@ -4,25 +4,30 @@
 // 内容　：キャラクターのベースクラス
 //-------------------------------------------------------
 #pragma once
-#include <Actor\character_states.h>
-#include <Actor\character_move.h>
-#include <Actor\character_buff.h>
-#include <Actor\Buff\buff_base.h>
+#include "states.h"
+#include "character_move.h"
+#include "character_buff.h"
+#include "Buff\buff_base.h"
 
 namespace Actor
 {
 	class CharacterBase
 	{
 	public:
-		CharacterBase(CharacterStates states) : m_states(states) {};
+		CharacterBase(int id);
 		~CharacterBase();
 
-		//get passive states then calculate battle states, add passive to character_buff
-		void Initialize();
+		//(enemy) read file and set battle states
+		//(both)add passives to character_buff
+		virtual void BattleInitialize();
 
 		void Update();
+
+		bool IsDead();
+
 	protected:
-		CharacterStates& m_states;
+		int m_id;
+		States m_states;		//battle states
 		CharacterMove m_move;
 		CharacterBuff m_buff;
 	};

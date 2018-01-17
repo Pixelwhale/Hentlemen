@@ -7,15 +7,26 @@
 
 using namespace Actor;
 
+CharacterBase::CharacterBase(int id)
+{
+	m_id = id;
+}
+
 CharacterBase::~CharacterBase()
 {
 	m_buff.~CharacterBuff();
 }
 
-void CharacterBase::Initialize()
+void CharacterBase::BattleInitialize()
 {
+
 }
 
 void CharacterBase::Update()
 {
+}
+
+bool CharacterBase::IsDead()
+{
+	return (m_states.m_hp_current <= 0);
 }

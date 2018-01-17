@@ -23,13 +23,13 @@ namespace Actor
 
 	private:
 
-		struct Character
+		struct BattleChara
 		{
-			Character(std::shared_ptr<CharacterBase> c, int time) : c(c), time(time) {};
+			BattleChara(std::shared_ptr<CharacterBase> c, int time) : c(c), time(time) {};
 			std::shared_ptr<CharacterBase> c;
 			int time;
 		};
 
-		std::vector<Character> m_character_list;
+		std::vector<BattleChara> m_character_list;
 	};
 }
