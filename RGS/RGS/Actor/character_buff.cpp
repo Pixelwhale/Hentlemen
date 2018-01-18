@@ -15,12 +15,12 @@ CharacterBuff::~CharacterBuff()
 {
 	m_instant_list.clear();
 	m_buff_list.clear();
+	m_passive_list.clear();
 }
 
 void CharacterBuff::Initialize()
 {
-	m_instant_list.clear();
-	m_buff_list.clear();
+	m_buff_effect.Initialize();
 }
 
 #pragma region instant buff
@@ -30,6 +30,7 @@ void CharacterBuff::UpdateInstant()
 	{
 		buff->Update();
 	}
+	m_instant_list.clear();
 }
 void CharacterBuff::AddInstant(std::shared_ptr<BuffBase> buff)
 {

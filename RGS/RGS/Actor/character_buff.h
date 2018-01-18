@@ -7,6 +7,7 @@
 #include <vector>
 #include <memory>
 #include "Buff\buff_base.h"
+#include "states.h"
 
 namespace Actor
 {
@@ -17,11 +18,11 @@ namespace Actor
 		~CharacterBuff();
 		void Initialize();
 		
-		//instant effect
+		//Instant effect. Clear after update.
 		void UpdateInstant();
 		void AddInstant(std::shared_ptr<BuffBase> buff);
 
-		//not instant effect. Update every frame while phase "wait"
+		//Buffs working with time. Update every frame while phase "wait"
 		void UpdateBuff();
 		void AddBuff(std::shared_ptr<BuffBase> buff);
 
@@ -33,6 +34,6 @@ namespace Actor
 		std::vector<std::shared_ptr<BuffBase>> m_instant_list;
 		std::vector<std::shared_ptr<BuffBase>> m_buff_list;
 		std::vector<std::shared_ptr<BuffBase>> m_passive_list;
-		int m_buff_effect[16]{ 0 };
+		States m_buff_effect;
 	};
 }
