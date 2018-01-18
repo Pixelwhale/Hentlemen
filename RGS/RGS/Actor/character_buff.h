@@ -6,7 +6,7 @@
 #pragma once
 #include <vector>
 #include <memory>
-#include <Actor\Buff\buff_base.h>
+#include "Buff\buff_base.h"
 
 namespace Actor
 {

@@ -3,7 +3,7 @@
 // 作成日：2017.01.10
 // 内容：キャラとバフにかかわる処理
 //-------------------------------------------------------
-#include <Actor\character_buff.h>
+#include "character_buff.h"
 
 using namespace Actor;
 

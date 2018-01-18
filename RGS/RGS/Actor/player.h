@@ -3,24 +3,22 @@
 // ì¬“úF2017.01.15
 //-------------------------------------------------------
 #pragma once
-#include "character_base.h"
+#include "states.h"
 
 namespace Actor
 {
-	class Player : public CharacterBase
+	class Player
 	{
 	public:
-		Player(int id) : CharacterBase(id) {};
-
-		//check if load mode / save file exist
-		//if not, read file and set basis states
-		void Initialize();
+		//read file and set basis states; 
+		//check if load mode / save data exist, if yes, basis += save data
+		Player(int id);
 
 		//(player)calculate battle states with basis states and passive states
-		//(both)add passives to character_buff
-		void BattleInitialize();
+		States BattleStates();
 
 	private:
-		States m_base_states;
+		//save level and attributed states
+		States m_basis;
 	};
 }

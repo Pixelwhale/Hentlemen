@@ -163,6 +163,8 @@
     <ClCompile Include="Actor\character_buff.cpp" />
     <ClCompile Include="Actor\character_manager.cpp" />
     <ClCompile Include="Actor\character_move.cpp" />
+    <ClCompile Include="Actor\player.cpp" />
+    <ClCompile Include="Actor\states.cpp" />
     <ClCompile Include="Animator\animator.cpp" />
     <ClCompile Include="Actor\PassiveSkill\passive.cpp" />
     <ClCompile Include="BattleSystem\Phase\phase_ai.cpp" />

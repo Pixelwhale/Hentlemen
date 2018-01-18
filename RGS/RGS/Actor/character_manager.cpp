@@ -15,7 +15,7 @@ void CharacterManager::Initialize()
 {
 	for (auto chara : m_character_list)
 	{
-		chara.c->BattleInitialize();
+		chara.c->Initialize();
 	}
 }
 

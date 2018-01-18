@@ -8,18 +8,25 @@
 #include "character_move.h"
 #include "character_buff.h"
 #include "Buff\buff_base.h"
+#include <Math/vector3.h>
 
 namespace Actor
 {
 	class CharacterBase
 	{
 	public:
+		//(player)
+		CharacterBase(int id, States states);
+
+		//(enemy)
+		//read file and set states by id
 		CharacterBase(int id);
+
 		~CharacterBase();
 
-		//(enemy) read file and set battle states
-		//(both)add passives to character_buff
-		virtual void BattleInitialize();
+		//full recovery
+		//add passives to character_buff
+		void Initialize();
 
 		void Update();
 
@@ -27,7 +34,7 @@ namespace Actor
 
 	protected:
 		int m_id;
-		States m_states;		//battle states
+		States m_battle;		//battle states
 		CharacterMove m_move;
 		CharacterBuff m_buff;
 	};

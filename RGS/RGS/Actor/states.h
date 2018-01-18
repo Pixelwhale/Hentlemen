@@ -8,49 +8,57 @@ namespace Actor
 {
 	struct States
 	{
-		void Initialize(int lv, int hp, int ap, int ap_recovery, int atk, int def, int hit, int evd, int penp, int penf, int mtk, int mdf, int mpenp, int mpenf, int crit_rate, int crit_mult)
+		States() {};
+		States(int lv, int hp, int ap, int ap_recovery, int atk, int def, int hit, int evd, int penp, int penf, int mtk, int mdf, int mpenp, int mpenf, int crit_rate, int crit_mult);
+
+		friend const States operator+(const States& basis, const States& buff)
 		{
-			m_lv = lv;
-			m_hp_max = hp;
-			m_hp_current = hp;
-			m_ap_max = ap;
-			m_ap_current = ap;
-			m_ap_recovery = ap_recovery;
-			m_atk = atk;
-			m_def = def;
-			m_hit = hit;
-			m_evd = evd;
-			m_penp = penp;
-			m_penf = penf;
-			m_mtk = mtk;
-			m_mdf = mdf;
-			m_mpenp = mpenp;
-			m_mpenf = mpenf;
-			m_crit_rate = crit_rate;
-			m_crit_mult = crit_mult;
-		}
+			return States(
+				basis.lv,
+				basis.hp_max + buff.hp_max,
+				basis.ap_max + buff.ap_max,
+				basis.ap_recovery + buff.ap_recovery,
+				basis.atk + buff.atk,
+				basis.def + buff.def,
+				basis.hit + buff.hit,
+				basis.evd + buff.evd,
+				basis.penp + buff.penp,
+				basis.penf + buff.penf,
+				basis.mtk + buff.mtk,
+				basis.mdf + buff.mdf,
+				basis.mpenp + buff.mpenp,
+				basis.mpenf + buff.mpenf,
+				basis.crit_rate + buff.crit_rate,
+				basis.crit_mult + buff.crit_mult
+			);
+		};
+		States& operator+=(const States& buff);
 
-		int m_lv;	//ƒŒƒxƒ‹
+		void FullRecovery();
 
-		int m_hp_max;
-		int m_hp_current;
-		int m_ap_max;
-		int m_ap_current;
-		int m_ap_recovery;
 
-		int m_atk;
-		int m_def;
-		int m_hit;
-		int m_evd;
-		int m_penp;
-		int m_penf;
 
-		int m_mtk;
-		int m_mdf;
-		int m_mpenp;
-		int m_mpenf;
+		int lv;	//ƒŒƒxƒ‹
 
-		int m_crit_rate;
-		int m_crit_mult;
+		int hp_max;
+		int hp_current;
+		int ap_max;
+		int ap_current;
+		int ap_recovery;
+
+		int atk;
+		int def;
+		int hit;
+		int evd;
+		int penp;
+		int penf;
+
+		int mtk;
+		int mdf;
+		int mpenp;
+		int mpenf;
+
+		int crit_rate;
+		int crit_mult;
 	};
 }
