@@ -6,12 +6,7 @@
 
 using namespace Actor;
 
-States::States()
-{
-	Initialize();
-}
-
-States::States(int lv, int hp, int ap, int ap_recovery, int atk, int def, int hit, int evd, int penp, int penf, int mtk, int mdf, int mpenp, int mpenf, int crit_rate, int crit_mult)
+States::States(int lv, int hp, int ap, int ap_recovery, int atk, int def, int hit, int evd, int mtk, int mdf, int penp, int penf, int mpenp, int mpenf, int crit_rate, int crit_mult)
 {
 	this->lv = lv;
 	this->hp_max = hp;
@@ -23,31 +18,31 @@ States::States(int lv, int hp, int ap, int ap_recovery, int atk, int def, int hi
 	this->def = def;
 	this->hit = hit;
 	this->evd = evd;
-	this->penp = penp;
-	this->penf = penf;
 	this->mtk = mtk;
 	this->mdf = mdf;
+	this->penp = penp;
+	this->penf = penf;
 	this->mpenp = mpenp;
 	this->mpenf = mpenf;
 	this->crit_rate = crit_rate;
 	this->crit_mult = crit_mult;
 }
 
-States States::operator+(const States& buff) const
+States States::operator*(const States& buff) const
 {
 	return States(
 		lv,
-		hp_max + buff.hp_max,
-		ap_max + buff.ap_max,
-		ap_recovery + buff.ap_recovery,
-		atk + buff.atk,
-		def + buff.def,
-		hit + buff.hit,
-		evd + buff.evd,
+		hp_max * buff.hp_max / 100,
+		ap_max * buff.ap_max / 100,
+		ap_recovery * buff.ap_recovery / 100,
+		atk * buff.atk / 100,
+		def * buff.def / 100,
+		hit * buff.hit / 100,
+		evd * buff.evd / 100,
+		mtk * buff.mtk / 100,
+		mdf * buff.mdf / 100,
 		penp + buff.penp,
 		penf + buff.penf,
-		mtk + buff.mtk,
-		mdf + buff.mdf,
 		mpenp + buff.mpenp,
 		mpenf + buff.mpenf,
 		crit_rate + buff.crit_rate,
@@ -55,19 +50,19 @@ States States::operator+(const States& buff) const
 	);
 }
 
-States& States::operator+=(const States& buff)
+States& States::operator*=(const States& buff)
 {
-	hp_max += buff.hp_max;
-	ap_max += buff.ap_max;
-	ap_recovery += buff.ap_recovery;
-	atk += buff.atk;
-	def += buff.def;
-	hit += buff.hit;
-	evd += buff.evd;
+	hp_max *= buff.hp_max;
+	ap_max *= buff.ap_max;
+	ap_recovery *= buff.ap_recovery;
+	atk *= buff.atk;
+	def *= buff.def;
+	hit *= buff.hit;
+	evd *= buff.evd;
+	mtk *= buff.mtk;
+	mdf *= buff.mdf;
 	penp += buff.penp;
 	penf += buff.penf;
-	mtk += buff.mtk;
-	mdf += buff.mdf;
 	mpenp += buff.mpenp;
 	mpenf += buff.mpenf;
 	crit_rate += buff.crit_rate;
@@ -93,12 +88,23 @@ void States::Initialize()
 	def = 0;
 	hit = 0;
 	evd = 0;
-	penp = 0;
-	penf = 0;
 	mtk = 0;
 	mdf = 0;
+	penp = 0;
+	penf = 0;
 	mpenp = 0;
 	mpenf = 0;
 	crit_rate = 0;
 	crit_mult = 0;
+}
+
+void States::Damage(int damage)
+{
+	hp_current -= damage;
+}
+
+void States::Heal(int healF, float healP)
+{
+	hp_current += healF;
+	hp_current += (int)(hp_max * healP / 100);
 }

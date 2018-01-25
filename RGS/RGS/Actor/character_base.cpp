@@ -10,7 +10,7 @@ using namespace Actor;
 CharacterBase::CharacterBase(int id, States states)
 {
 	m_id = id;
-	m_battle = states;
+	m_sbattle = states;
 }
 
 CharacterBase::CharacterBase(int id)
@@ -25,14 +25,16 @@ CharacterBase::~CharacterBase()
 
 void CharacterBase::Initialize()
 {
-	m_battle.FullRecovery();
+	m_sbattle.FullRecovery();
+	m_buff.Initialize();
 }
 
 void CharacterBase::Update()
 {
+	m_buff.UpdateTime(m_sbattle);
 }
 
 bool CharacterBase::IsDead()
 {
-	return (m_battle.hp_current <= 0);
+	return (m_sbattle.hp_current <= 0);
 }

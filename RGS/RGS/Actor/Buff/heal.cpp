@@ -6,22 +6,15 @@
 
 using namespace Actor;
 
-Heal::Heal(int healP, int healF)
-	: BuffBase()
-{
-	m_healP = healP;
-	m_healF = healF;
-}
-
-
-Heal::Heal(int healP, int healF, int times, int interval, int delay)
+Heal::Heal(int healF, float healP, int times, int interval, int delay)
 	: BuffBase(times, interval, delay)
 {
 	m_healP = healP;
 	m_healF = healF;
+	m_type = kHeal;
 }
 
-void Heal::Effect()
+void Heal::Effect(BuffFunction& sbattle)
 {
-
+	sbattle.Heal(m_healF, m_healP);
 }

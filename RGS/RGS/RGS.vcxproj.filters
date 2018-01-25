@@ -136,6 +136,7 @@
     <ClInclude Include="Actor\character_base.h" />
     <ClInclude Include="Actor\character_buff.h" />
     <ClInclude Include="Actor\character_move.h" />
+    <ClInclude Include="Actor\buff_function.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Content\Texture\load.png" />

@@ -17,23 +17,12 @@ namespace Actor
 		CharacterBuff();
 		~CharacterBuff();
 		void Initialize();
-		
-		//Instant effect. Clear after update.
-		void UpdateInstant();
-		void AddInstant(std::shared_ptr<BuffBase> buff);
 
-		//Buffs working with time. Update every frame while phase "wait"
-		void UpdateBuff();
+		void UpdateTime(BuffFunction& sbattle);
+		void UpdateStates(States& sbuff, States& sdebuff);
 		void AddBuff(std::shared_ptr<BuffBase> buff);
 
-		//時間制限がなく、キャラの状態が変えたら確認する
-		void UpdatePassive();
-		void AddPassive(std::shared_ptr<BuffBase> buff);
-
 	private:
-		std::vector<std::shared_ptr<BuffBase>> m_instant_list;
 		std::vector<std::shared_ptr<BuffBase>> m_buff_list;
-		std::vector<std::shared_ptr<BuffBase>> m_passive_list;
-		States m_buff_effect;
 	};
 }

@@ -223,6 +223,7 @@
     <ClInclude Include="Actor\character_buff.h" />
     <ClInclude Include="Actor\character_manager.h" />
     <ClInclude Include="Actor\character_move.h" />
+    <ClInclude Include="Actor\buff_function.h" />
     <ClInclude Include="Actor\player.h" />
     <ClInclude Include="Actor\states.h" />
     <ClInclude Include="Animator\animator.h" />

@@ -8,7 +8,6 @@
 #include "character_move.h"
 #include "character_buff.h"
 #include "Buff\buff_base.h"
-#include <Math/vector3.h>
 
 namespace Actor
 {
@@ -34,7 +33,9 @@ namespace Actor
 
 	protected:
 		int m_id;
-		States m_battle;		//battle states
+		States m_sbattle;		//battle states
+		States m_sbuff;			//good buff
+		States m_sdebuff;		//bad buff
 		CharacterMove m_move;
 		CharacterBuff m_buff;
 	};
